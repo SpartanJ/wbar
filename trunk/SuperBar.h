@@ -10,6 +10,8 @@ class SuperBar : public Bar{
 	Imlib_Filter fAlfaUnfocus;
 	_font font;
 
+	int drawfont;
+
 	/* Icon selection */
 	/* 0: none 1: hovered, 2: others, 3: all */
 	int filtSel;
@@ -31,9 +33,8 @@ class SuperBar : public Bar{
 
     public:
 	SuperBar(XWin *win, std::string barImg, std::string barFont, int iSize, int iDist, 
-		float zFactor, float jFactor, int bOrient, int bPosition,
-		int barAlfa, int iconAlfa, int unfocusAlfa, int filtSel,
-		int filtRed, int filtGreen, int filtBlue);
+		float zFactor, float jFactor, int bOrient, int bPosition, int nAnim,
+		int barAlfa, int unfocusAlfa, int filtSel, unsigned int filtCol, bool dfont);
 
 	~SuperBar();
 

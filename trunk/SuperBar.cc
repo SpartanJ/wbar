@@ -5,12 +5,13 @@ using namespace std;
 
 /* Super Constructor *//*{{{*/
 SuperBar::SuperBar(XWin *win, string barImg, string barFont, int iSize, int iDist, 
-    float zFactor, float jFactor, int bOrient, int bPosition, int barAlfa, 
-    int unfocusAlfa, int filtSel, int filtRed, int filtGreen, int filtBlue, int filtAlfa) :
+    float zFactor, float jFactor, int bOrient, int bPosition, int nAnim, int barAlfa, 
+    int unfocusAlfa, int filtSel, unsigned int filtCol, bool dfont) :
 
-    Bar(win, barImg, iSize, iDist, zFactor, jFactor, bOrient, bPosition), 
-    filtSel(filtSel), filtRed(filtRed), filtGreen(filtGreen), filtBlue(filtBlue),
-    filtAlfa(filtAlfa), unfocusAlfa(unfocusAlfa), barAlfa(barAlfa){ 
+    Bar(win, barImg, iSize, iDist, zFactor, jFactor, bOrient, bPosition, nAnim), 
+    drawfont(dfont), filtSel(filtSel), filtRed((filtCol & 0x00ff0000)>>16), 
+    filtGreen((filtCol & 0x0000ff00)>>8), filtBlue(filtCol & 0x000000ff), 
+    filtAlfa((filtCol & 0xff000000)>>24), unfocusAlfa(unfocusAlfa), barAlfa(barAlfa){ 
 
     initFilters();
 
@@ -51,11 +52,44 @@ void SuperBar::initFilters(){
 	colorFilter = imlib_create_filter(0);
 	imlib_context_set_filter(colorFilter);
 
+#ifndef AVGFILTER
+	/* Idem a lo que esta abajo
 	imlib_filter_set_red  (0, 0, 0, filtRed, 0, 0);
 	imlib_filter_set_green(0, 0, 0, 0, filtGreen, 0);
 	imlib_filter_set_blue (0, 0, 0, 0, 0, filtBlue);
 	imlib_filter_set_alpha(0, 0, filtAlfa, 0, 0, 0); // new
+	*/
+	imlib_filter_set(0, 0, filtAlfa, filtRed, filtGreen, filtBlue);
 	imlib_filter_divisors(255, 255, 255, 255);
+#else
+	/* 100 en vez de 1 para no usar comma */
+	/* explicacion: (r+g+b)/3 = gray
+	 *
+	 * (r+g+b)/(3*R) = tonos de rojo ( R -> [0 - 1])
+	 * (r+g+b)/(3*G) = tonos de verd ( G -> [0 - 1])
+	 * (r+g+b)/(3*B) = tonos de blue ( B -> [0 - 1])
+	 * */
+
+	if(filtRed != 0)
+	    imlib_filter_set_red  (0, 0, 0, 1, 1, 1);
+	else
+	    imlib_filter_set_red  (0, 0, 0, 0, 0, 0);
+
+	if(filtGreen != 0)
+	    imlib_filter_set_green(0, 0, 0, 1, 1, 1);
+	else
+	    imlib_filter_set_green(0, 0, 0, 0, 0, 0);
+
+	if(filtBlue != 0)
+	    imlib_filter_set_blue (0, 0, 0, 1, 1, 1);
+	else
+	    imlib_filter_set_blue (0, 0, 0, 0, 0, 0);
+
+	imlib_filter_set_alpha(0, 0, filtAlfa, 0, 0, 0); // new
+	imlib_filter_divisors(255, filtRed!=0?3*255/filtRed:1, 
+		filtGreen!=0?3*255/filtGreen:1, filtBlue!=0?3*255/filtBlue:1);
+#endif
+
     }
 
     /* Set alfa to the Bar */
@@ -209,7 +243,7 @@ void SuperBar::render(){
 		BLEND_IMAGE(cur_im, 0, 0, cur_ic->osize, cur_ic->osize, 
 		    cur_ic->y, cur_ic->x, cur_ic->size, cur_ic->size);
 
-	    if(font){
+	    if(font && drawfont){
 		if(a == icons.size()-1 && zoomed_icon != -1){
 		    if(orientation == 0){
 			tw = cur_ic->x - (cur_ic->textW - cur_ic->size)/2;
