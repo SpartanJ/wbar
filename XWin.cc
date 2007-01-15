@@ -120,9 +120,13 @@ bool XWin::nextEvent(XEvent *ev){
 
     do{
 	/* queue length is relate to my only window */
-	if( (qlen = XQLength(display)) )
-	    XCheckWindowEvent(display, window, eventMask, ev);
-	else
+	if( (qlen = XQLength(display)) ){
+	    if( XCheckWindowEvent(display, window, eventMask, ev) == False ){
+		/* process events we're not waiting for */
+		XSync(display, True);
+		XWindowEvent(display, window, eventMask, ev);
+	    }
+	}else
 	    XWindowEvent(display, window, eventMask, ev);
 	
     }while( ev->type == MotionNotify && qlen > 1 );
