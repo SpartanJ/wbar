@@ -11,6 +11,8 @@
 #include "IconLoader.h"
 #include "SuperBar.h"
 
+#include "debug.h"
+
 using namespace std;
 
 void corpshandler(int);
@@ -82,6 +84,7 @@ int main(int argc, char **argv) try{
     /* window configuration *//*{{{*/
     barwin.setName("wbar");
     if( optparser.isset("above-desk") ){
+	barwin.setDockWindow();
 	barwin.skipTaskNPager();
 	barwin.noDecorations();
 	barwin.setSticky();
@@ -120,7 +123,7 @@ int main(int argc, char **argv) try{
     /* Create the Bar *//*{{{*/
     if(optparser.isset("balfa") || optparser.isset("falfa") || 
 	optparser.isset("filter") || optparser.isset("fr")|| optparser.isset("fa") ||
-	optparser.isset("fg")|| optparser.isset("fb") || !text.empty()){
+	optparser.isset("fg")|| optparser.isset("fb") || !(text.empty() || optparser.isset("nofont")) ){
 	
 	barra = new SuperBar(&barwin, image, text,
 	    atoi(optparser.getArg("isize").c_str()),
@@ -134,6 +137,8 @@ int main(int argc, char **argv) try{
 	    strtoul(optparser.getArg("fc").c_str(), NULL, 16),
 	    optparser.isset("nofont")?0:1);
 
+	ERRMSG("Using a Super Bar.");
+
 	/* Load Icon Info */
 	while( !icload.nextIconInfo(image, command, text) )
 	    ((SuperBar*)barra)->addIcon(image, command, text);
@@ -145,6 +150,8 @@ int main(int argc, char **argv) try{
 	    atof(optparser.getArg("zoomf").c_str()),
 	    atof(optparser.getArg("jumpf").c_str()), 
 	    vertbar, 1, atoi(optparser.getArg("nanim").c_str()));
+	
+	ERRMSG("Using a normal Bar.");
 
 	/* Load Icon Info */
 	while( !icload.nextIconInfo(image, command, text) )
@@ -182,12 +189,13 @@ int main(int argc, char **argv) try{
 		switch(ev.xbutton.button){
 		    case 1:
 			if(butpress!=0){
-			    if(!vertbar)
+			    if(!vertbar){
 				if((inum = barra->iconIndex(ev.xbutton.x))!=-1)
 				    barra->iconDown(inum);
-			    else
+			    }else{
 				if((inum = barra->iconIndex(ev.xbutton.y))!=-1)
 				    barra->iconDown(inum);
+			    }
 			}
 			break;
 		    case 4: //wheel up

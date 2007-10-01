@@ -12,6 +12,9 @@ class SuperBar : public Bar{
 
 	int drawfont;
 
+	_image font_restore;
+	int rest_x, rest_y, rest_w, rest_h;
+
 	/* Icon selection */
 	/* 0: none 1: hovered, 2: others, 3: all */
 	int filtSel;
@@ -30,6 +33,7 @@ class SuperBar : public Bar{
 	void initFilters();
 
 	void render();
+	void cleanBack();
 
     public:
 	SuperBar(XWin *win, std::string barImg, std::string barFont, int iSize, int iDist, 
