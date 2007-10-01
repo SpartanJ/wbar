@@ -1,8 +1,10 @@
-#include "Bar.h"
 #include <math.h>
+#include <sys/time.h>
+
+#include "Bar.h"
 
 /* Posicionamiento de la ventana */
-#define MARGEN 8
+#define MARGEN 4
 
 using namespace std;
 
@@ -11,7 +13,7 @@ Bar::Bar(XWin *win, string barImg, int iSize, int iDist, float zFactor,
 	float jFactor, int bOrient, int bPosition, int nAnim) :
 
     /* Initialization */
-    buffer(0), barback(0), bar(0), window(win), icon_dist(iDist),
+    buffer(0), cleaning_buffer(0), barback(0), bar(0), window(win), icon_dist(iDist),
     icon_size(iSize), icon_anim(nAnim), jump_factor(jFactor), zoom_factor(zFactor),
     orientation(bOrient), position(bPosition), zoomed_icon(-1), focused(1){
 
@@ -36,6 +38,7 @@ Bar::~Bar(){
     FREE_IMAGE(buffer);
     FREE_IMAGE(barback);
     FREE_IMAGE(bar);
+    FREE_IMAGE(cleaning_buffer);
 
     while( !icons.empty() ){
 	delete icons.back();
@@ -48,7 +51,7 @@ Bar::~Bar(){
 void Bar::addIcon(string path, string comm){
 
     icons.push_back( new Icon(path, comm,
-	x + icon_size/2 + icons.size() * (icon_size + icon_dist), // x coord
+	(int)icon_offset + icon_size/2 + icons.size() * icon_unit, // x coord
 	y + (int)(0.125 * icon_size)) ); // y coord
 
     /* not efficient to call it here but ... user doesn't have to call it */
@@ -67,12 +70,15 @@ void Bar::scale(bool updateBG){
     /* icon offset constant */
     icon_offset =  icon_ansd * ( (zoom_factor>1)?(zoom_factor-1) : 0.5 ) * icon_unit;
     /* Icon scaling constant */
-    b_dd = (zoom_factor>1)? (2*(zoom_factor-1)*icon_unit) : zoom_factor*icon_unit;
+    b_dd = (zoom_factor>1)? (zoom_factor-1)*icon_unit : zoom_factor*icon_unit;
 
     // x0 = (a + (icon_anim + 1)/2) * icon_unit;
     // x1 = (a - (icon_anim - 1)/2) * icon_unit;
     // xm = (a + 0.5) * icon_unit;
 
+#ifdef COS_ZOOM
+    b_scl_b = 3.14159 / icon_unit / icon_anim;
+#else
     /* Estos calculos de escala son en base a la funcion sigmoidea f = 1/(1+exp(a+bx^2))*/
     b_scl_c = 0.01; // mientras mas cercano a 0 mas se desplaza chico
     b_scl_d = 0.20; // mientras mas cercano a 1 mas se desplaza grande -> si quiero pico lo achico
@@ -80,13 +86,13 @@ void Bar::scale(bool updateBG){
     //b_scl_b = (logf((1.0-b_scl_c)/b_scl_c) - b_scl_a)/(x0-xm)^2;
     b_scl_b = 4*(logf((1.0-b_scl_c)/b_scl_c) - b_scl_a)/
 	(icon_anim*icon_anim*icon_unit*icon_unit);
-#ifdef LINEAR_TRASL
-    //float m = (icon_anim-1)/2*b_dd / (x1 - x0);
-    b_pos_m = -icon_ansd * b_dd / icon_unit / icon_anim;
-#else
-    b_pos_m= - 3.14159 / icon_unit / icon_anim;
 #endif
-
+#ifdef LINEAR_TRASL
+    //float m = (icon_anim-1)*b_dd / (x1 - x0);
+    b_pos_m = -icon_ansd * 2 * b_dd / icon_unit / icon_anim;
+#else
+    b_pos_m = - 3.14159 / icon_unit / icon_anim;
+#endif
 
     /* bar dimensions */
     width = icon_unit * (icons.size() + 1) - 2 * icon_dist;
@@ -168,31 +174,34 @@ void Bar::acquireBack(){
 /*}}}*/
 
 /* Icons Scaling *//*{{{*/
-void Bar::transform(int i_num, int i_off){ 
+void Bar::transform(int mousex){ 
+#ifdef LINEAR_TRASL
+    int x0 = (icon_ansd+1) * icon_unit; // last movable pos
+#endif
+
+    int xx = mousex + (int)(icon_offset + icon_size/2);
+    int	rx = mousex - icon_unit/2;
+    int i_num = mousex / icon_unit;
     int t_x, t_y, a;
-
-    int x0 = (icon_ansd+1) * icon_unit, // last movable pos
-	xx = i_num * icon_unit + i_off, // abs mouse pos
-	rx = xx - icon_unit/2; // relative mouse pos
-
     Icon *cur_ic=0;
 
-    /* check wether we're over the icon *//*{{{*/
-    /* i_off > i_x-i_ox  &&
-     * i_off < i_x+i_s-i_ox of zoomed icon? => on it */
-    if(i_off > b_dd/(4+2*b_dd/icon_unit) &&
-       i_off < (b_dd+4*icons[i_num]->size)/(4+2*b_dd/icon_unit))
-	zoomed_icon = i_num;
-    else
-	zoomed_icon = -1 ; 
-    /*}}}*/
+    zoomed_icon = -1 ; 
 
-    for(a=0; a<(int)icons.size(); a++, x0 += icon_unit, rx -= icon_unit ){
+#ifdef LINEAR_TRASL
+    for(a=0; a<(int)icons.size(); a++, rx -= icon_unit, x0 += icon_unit ){
+#else
+    for(a=0; a<(int)icons.size(); a++, rx -= icon_unit ){
+#endif
 
 	cur_ic = icons[a];
+	
+	/* Check if over the icon */
+	if(zoomed_icon == -1)
+	    if(xx >= cur_ic->x && xx < cur_ic->x + cur_ic->size)
+		zoomed_icon = a;
 
 	if( ((a<i_num)?i_num-a:a-i_num) > icon_ansd ){
-	    t_x = (int)(cur_ic->ox + ((a<i_num)?-1:1) * icon_ansd * b_dd / 2);
+	    t_x = (int)(cur_ic->ox + ((a<i_num)?-1:1) * icon_ansd * b_dd );
 	    t_y = cur_ic->oy;
 
 	    if(cur_ic->size != icon_size || cur_ic->x != t_x || cur_ic->y != t_y){
@@ -205,19 +214,26 @@ void Bar::transform(int i_num, int i_off){
 		cur_ic->y = t_y;
 		cur_ic->need_update = 1;
 	    }
+	
 	}else{
 
 	    cur_ic->cx = cur_ic->x;
 	    cur_ic->csize = cur_ic->size;
 
+#ifdef COS_ZOOM
+	    cur_ic->size = (int)( icon_size * 
+		    ( 1.0 + (zoom_factor-1.0)*cosf(b_scl_b * rx)));
+#else
 	    cur_ic->size = (int)( icon_size * 
 		( 1.0 + (zoom_factor-1.0)/(1.0 + expf(b_scl_a + b_scl_b*rx*rx))/b_scl_d));
+#endif
 
 #ifdef LINEAR_TRASL
-	    cur_ic->x = cur_ic->ox - (int)(icon_ansd * b_dd/2 + b_pos_m * (xx - x0));
+	    cur_ic->x = cur_ic->ox - (int)(icon_ansd * b_dd - b_pos_m * (mousex - x0));
 #else 
-	    cur_ic->x = cur_ic->ox + (int)(icon_ansd * b_dd/2 * sinf(b_pos_m * rx));
+	    cur_ic->x = cur_ic->ox + (int)(icon_ansd * b_dd * sinf(b_pos_m * rx));
 #endif
+
 
 	    cur_ic->y = cur_ic->oy - (int)(jump_factor*(cur_ic->size-icon_size));
 	    cur_ic->need_update = 1;
@@ -228,43 +244,45 @@ void Bar::transform(int i_num, int i_off){
 
 /* Clean the Bar *//*{{{*/
 void Bar::cleanBack(){
-    Icon *cur_ic;
+    Icon *cur_ic, *next_ic;
 
     USE_IMAGE(buffer);
+    SET_BLEND(0);
 
     for(size_t a=0; a<icons.size(); a++){
 	cur_ic = icons[a];
 
 	if(cur_ic->need_update == 0) continue;
 
-	/* Copy Root Background */
-	SET_BLEND(0);
+	/* force next icons redraw if stepped on them */
+	for(size_t b=a+1; b<icons.size(); b++){
+	    next_ic = icons[b];
 
-	if(orientation == 0){
-	    BLEND_IMAGE(barback, cur_ic->cx, 0, cur_ic->csize, window->h, 
-		    cur_ic->cx, 0, cur_ic->csize, window->h);
-	    
-	    /* Blend the bar */
-	    SET_BLEND(1);
-	    BLEND_IMAGE(bar, cur_ic->cx * owidth / width, 0, 
-		    cur_ic->csize * owidth / width, oheight,
-		    cur_ic->cx, y, cur_ic->csize, height);
+	    if(next_ic->need_update == 1) 
+		continue;
 
-	}else{
-	    BLEND_IMAGE(barback, 0, cur_ic->cx, window->h, cur_ic->csize, 
-		    0, cur_ic->cx, window->h, cur_ic->csize);
-
-	    /* Blend the bar */
-	    SET_BLEND(1);
-	    BLEND_IMAGE(bar, 0, cur_ic->cx * owidth / width,
-		    oheight, cur_ic->csize * owidth / width,
-		    y, cur_ic->cx, height, cur_ic->csize);
+	    if(cur_ic->cx + cur_ic->csize >= next_ic->x){
+		next_ic->cx = next_ic->x;
+		next_ic->csize = next_ic->csize;
+		next_ic->need_update = 1;
+	    }else
+		break;
 	}
+
+	/* Copy Root Background */
+	if(orientation == 0)
+	    BLEND_IMAGE(cleaning_buffer, cur_ic->cx, 0, cur_ic->csize, window->h, 
+		    cur_ic->cx, 0, cur_ic->csize, window->h);
+	else
+	    BLEND_IMAGE(cleaning_buffer, 0, cur_ic->cx, window->h, cur_ic->csize, 
+		    0, cur_ic->cx, window->h, cur_ic->csize);
     }
 }
 
 void Bar::drawBack(){
     
+    if(cleaning_buffer) FREE_IMAGE(cleaning_buffer);
+
     USE_IMAGE(buffer);
 
     /* Copy Root Background */
@@ -287,16 +305,13 @@ void Bar::drawBack(){
 	BLEND_IMAGE(bar, 0, 0, oheight, owidth, y, x, height, width);
     }
 
+    cleaning_buffer = CLONE_IMAGE();
 }
 /*}}}*/
 
 /* Render the Bar *//*{{{*/
 void Bar::render(){
-    Icon *cur_ic;
-
-#ifdef COOLMACHINE_N_SHITCODE
-    drawBack();
-#endif
+    Icon *cur_ic=0;
 
     /* Set work area */
     USE_IMAGE(buffer);
@@ -314,11 +329,7 @@ void Bar::render(){
 	cur_ic = icons[a];
 	
 	/* If Icon needs update => blend it */
-#ifdef COOLMACHINE_N_SHITCODE
-	if(cur_ic->need_update != 9){
-#else
 	if(cur_ic->need_update == 1){
-#endif
 
 	    cur_ic->need_update = 0;
 
@@ -346,43 +357,22 @@ void Bar::render(){
 
 /* Refresh *//*{{{*/
 void Bar::refresh(int mouse_x){
-    Icon *cur_ic;
-
-    int iNum = iconNumber(mouse_x);
-    int iOff = iconOffset(mouse_x);
+    /* Relative coords */
+    mouse_x -= (int)(icon_offset + icon_size/2.0);
 
     /* on the bar */
-    if(mouse_x > (int)(icon_offset + icon_size/2.0) && iNum < (int)icons.size()){
+    if(mouse_x > 0 && mouse_x < (int)icons.size() * icon_unit){
 
-	if(!focused) focus();
+	transform(mouse_x);
 
-	transform(iNum, iOff);
-#ifndef COOLMACHINE_N_SHITCODE
+	if(!focused)
+	    focus();
+
 	cleanBack();
-#endif
 
     /* out of the bar */
-    }else{
-
-	if(focused) unfocus();
-
-	for(size_t a=0; a < icons.size(); a++){
-
-	    cur_ic = icons[a];
-
-	    if(cur_ic->size == icon_size && cur_ic->x == cur_ic->ox &&
-		cur_ic->y == cur_ic->oy) continue;
-
-	    cur_ic->cx = cur_ic->x;
-	    cur_ic->csize = cur_ic->size;
-
-	    cur_ic->x = cur_ic->ox;
-	    cur_ic->y = cur_ic->oy;
-
-	    cur_ic->size = icon_size;
-	    cur_ic->need_update = 1;
-	}
-    }
+    }else if(focused)
+	unfocus();
 
     render();
 }
@@ -397,6 +387,10 @@ inline void Bar::unfocus(){
     zoomed_icon = -1;
 
     drawBack();
+
+#ifndef NO_EXPAND
+    expand(true);
+#endif
 }
 
 inline void Bar::focus(){
@@ -406,16 +400,69 @@ inline void Bar::focus(){
     width = window->w;
 
     drawBack();
-}
-/*}}}*/
 
-/* Icon number && offset */
-int Bar::iconNumber(int mouse_x){
-    return (mouse_x - (int)(icon_offset + icon_size/2.0)) / icon_unit;
+#ifndef NO_EXPAND
+    expand(false);
+#endif
 }
-int Bar::iconOffset(int mouse_x){
-    return (mouse_x - (int)(icon_offset + icon_size/2.0)) % icon_unit;
+
+#ifndef NO_EXPAND
+void Bar::expand(bool inverse){
+    Icon *cur_ic=0;
+    /* animation time in ms */
+    int t=0, anim_time = 80;
+    struct timeval tv0, tv;
+
+    if(inverse)
+	for(size_t i = 0; i<icons.size(); i++){
+	    cur_ic = icons[i];
+	    cur_ic->vx = -(cur_ic->x - cur_ic->ox) / (float)anim_time;
+	    cur_ic->vy = -(cur_ic->y - cur_ic->oy) / (float)anim_time;
+	    cur_ic->vs = -(cur_ic->size - icon_size) / (float)anim_time;
+
+	    cur_ic->bx = cur_ic->x;
+	    cur_ic->by = cur_ic->y;
+	    cur_ic->bs = cur_ic->size;
+	}
+    else
+	for(size_t i = 0; i<icons.size(); i++){
+	    cur_ic = icons[i];
+	    cur_ic->vx = (cur_ic->x - cur_ic->ox) / (float)anim_time;
+	    cur_ic->vy = (cur_ic->y - cur_ic->oy) / (float)anim_time;
+	    cur_ic->vs = (cur_ic->size - icon_size) / (float)anim_time;
+
+	    cur_ic->bx = cur_ic->ox;
+	    cur_ic->by = cur_ic->oy;
+	    cur_ic->bs = icon_size;
+	}
+
+    gettimeofday(&tv0, NULL);
+
+    while(t < anim_time){
+	gettimeofday(&tv, NULL);
+
+	t = (int)((tv.tv_sec - tv0.tv_sec) * 1000 + (tv.tv_usec - tv0.tv_usec)/1000);
+	/* Printing t here can tell you the max system responsiveness */
+	if(t > anim_time) t = anim_time;
+
+	for(size_t j = 0; j< icons.size(); j++){
+	    cur_ic = icons[j];
+	    cur_ic->cx = cur_ic->x;
+	    cur_ic->csize = cur_ic->size;
+
+	    cur_ic->x = cur_ic->bx + (int)(t * cur_ic->vx);
+	    cur_ic->y = cur_ic->by + (int)(t * cur_ic->vy);
+	    cur_ic->size = cur_ic->bs + (int)(t * cur_ic->vs);
+
+	    cur_ic->need_update = 1;
+	}
+	cleanBack();
+	render();
+
+    }
 }
+#endif
+/*}}}*/
 
 /* Icon press / release events *//*{{{*/
 inline void Bar::iconPress(int i_num, int offs){
@@ -425,7 +472,6 @@ inline void Bar::iconPress(int i_num, int offs){
 
     cur_ic = icons[i_num];
 
-    //cleanI(cur_ic->x, cur_ic->size);
     cur_ic->cx = cur_ic->x;
     cur_ic->csize = cur_ic->size;
 
@@ -433,10 +479,6 @@ inline void Bar::iconPress(int i_num, int offs){
     cur_ic->y += offs;
 
     cur_ic->need_update = 1;
-
-    /* this should fix nex icon blanking */
-    if(i_num < (int)icons.size()-1)
-	icons[i_num+1]->need_update = 1;
 
     cleanBack();
     render();
@@ -477,15 +519,18 @@ string Bar::iconCommand(int i_num){
     return icons[i_num]->command;
 }
 
-int Bar::iconIndex(int mouse_x){
-    int i_num = iconNumber(mouse_x);
-    int i_off = iconOffset(mouse_x);
+int Bar::iconIndex(int mousex){
+    Icon *cur_ic;
 
-    if(mouse_x > (int)(icon_offset + icon_size/2.0) && i_num < (int)icons.size()){
-	if(i_off > b_dd/(4+2*b_dd/icon_unit) &&
-	   i_off < (b_dd+4*icons[i_num]->size)/(4+2*b_dd/icon_unit))
-	    return i_num;
+    for(int a=0; a<(int)icons.size(); a++){
+
+	cur_ic = icons[a];
+	
+	/* Check if over the icon */
+	if(mousex >= cur_ic->x && mousex < cur_ic->x + cur_ic->size)
+	    return a;
     }
+
     return -1;
 }
 /*}}}*/

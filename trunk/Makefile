@@ -1,5 +1,5 @@
 TARGET=wbar
-CXXFLAGS=`imlib2-config --cflags` -Wall -O2 -DCOOLMACHINE_N_SHITCODE -DAVGFILTER #-DDOCKWIN 
+CXXFLAGS=`imlib2-config --cflags` -Wall -O2 #-DCOS_ZOOM #-DLINEAR_TRASL -DNO_EXPAND #-DAVGFILTER
 LDFLAGS=`imlib2-config --libs`  -Wl,-O2
 PREFIX=/usr/share/wbar
 
@@ -15,13 +15,7 @@ $(objects): $(headers) Makefile
 
 $(TARGET): $(objects) 
 	g++ $(LDFLAGS) -o $(@) $(objects)
-	strip $(@)
-
-patch-anim1:
-	patch < animation.patch
-
-patch-anim2:
-	patch < animation2.patch
+	#strip $(@)
 
 install: $(TARGET)
 	if [ "`whoami`" != "root" ]; then \
@@ -32,19 +26,13 @@ install: $(TARGET)
 	install -d $(PREFIX)
 	awk '{if($$1 ~ /i:/ || ($$1 ~ /t:/ && NR<4)) print $$1" $(PREFIX)/"$$2; else print $$0;}' \
 		./dot.wbar > $(PREFIX)/dot.wbar
-	cp -a ./wbar.icons $(PREFIX)/wbar.icons
-	install ./wbar /usr/bin
+	cp -a ./iconpack $(PREFIX)/iconpack
 
-config:
-	if [ -f "$(HOME)/.wbar" -o -d "$(HOME)/.wbar.icons" ]; then \
-		echo -en "Do you want to replace the existing config? "; \
-		read recfg; \
-		if [ "$$recfg" = "y" -o "$$recfg" = "Y" ]; then \
-			awk '{if($$1 ~ /i:/ || ($$1 ~ /t:/ && NR<4)) print $$1" $(HOME)/"$$2; else print $$0;}' \
-			    ./dot.wbar > $(HOME)/dot.wbar; \
-			cp -a ./wbar.icons $(HOME)/.wbar.icons; \
-		fi \
-	fi
+	#ln -fs $(PREFIX)/iconpack/comic.ttf $(PREFIX)/iconpack/wbar.nuvoux/font.ttf
+	#ln -fs $(PREFIX)/iconpack/comic.ttf $(PREFIX)/iconpack/wbar.ice/font.ttf
+	ln -fs $(PREFIX)/iconpack/comic.ttf $(PREFIX)/iconpack/wbar.osx/font.ttf
+	
+	install ./wbar /usr/bin
 
 uninstall:
 	if [ "`whoami`" != "root" ]; then \

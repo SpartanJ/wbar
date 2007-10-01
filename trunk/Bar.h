@@ -11,6 +11,7 @@ class Bar{
     protected:
 	/* Drawing buffs */
 	_image buffer;
+	_image cleaning_buffer;
 	_image barback;
 	_image bar;
 	
@@ -35,10 +36,12 @@ class Bar{
 	float b_scl_a;
 	float b_scl_b;
 	float b_pos_m;
+	float b_pos_n;
 	float b_dd;
 	float icon_offset;
 	int icon_unit;
-	int icon_ansd; // anim aside icons
+	/* animated icons on one side */
+	int icon_ansd;
 
 	/* bar position in window */
 	int x, y;
@@ -57,21 +60,21 @@ class Bar{
 	/* set bar */
 	void focus();
 	virtual void unfocus();
+#ifndef NO_EXPAND
+	void expand(bool inverse);
+#endif
 
 	void iconPress(int i_num, int offs);
 
-	void transform(int num, int off);
+	void transform(int mousex);
 	virtual void render();
 
 	void acquireBack();
 	void drawBack();
-	void cleanBack();
+	virtual void cleanBack();
 
 	void scale(bool updateBG = true);
 
-	int iconNumber(int mouse_x);
-	int iconOffset(int mouse_x);
-	
     public:
 
 	Bar(XWin *win, std::string barImg, int iSize, int iDist, float zFactor, 
