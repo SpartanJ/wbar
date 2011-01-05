@@ -5,6 +5,9 @@
 Wbar by Rodolfo Granata Copyright (C) 2006 
 warlock.cc@gmail.com
 
+Wbar and wbar-config by Yadickson Soto Copyright (C) 2010 
+yadickson@gmail.com
+
 LICENSE
 
 Wbar is under GNU GPL license. Please, read the 'COPYING' to know what this means.
@@ -17,7 +20,7 @@ Thanks
 
 Dependencies:
 -------------
-imlib2-dev
+libimlib2-dev, intltool, pkg-config, libglade2-dev, libgtk2.0-dev
 
 General:
 --------
@@ -75,7 +78,7 @@ else /etc/default/wbar/wbar.cfg
 Commented lines start whith #.
 Blank lines are ignored.
 
-Example file: dot.wbar 
+Example: 
 
 Each icon has the following format:
 
@@ -95,7 +98,7 @@ t:
 The first icon definition has a special meaning:
 ------------------------------------------------
 i: <path-to-the-bar-background-image>
-c: wbar --bpress --above-desk --vbar --nofont --pos right --isize 32 --idist 5 --nanim 4 --falfa 65
+c: wbar --bpress --above-desk --vbar --pos right --isize 32 --idist 5 --nanim 4 --falfa 65
 t: <path-to-font-to-display-text-with/size>
 
 IF A FONT ISN'T SUPPLIED THEN NO TEXT RENDERING IS DONE.
