@@ -1,0 +1,579 @@
+# German translation for wbarconf.
+# Copyright (C) YEAR ORGANIZATION
+# Yadickson Soto <yadickson@gmail.com>, 2009.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: wbar 2.0.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2011-01-05 14:54-0430\n"
+"PO-Revision-Date: 2008-05-02 16:10+0200\n"
+"Last-Translator: Yadickson Soto <yadickson@gmail.com>\n"
+"Language-Team: Deutsch <yadickson@gmail.com>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8-bit\n"
+
+#: ../etc/wbar.desktop.in.h:1 ../src/config/Functions.cc:1243
+msgid "A light and fast launch bar."
+msgstr ""
+
+#: ../etc/wbar.desktop.in.h:2
+msgid "Warlock Bar"
+msgstr ""
+
+#: ../share/wbar.glade.h:1
+#, fuzzy
+msgid "<b>Command</b>"
+msgstr "Befehl"
+
+#: ../share/wbar.glade.h:2
+msgid "<b>Icon</b>"
+msgstr ""
+
+#: ../share/wbar.glade.h:3
+msgid "<b>Title</b>"
+msgstr ""
+
+#: ../share/wbar.glade.h:4
+msgid "Bar alfa level"
+msgstr "Transparenz der Leiste"
+
+#: ../share/wbar.glade.h:5
+#, fuzzy
+msgid "Bar image:"
+msgstr "Hintergrundbild:"
+
+#: ../share/wbar.glade.h:6
+msgid "Bar unfocused alfa level"
+msgstr "Transparenz der inaktiven Leiste"
+
+#: ../share/wbar.glade.h:7
+msgid "Border offset"
+msgstr ""
+
+#: ../share/wbar.glade.h:8
+msgid "Color filter mode"
+msgstr "Farbfiltermodus"
+
+#: ../share/wbar.glade.h:9
+#, fuzzy
+msgid "Delete"
+msgstr "Links"
+
+#: ../share/wbar.glade.h:10
+msgid "Disable font rendering"
+msgstr "Schriftanzeige unterdrücken"
+
+#: ../share/wbar.glade.h:11
+msgid "Down"
+msgstr "Nach unten"
+
+#: ../share/wbar.glade.h:12 ../src/config/Functions.cc:628
+msgid "Edit"
+msgstr ""
+
+#: ../share/wbar.glade.h:13
+msgid "Effects"
+msgstr ""
+
+#: ../share/wbar.glade.h:14
+msgid "Filter color"
+msgstr "Filterfarbe"
+
+#: ../share/wbar.glade.h:15
+#, fuzzy
+msgid "Font:"
+msgstr "Schrift:"
+
+#: ../share/wbar.glade.h:16
+msgid "Icon distance"
+msgstr "Symbolabstand"
+
+#: ../share/wbar.glade.h:17
+msgid "Icon gets pressed"
+msgstr "Symbole werden beim Anklicken gedrückt"
+
+#: ../share/wbar.glade.h:18
+msgid "Icon size"
+msgstr "Symbolgröße"
+
+#: ../share/wbar.glade.h:19
+msgid "Icons"
+msgstr "Symbols"
+
+#: ../share/wbar.glade.h:20
+msgid "Jump factor"
+msgstr "Jump-Faktor"
+
+#: ../share/wbar.glade.h:21 ../src/config/Functions.cc:591
+msgid "New"
+msgstr ""
+
+#: ../share/wbar.glade.h:22
+msgid "No reload bar"
+msgstr ""
+
+#: ../share/wbar.glade.h:23
+msgid "Number of animated icons"
+msgstr "Zahl der animierten Symbole"
+
+#: ../share/wbar.glade.h:24
+msgid "Position screen"
+msgstr "Position auf dem Bildschirm"
+
+#: ../share/wbar.glade.h:25
+msgid "Preferences"
+msgstr ""
+
+#: ../share/wbar.glade.h:26
+msgid "Run over the desktop"
+msgstr "Wbar oberhalb eines Desktopmanagers"
+
+#: ../share/wbar.glade.h:27
+msgid "Settings"
+msgstr "Einstellungen"
+
+#: ../share/wbar.glade.h:28
+msgid "Size:"
+msgstr ""
+
+#: ../share/wbar.glade.h:29
+msgid "Time for double click [ms]"
+msgstr "Doppelklickintervall in Millisekunden"
+
+#: ../share/wbar.glade.h:30
+msgid "Up"
+msgstr "Nach oben"
+
+#: ../share/wbar.glade.h:31
+msgid "Vertical bar"
+msgstr "Vertikale Anordnung"
+
+#: ../share/wbar.glade.h:32
+msgid "Zoom factor"
+msgstr "Zoomfaktor"
+
+#: ../share/wbar.glade.h:33
+msgid "_About"
+msgstr "_Über"
+
+#: ../share/wbar.glade.h:34
+msgid "_Accept"
+msgstr "_Annehmen"
+
+#: ../share/wbar.glade.h:35
+msgid "_Cancel"
+msgstr "_Absagen"
+
+#: ../share/wbar.glade.h:36
+#, fuzzy
+msgid "_Close"
+msgstr "Schließen"
+
+#: ../share/wbar.glade.h:37
+msgid "_Update"
+msgstr ""
+
+#: ../src/core/Bar.cc:27
+msgid " Image not found. Maybe using a relative path?"
+msgstr ""
+
+#: ../src/core/Bar.cc:570
+msgid "Invalid bar position."
+msgstr ""
+
+#: ../src/core/Bar.cc:571
+msgid "Set default bar position."
+msgstr ""
+
+#: ../src/core/Icon.cc:10
+msgid " Couldn't load icon image."
+msgstr ""
+
+#: ../src/core/Main.cc:57
+#, fuzzy
+msgid "Configuration empty."
+msgstr "Konfiguration gespeichert!"
+
+#: ../src/core/Main.cc:98
+msgid "Version of "
+msgstr ""
+
+#: ../src/core/Main.cc:104
+msgid "Usage: wbar [option] ... [option]"
+msgstr ""
+
+#: ../src/core/Main.cc:105
+msgid "Options:"
+msgstr ""
+
+#: ../src/core/Main.cc:106
+msgid "this help"
+msgstr ""
+
+#: ../src/core/Main.cc:107
+msgid "show version"
+msgstr ""
+
+#: ../src/core/Main.cc:108
+#, fuzzy
+msgid "run over a desktop app (ie: xfdesktop)"
+msgstr "Wbar oberhalb eines Desktopmanagers"
+
+#: ../src/core/Main.cc:109
+msgid "right click does not force reload anymore"
+msgstr ""
+
+#: ../src/core/Main.cc:110
+msgid "offset bar (eg: 20)"
+msgstr ""
+
+#: ../src/core/Main.cc:111
+msgid "icon size (eg: 32)"
+msgstr ""
+
+#: ../src/core/Main.cc:112
+#, fuzzy
+msgid "icon dist (eg: 1)"
+msgstr "Symbolabstand"
+
+#: ../src/core/Main.cc:113
+msgid "zoom factor (eg: 1.8 or 2.5)"
+msgstr ""
+
+#: ../src/core/Main.cc:114
+msgid "jump factor (eg: 1.0 or 0.0)"
+msgstr ""
+
+#: ../src/core/Main.cc:115
+msgid "position:"
+msgstr ""
+
+#: ../src/core/Main.cc:118
+#, fuzzy
+msgid "ms for double click (0: single click)"
+msgstr "Doppelklickintervall in Millisekunden"
+
+#: ../src/core/Main.cc:119
+#, fuzzy
+msgid "icon gets pressed"
+msgstr "Symbole werden beim Anklicken gedrückt"
+
+#: ../src/core/Main.cc:120
+#, fuzzy
+msgid "vertical bar"
+msgstr "Vertikale Anordnung"
+
+#: ../src/core/Main.cc:121
+msgid "bar alfa (0-100)"
+msgstr ""
+
+#: ../src/core/Main.cc:122
+#, fuzzy
+msgid "unfocused bar alfa (0-100)"
+msgstr "Transparenz der inaktiven Leiste"
+
+#: ../src/core/Main.cc:123
+msgid "color filter (0: none 1: hovered 2: others, 3: all)"
+msgstr ""
+
+#: ../src/core/Main.cc:124
+msgid "filter color (default green 0xff00c800)"
+msgstr ""
+
+#: ../src/core/Main.cc:125
+#, fuzzy
+msgid "number of animated icons: 1, 3, 5, 7, 9, ..."
+msgstr "Zahl der animierten Symbole"
+
+#: ../src/core/Main.cc:126
+#, fuzzy
+msgid "if set disables font rendering"
+msgstr "Schriftanzeige unterdrücken"
+
+#: ../src/core/Main.cc:129
+msgid "View man(1)."
+msgstr ""
+
+#: ../src/core/XWin.cc:17
+msgid "Couldn't open display"
+msgstr ""
+
+#: ../src/core/XWin.cc:21
+msgid "Couldn't get visual"
+msgstr ""
+
+#: ../src/core/XWin.cc:23
+msgid "Couln't get colormap"
+msgstr ""
+
+#: ../src/core/XWin.cc:25
+msgid "Couldn't get depth"
+msgstr ""
+
+#: ../src/core/XWin.cc:28
+msgid "Couldn't create window"
+msgstr ""
+
+#: ../src/config/Functions.cc:113
+#, fuzzy
+msgid "Icon"
+msgstr "Symbols"
+
+#: ../src/config/Functions.cc:117
+msgid "Title"
+msgstr "Titel"
+
+#: ../src/config/Functions.cc:121
+#, fuzzy
+msgid "Command"
+msgstr "Befehl"
+
+#: ../src/config/Functions.cc:141
+msgid "top"
+msgstr "Oben"
+
+#: ../src/config/Functions.cc:144
+msgid "bottom"
+msgstr "Unten"
+
+#: ../src/config/Functions.cc:147
+#, fuzzy
+msgid "left"
+msgstr "Oben links"
+
+#: ../src/config/Functions.cc:150
+msgid "right"
+msgstr "Rechts"
+
+#: ../src/config/Functions.cc:153
+msgid "center"
+msgstr "Mitte"
+
+#: ../src/config/Functions.cc:156
+msgid "bottom-left"
+msgstr "Unten links"
+
+#: ../src/config/Functions.cc:159
+msgid "bottom-right"
+msgstr "Unten rechts"
+
+#: ../src/config/Functions.cc:162
+msgid "top-left"
+msgstr "Oben links"
+
+#: ../src/config/Functions.cc:165
+msgid "top-right"
+msgstr "Oben rechts"
+
+#: ../src/config/Functions.cc:178
+msgid "none"
+msgstr "Kein"
+
+#: ../src/config/Functions.cc:181
+msgid "hovered"
+msgstr "Nur hervorgehobene Symbole"
+
+#: ../src/config/Functions.cc:184
+msgid "others"
+msgstr "Alle nicht hervorgehobenen Symbole"
+
+#: ../src/config/Functions.cc:187
+msgid "all"
+msgstr "Alle"
+
+#: ../src/config/Functions.cc:663
+msgid "Error save config in "
+msgstr ""
+
+#: ../src/config/Functions.cc:932
+msgid "Fields must not be empty"
+msgstr ""
+
+#: ../src/config/Functions.cc:1106
+#, fuzzy
+msgid "Open exec file"
+msgstr "Öffnen des Dateiauswahldialogs"
+
+#: ../src/config/Functions.cc:1130 ../src/config/Functions.cc:1192
+#, fuzzy
+msgid "Open image file"
+msgstr "Öffnen des Dateiauswahldialogs"
+
+#: ../src/config/Functions.cc:1140 ../src/config/Functions.cc:1202
+msgid "Images"
+msgstr "Bilddateien"
+
+#: ../src/config/Functions.cc:1160
+#, fuzzy
+msgid "Open font file"
+msgstr "Öffnen des Dateiauswahldialogs"
+
+#: ../src/config/Functions.cc:1169
+#, fuzzy
+msgid "Fonts"
+msgstr "Schrift:"
+
+#: ../src/config/Functions.cc:1238
+msgid "About"
+msgstr "Über"
+
+#: ../src/config/Functions.cc:1240
+#, fuzzy
+msgid "wbar config"
+msgstr "Über Wbarconf"
+
+#: ../src/config/Functions.cc:1242
+msgid "Licence GPL - 2010"
+msgstr ""
+
+#: ../src/config/Functions.cc:1245
+msgid "wbar project website"
+msgstr ""
+
+#: ../src/core/SuperBar.cc:28
+#, fuzzy
+msgid "Problem load font file."
+msgstr "Schrift auswählen..."
+
+#, fuzzy
+#~ msgid "Icon name:"
+#~ msgstr "Symbol:"
+
+#~ msgid "_Settings"
+#~ msgstr "_Einstellungen"
+
+#, fuzzy
+#~ msgid "Font size:"
+#~ msgstr "Symbolgröße"
+
+#~ msgid "wbar"
+#~ msgstr "wbar"
+
+#~ msgid "Command line settings"
+#~ msgstr "Befehlszeilenoptionen"
+
+#~ msgid "Close this window"
+#~ msgstr "Dieses Fenster schließen"
+
+#~ msgid "Refresh"
+#~ msgstr "Aktualisieren"
+
+#~ msgid "Restart wbar to see the changes, don't forget to save."
+#~ msgstr ""
+#~ "Starten Sie wbar neu, nachdem Sie die Konfiguration gespeichert haben."
+
+#~ msgid "Saving..."
+#~ msgstr "Speichern..."
+
+#~ msgid ""
+#~ "Icon list is empty!\n"
+#~ " Not saving, sorry!"
+#~ msgstr ""
+#~ "Symbolliste ist leer!\n"
+#~ " Speichern nicht möglich!"
+
+#~ msgid "Empty icon list"
+#~ msgstr "Leere Symbolliste"
+
+#~ msgid "About WbarConf"
+#~ msgstr "Über Wbarconf"
+
+#~ msgid "Created by"
+#~ msgstr "Entwickelt von"
+
+#~ msgid "WbarConf  v"
+#~ msgstr "Wbarconf v"
+
+#~ msgid "WbarConf - wbar configuration tool"
+#~ msgstr "Wbarconf - Konfigurationswerkzeug für Wbar"
+
+#~ msgid "Open command line settings dialog"
+#~ msgstr "Dialog der Befehlszeileneinstellungen öffnen"
+
+#~ msgid "Close the application"
+#~ msgstr "Schließen der Anwendung"
+
+#~ msgid "File"
+#~ msgstr "Datei"
+
+#~ msgid "Help"
+#~ msgstr "Hilfe"
+
+#~ msgid "Drag and Drop to change order"
+#~ msgstr "Sortieren mit der Maus, um die Anordnung zu verändern"
+
+#~ msgid "Add new"
+#~ msgstr "Neu"
+
+#~ msgid "Add new item"
+#~ msgstr "Neuer Eintrag"
+
+#~ msgid "Remove"
+#~ msgstr "Entfernen"
+
+#~ msgid "Remove selected item"
+#~ msgstr "Ausgewählten Eintrage entfernen"
+
+#~ msgid "Move selected item downwards"
+#~ msgstr "Verschiebt ausgewählten Eintrag nach unten"
+
+#~ msgid "Move selected item upwards"
+#~ msgstr "Verschiebt ausgewählten Eintrag nach oben"
+
+#~ msgid "Full font path"
+#~ msgstr "Kompletter Pfad zur Schriftdatei"
+
+#~ msgid "Open font file selection dialog"
+#~ msgstr "Dialog zur Schriftenauswahl öffnen"
+
+#~ msgid "Open file selection dialog"
+#~ msgstr "Öffnen des Dateiauswahldialogs"
+
+#~ msgid "Title:"
+#~ msgstr "Titel:"
+
+#~ msgid "Open icon file selection dialog"
+#~ msgstr "Öffnen des Dialogs zur Symbolauswahl"
+
+#~ msgid "Restart wbar for saved changes to take effect"
+#~ msgstr "Wbar neustarten, um Änderungen zu überprüfen"
+
+#~ msgid "Save"
+#~ msgstr "Speichern"
+
+#~ msgid "Save settings"
+#~ msgstr "Einstellungen speichern"
+
+#~ msgid "Quit, without saving changes."
+#~ msgstr "Beenden, ohne zu speichern."
+
+#~ msgid "Executing: "
+#~ msgstr "Ausführen: "
+
+#~ msgid "Restarting: "
+#~ msgstr "Neu starten: "
+
+#~ msgid "Select image file.."
+#~ msgstr "Bilddatei auswählen..."
+
+#~ msgid "All files"
+#~ msgstr "Alle Dateien"
+
+#~ msgid "Select background image file.."
+#~ msgstr "Hintergrundbild auswählen..."
+
+#~ msgid "' not found..."
+#~ msgstr "' nicht gefunden..."
+
+#~ msgid "File '"
+#~ msgstr "Datei '"
+
+#~ msgid "Select command.."
+#~ msgstr "Befehl auswählen..."
+
+#~ msgid "New item"
+#~ msgstr "Neuer Eintrag"

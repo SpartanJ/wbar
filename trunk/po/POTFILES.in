@@ -1,0 +1,8 @@
+etc/wbar.desktop.in
+share/wbar.glade
+src/core/Bar.cc
+src/core/Icon.cc
+src/core/Main.cc
+src/core/XWin.cc
+src/config/Functions.cc
+src/core/SuperBar.cc

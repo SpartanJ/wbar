@@ -1,0 +1,8 @@
+i: @PIXMAPDIR@/@PACKAGE_NAME@/osxbarback.png
+c: @PACKAGE_NAME@ @DEFAULT_ARGV@
+t: /usr/share/fonts/truetype/dustin/PenguinAttack/12
+
+i: @PIXMAPDIR@/wbar.png
+c: wbar-config
+t: Config
+
