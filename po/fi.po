@@ -1,0 +1,584 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR ORGANIZATION
+# Yadickson Soto <yadickson@gmail.com>, 2009.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: wbar 2.0.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2011-01-05 14:54-0430\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: Yadickson Soto <yadickson@gmail.com>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8-bit\n"
+"Generated-By: pygettext.py 1.5\n"
+
+#: ../etc/wbar.desktop.in.h:1 ../src/config/Functions.cc:1243
+msgid "A light and fast launch bar."
+msgstr ""
+
+#: ../etc/wbar.desktop.in.h:2
+msgid "Warlock Bar"
+msgstr ""
+
+#: ../share/wbar.glade.h:1
+#, fuzzy
+msgid "<b>Command</b>"
+msgstr "Komento:"
+
+#: ../share/wbar.glade.h:2
+msgid "<b>Icon</b>"
+msgstr ""
+
+#: ../share/wbar.glade.h:3
+msgid "<b>Title</b>"
+msgstr ""
+
+#: ../share/wbar.glade.h:4
+msgid "Bar alfa level"
+msgstr "Palkin läpinäkyvyys %"
+
+#: ../share/wbar.glade.h:5
+#, fuzzy
+msgid "Bar image:"
+msgstr "Taustakuva:"
+
+#: ../share/wbar.glade.h:6
+msgid "Bar unfocused alfa level"
+msgstr "Valitsemattoman palkin läpinäkyvyys %"
+
+#: ../share/wbar.glade.h:7
+msgid "Border offset"
+msgstr ""
+
+#: ../share/wbar.glade.h:8
+msgid "Color filter mode"
+msgstr "Värin suodatustila"
+
+#: ../share/wbar.glade.h:9
+#, fuzzy
+msgid "Delete"
+msgstr "vasemmalla"
+
+#: ../share/wbar.glade.h:10
+msgid "Disable font rendering"
+msgstr "Tekstin esitys pois päältä"
+
+#: ../share/wbar.glade.h:11
+msgid "Down"
+msgstr "Alas"
+
+#: ../share/wbar.glade.h:12 ../src/config/Functions.cc:628
+msgid "Edit"
+msgstr ""
+
+#: ../share/wbar.glade.h:13
+msgid "Effects"
+msgstr ""
+
+#: ../share/wbar.glade.h:14
+msgid "Filter color"
+msgstr "Suodatusväri"
+
+#: ../share/wbar.glade.h:15
+#, fuzzy
+msgid "Font:"
+msgstr "Fontti:"
+
+#: ../share/wbar.glade.h:16
+msgid "Icon distance"
+msgstr "Kuvakkeiden etäisyys"
+
+#: ../share/wbar.glade.h:17
+msgid "Icon gets pressed"
+msgstr "Kuvake tulee painetuksi"
+
+#: ../share/wbar.glade.h:18
+msgid "Icon size"
+msgstr "Kuvakkeen koko"
+
+#: ../share/wbar.glade.h:19
+msgid "Icons"
+msgstr "Kuvakes"
+
+#: ../share/wbar.glade.h:20
+msgid "Jump factor"
+msgstr "Hyppykerroin"
+
+#: ../share/wbar.glade.h:21 ../src/config/Functions.cc:591
+msgid "New"
+msgstr ""
+
+#: ../share/wbar.glade.h:22
+msgid "No reload bar"
+msgstr ""
+
+#: ../share/wbar.glade.h:23
+msgid "Number of animated icons"
+msgstr "Animoitavien kuvakkeiden lukumäärä"
+
+#: ../share/wbar.glade.h:24
+msgid "Position screen"
+msgstr "Sijainti näytöllä"
+
+#: ../share/wbar.glade.h:25
+msgid "Preferences"
+msgstr ""
+
+#: ../share/wbar.glade.h:26
+msgid "Run over the desktop"
+msgstr "Suorita työpöytäsovellusten yllä"
+
+#: ../share/wbar.glade.h:27
+msgid "Settings"
+msgstr "Asetukset"
+
+#: ../share/wbar.glade.h:28
+msgid "Size:"
+msgstr ""
+
+#: ../share/wbar.glade.h:29
+msgid "Time for double click [ms]"
+msgstr "Tuplaklikkausviive millisekunteina"
+
+#: ../share/wbar.glade.h:30
+msgid "Up"
+msgstr "Ylös"
+
+#: ../share/wbar.glade.h:31
+msgid "Vertical bar"
+msgstr "Pystypalkki"
+
+#: ../share/wbar.glade.h:32
+msgid "Zoom factor"
+msgstr "Suurennuskerroin"
+
+#: ../share/wbar.glade.h:33
+msgid "_About"
+msgstr "_Tietoa"
+
+#: ../share/wbar.glade.h:34
+msgid "_Accept"
+msgstr ""
+
+#: ../share/wbar.glade.h:35
+msgid "_Cancel"
+msgstr ""
+
+#: ../share/wbar.glade.h:36
+#, fuzzy
+msgid "_Close"
+msgstr "Sulje"
+
+#: ../share/wbar.glade.h:37
+msgid "_Update"
+msgstr ""
+
+#: ../src/core/Bar.cc:27
+msgid " Image not found. Maybe using a relative path?"
+msgstr ""
+
+#: ../src/core/Bar.cc:570
+msgid "Invalid bar position."
+msgstr ""
+
+#: ../src/core/Bar.cc:571
+msgid "Set default bar position."
+msgstr ""
+
+#: ../src/core/Icon.cc:10
+msgid " Couldn't load icon image."
+msgstr ""
+
+#: ../src/core/Main.cc:57
+#, fuzzy
+msgid "Configuration empty."
+msgstr "Asetukset tallennettu!"
+
+#: ../src/core/Main.cc:98
+msgid "Version of "
+msgstr ""
+
+#: ../src/core/Main.cc:104
+msgid "Usage: wbar [option] ... [option]"
+msgstr ""
+
+#: ../src/core/Main.cc:105
+msgid "Options:"
+msgstr ""
+
+#: ../src/core/Main.cc:106
+msgid "this help"
+msgstr ""
+
+#: ../src/core/Main.cc:107
+msgid "show version"
+msgstr ""
+
+#: ../src/core/Main.cc:108
+#, fuzzy
+msgid "run over a desktop app (ie: xfdesktop)"
+msgstr "Suorita työpöytäsovellusten yllä"
+
+#: ../src/core/Main.cc:109
+msgid "right click does not force reload anymore"
+msgstr ""
+
+#: ../src/core/Main.cc:110
+msgid "offset bar (eg: 20)"
+msgstr ""
+
+#: ../src/core/Main.cc:111
+msgid "icon size (eg: 32)"
+msgstr ""
+
+#: ../src/core/Main.cc:112
+#, fuzzy
+msgid "icon dist (eg: 1)"
+msgstr "Kuvakkeiden etäisyys"
+
+#: ../src/core/Main.cc:113
+msgid "zoom factor (eg: 1.8 or 2.5)"
+msgstr ""
+
+#: ../src/core/Main.cc:114
+msgid "jump factor (eg: 1.0 or 0.0)"
+msgstr ""
+
+#: ../src/core/Main.cc:115
+msgid "position:"
+msgstr ""
+
+#: ../src/core/Main.cc:118
+#, fuzzy
+msgid "ms for double click (0: single click)"
+msgstr "Tuplaklikkausviive millisekunteina"
+
+#: ../src/core/Main.cc:119
+#, fuzzy
+msgid "icon gets pressed"
+msgstr "Kuvake tulee painetuksi"
+
+#: ../src/core/Main.cc:120
+#, fuzzy
+msgid "vertical bar"
+msgstr "Pystypalkki"
+
+#: ../src/core/Main.cc:121
+msgid "bar alfa (0-100)"
+msgstr ""
+
+#: ../src/core/Main.cc:122
+#, fuzzy
+msgid "unfocused bar alfa (0-100)"
+msgstr "Valitsemattoman palkin läpinäkyvyys %"
+
+#: ../src/core/Main.cc:123
+msgid "color filter (0: none 1: hovered 2: others, 3: all)"
+msgstr ""
+
+#: ../src/core/Main.cc:124
+msgid "filter color (default green 0xff00c800)"
+msgstr ""
+
+#: ../src/core/Main.cc:125
+#, fuzzy
+msgid "number of animated icons: 1, 3, 5, 7, 9, ..."
+msgstr "Animoitavien kuvakkeiden lukumäärä"
+
+#: ../src/core/Main.cc:126
+#, fuzzy
+msgid "if set disables font rendering"
+msgstr "Tekstin esitys pois päältä"
+
+#: ../src/core/Main.cc:129
+msgid "View man(1)."
+msgstr ""
+
+#: ../src/core/XWin.cc:17
+msgid "Couldn't open display"
+msgstr ""
+
+#: ../src/core/XWin.cc:21
+msgid "Couldn't get visual"
+msgstr ""
+
+#: ../src/core/XWin.cc:23
+msgid "Couln't get colormap"
+msgstr ""
+
+#: ../src/core/XWin.cc:25
+msgid "Couldn't get depth"
+msgstr ""
+
+#: ../src/core/XWin.cc:28
+msgid "Couldn't create window"
+msgstr ""
+
+#: ../src/config/Functions.cc:113
+#, fuzzy
+msgid "Icon"
+msgstr "Kuvakes"
+
+#: ../src/config/Functions.cc:117
+msgid "Title"
+msgstr "Otsikko"
+
+#: ../src/config/Functions.cc:121
+#, fuzzy
+msgid "Command"
+msgstr "komento"
+
+#: ../src/config/Functions.cc:141
+msgid "top"
+msgstr "ylhäällä"
+
+#: ../src/config/Functions.cc:144
+msgid "bottom"
+msgstr "alhaalla"
+
+#: ../src/config/Functions.cc:147
+#, fuzzy
+msgid "left"
+msgstr "ylhäällä vasemmalla"
+
+#: ../src/config/Functions.cc:150
+msgid "right"
+msgstr "oikealla"
+
+#: ../src/config/Functions.cc:153
+msgid "center"
+msgstr ""
+
+#: ../src/config/Functions.cc:156
+msgid "bottom-left"
+msgstr "alhaalla vasemmalla"
+
+#: ../src/config/Functions.cc:159
+msgid "bottom-right"
+msgstr "alhaalla oikealla"
+
+#: ../src/config/Functions.cc:162
+msgid "top-left"
+msgstr "ylhäällä vasemmalla"
+
+#: ../src/config/Functions.cc:165
+msgid "top-right"
+msgstr "ylhäällä oikealla"
+
+#: ../src/config/Functions.cc:178
+msgid "none"
+msgstr "ei mikään"
+
+#: ../src/config/Functions.cc:181
+msgid "hovered"
+msgstr "leijaileva"
+
+#: ../src/config/Functions.cc:184
+msgid "others"
+msgstr "muut"
+
+#: ../src/config/Functions.cc:187
+msgid "all"
+msgstr "kaikki"
+
+#: ../src/config/Functions.cc:663
+msgid "Error save config in "
+msgstr ""
+
+#: ../src/config/Functions.cc:932
+msgid "Fields must not be empty"
+msgstr ""
+
+#: ../src/config/Functions.cc:1106
+#, fuzzy
+msgid "Open exec file"
+msgstr "Avaa valintaikkuna"
+
+#: ../src/config/Functions.cc:1130 ../src/config/Functions.cc:1192
+#, fuzzy
+msgid "Open image file"
+msgstr "Avaa valintaikkuna"
+
+#: ../src/config/Functions.cc:1140 ../src/config/Functions.cc:1202
+msgid "Images"
+msgstr "Kuvat"
+
+#: ../src/config/Functions.cc:1160
+#, fuzzy
+msgid "Open font file"
+msgstr "Avaa valintaikkuna"
+
+#: ../src/config/Functions.cc:1169
+#, fuzzy
+msgid "Fonts"
+msgstr "Fontti:"
+
+#: ../src/config/Functions.cc:1238
+msgid "About"
+msgstr "Tietoa"
+
+#: ../src/config/Functions.cc:1240
+#, fuzzy
+msgid "wbar config"
+msgstr "Tietoa sovelluksesta WbarConf"
+
+#: ../src/config/Functions.cc:1242
+msgid "Licence GPL - 2010"
+msgstr ""
+
+#: ../src/config/Functions.cc:1245
+msgid "wbar project website"
+msgstr ""
+
+#: ../src/core/SuperBar.cc:28
+#, fuzzy
+msgid "Problem load font file."
+msgstr "Valitse fonttitiedosto"
+
+#, fuzzy
+#~ msgid "Icon name:"
+#~ msgstr "Kuvake:"
+
+#~ msgid "_Settings"
+#~ msgstr "_Asetukset"
+
+#, fuzzy
+#~ msgid "Font size:"
+#~ msgstr "Kuvakkeen koko"
+
+#~ msgid "wbar"
+#~ msgstr "wbar"
+
+#~ msgid "Command line settings"
+#~ msgstr "Komentorivi asetukset"
+
+#~ msgid "Close this window"
+#~ msgstr "Sulje ikkuna"
+
+#~ msgid "Refresh"
+#~ msgstr "Päivitä"
+
+#~ msgid "Restart wbar to see the changes, don't forget to save."
+#~ msgstr ""
+#~ "Käynnistä wbar uudelleen nähdäksesi muutokset, ethän unohda tallentaa."
+
+#~ msgid "Saving..."
+#~ msgstr "Tallennetaan..."
+
+#~ msgid ""
+#~ "Icon list is empty!\n"
+#~ " Not saving, sorry!"
+#~ msgstr "Tyhjää listaa ei tallenneta!"
+
+#~ msgid "Empty icon list"
+#~ msgstr "Lista on tyhjä!"
+
+#~ msgid "About WbarConf"
+#~ msgstr "Tietoa sovelluksesta WbarConf"
+
+#~ msgid "Created by"
+#~ msgstr "Tehnyt"
+
+#~ msgid "WbarConf  v"
+#~ msgstr "WbarConf v"
+
+#~ msgid "WbarConf - wbar configuration tool"
+#~ msgstr "WbarConf - wbar asetustyökalu"
+
+#~ msgid "Open command line settings dialog"
+#~ msgstr "Avaa komentorivin asetusikkuna"
+
+#~ msgid "Close the application"
+#~ msgstr "Sulje sovellus"
+
+#~ msgid "File"
+#~ msgstr "Tiedosto"
+
+#~ msgid "Help"
+#~ msgstr "Apua"
+
+#~ msgid "Drag and Drop to change order"
+#~ msgstr "Raahaa ja pudota muuttaaksesi järjestystä"
+
+#~ msgid "Add new"
+#~ msgstr "Lisää uusi"
+
+#~ msgid "Add new item"
+#~ msgstr "Lisää uusi"
+
+#~ msgid "Remove"
+#~ msgstr "Poista"
+
+#~ msgid "Remove selected item"
+#~ msgstr "Poista valittu kohde"
+
+#~ msgid "Move selected item downwards"
+#~ msgstr "Siirrä alaspäin"
+
+#~ msgid "Move selected item upwards"
+#~ msgstr "Siirrä ylöspäin"
+
+#~ msgid "Full font path"
+#~ msgstr "Koko fontin polku"
+
+#~ msgid "Open font file selection dialog"
+#~ msgstr "Avaa fontin valintaikkuna"
+
+#~ msgid "Open file selection dialog"
+#~ msgstr "Avaa tiedoston valintaikkuna"
+
+#~ msgid "Title:"
+#~ msgstr "Otsikko:"
+
+#~ msgid "Open icon file selection dialog"
+#~ msgstr "Avaa kuvakkeen valintaikkuna"
+
+#~ msgid "Restart wbar for saved changes to take effect"
+#~ msgstr ""
+#~ "Käynnistä wbar uudelleen, jotta tallennetut muutokset tulevat voimaan"
+
+#~ msgid "Save"
+#~ msgstr "Tallenna"
+
+#~ msgid "Save settings"
+#~ msgstr "Tallenna asetukset"
+
+#~ msgid "Quit, without saving changes."
+#~ msgstr "Poistu, tallentamatta muutoksia."
+
+#~ msgid "Executing: "
+#~ msgstr "Suoritetaan: "
+
+#~ msgid "Restarting: "
+#~ msgstr "Käynnistetään uudelleen: "
+
+#~ msgid "Select image file.."
+#~ msgstr "Valitse kuvatiedosto..."
+
+#~ msgid "All files"
+#~ msgstr "Kaikki"
+
+#~ msgid "Select background image file.."
+#~ msgstr "Valitse taustakuva.."
+
+#~ msgid "' not found..."
+#~ msgstr "' ei löydö..."
+
+#~ msgid "File '"
+#~ msgstr "Tiedostoa '"
+
+#~ msgid "Select command.."
+#~ msgstr "Valitse komento.."
+
+#~ msgid "New item"
+#~ msgstr "Uusi"
+
+#~ msgid "Please, save settings now to have latest configuration."
+#~ msgstr ""
+#~ "Ole hyvä ja tallenna asetukset nyt, jotta viimeisimmät muutokset tulevat "
+#~ "voimaan."

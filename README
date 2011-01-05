@@ -2,6 +2,19 @@
       wbar
 ===================
 
+Wbar by Rodolfo Granata Copyright (C) 2006 
+warlock.cc@gmail.com
+
+LICENSE
+
+Wbar is under GNU GPL license. Please, read the 'COPYING' to know what this means.
+
+It'll be greatly appreciated if you mail the author (warlock) telling about any changes,
+patches, recomendations, etc.
+
+Thanks
+
+
 Dependencies:
 -------------
 imlib2-dev
@@ -24,15 +37,12 @@ or nautilus with the -above-desk switch.
 Installing: (for the impacient)
 -----------
 
+$ ./configure --prefix=/usr --exec_prefix=/usr --sysconfdir=/etc
+
 $ make
 
 As root
 # make install
-
-As the user who's gonna run the wbar
-this should create appropiate files for running
-
-$ make config
 
 $ wbar -help (this gives you important options)
 
@@ -58,7 +68,7 @@ TODO: Fix wide labels, chopped when rendering as vertical bar.
 Configuration file:
 -------------------
 If not supplied $HOME/.wbar will be tried, 
-else dot.wbar at $PWD, else /usr/share/wbar/dot.wbar
+else /etc/default/wbar/wbar.cfg
 
 .wbar format:
 ---------------
@@ -85,7 +95,7 @@ t:
 The first icon definition has a special meaning:
 ------------------------------------------------
 i: <path-to-the-bar-background-image>
-c: --
+c: wbar --bpress --above-desk --vbar --nofont --pos right --isize 32 --idist 5 --nanim 4 --falfa 65
 t: <path-to-font-to-display-text-with/size>
 
 IF A FONT ISN'T SUPPLIED THEN NO TEXT RENDERING IS DONE.

@@ -1,3 +1,7 @@
+19/12/2010 fixed solution to the problem of image non-existent location
+19/12/2010 fixed solution to the problem of font non-existent location
+19/12/2010 new application structure
+
 26/09/2007 fixed cleaning buffer not being initialized that made the wbar get a SIGBUS on bsd
 26/09/2007 fixed symlink issue not being replaced and avoiding instalation
 
