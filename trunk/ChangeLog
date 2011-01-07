@@ -1,2 +1,19 @@
-Yadickson Soto <yadickson@gmail.com>
- * New struct
+wbar (2.0.1)
+
+  * Se da solución a problema de internacionalización de wbar.
+
+ -- Yadickson Soto <yadickson@gmail.com> (07-01-2011)
+
+wbar (2.0.0)
+
+  * Nueva estructura.
+  * Se incorpora configurador de la aplicacion.
+  * Se eliminan iconos de aplicaciones lo libres.
+  * Se agrega icono de proyecto.
+  * Se da solución a carga de iconos no encontrados.
+  * Se da solución a problema de carga de fuente no ubicada.
+  * Se incorpora desplazamiento de la barra al borde.
+  * Se incorpora funcionalida de no recarga de la barra por click derecho.
+
+ -- Yadickson Soto <yadickson@gmail.com>  (05-01-2011)
+
