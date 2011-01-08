@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: wbar 2.0.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-01-05 14:54-0430\n"
+"POT-Creation-Date: 2011-01-07 20:41-0430\n"
 "PO-Revision-Date: 2008-05-02 16:10+0200\n"
 "Last-Translator: Yadickson Soto <yadickson@gmail.com>\n"
 "Language-Team: Deutsch <yadickson@gmail.com>\n"
@@ -193,108 +193,108 @@ msgstr ""
 msgid " Couldn't load icon image."
 msgstr ""
 
-#: ../src/core/Main.cc:57
+#: ../src/core/Main.cc:58
 #, fuzzy
 msgid "Configuration empty."
 msgstr "Konfiguration gespeichert!"
 
-#: ../src/core/Main.cc:98
+#: ../src/core/Main.cc:99
 msgid "Version of "
 msgstr ""
 
-#: ../src/core/Main.cc:104
+#: ../src/core/Main.cc:105
 msgid "Usage: wbar [option] ... [option]"
 msgstr ""
 
-#: ../src/core/Main.cc:105
+#: ../src/core/Main.cc:106
 msgid "Options:"
 msgstr ""
 
-#: ../src/core/Main.cc:106
+#: ../src/core/Main.cc:107
 msgid "this help"
 msgstr ""
 
-#: ../src/core/Main.cc:107
+#: ../src/core/Main.cc:108
 msgid "show version"
 msgstr ""
 
-#: ../src/core/Main.cc:108
+#: ../src/core/Main.cc:109
 #, fuzzy
 msgid "run over a desktop app (ie: xfdesktop)"
 msgstr "Wbar oberhalb eines Desktopmanagers"
 
-#: ../src/core/Main.cc:109
+#: ../src/core/Main.cc:110
 msgid "right click does not force reload anymore"
 msgstr ""
 
-#: ../src/core/Main.cc:110
+#: ../src/core/Main.cc:111
 msgid "offset bar (eg: 20)"
 msgstr ""
 
-#: ../src/core/Main.cc:111
+#: ../src/core/Main.cc:112
 msgid "icon size (eg: 32)"
 msgstr ""
 
-#: ../src/core/Main.cc:112
+#: ../src/core/Main.cc:113
 #, fuzzy
 msgid "icon dist (eg: 1)"
 msgstr "Symbolabstand"
 
-#: ../src/core/Main.cc:113
+#: ../src/core/Main.cc:114
 msgid "zoom factor (eg: 1.8 or 2.5)"
 msgstr ""
 
-#: ../src/core/Main.cc:114
+#: ../src/core/Main.cc:115
 msgid "jump factor (eg: 1.0 or 0.0)"
 msgstr ""
 
-#: ../src/core/Main.cc:115
+#: ../src/core/Main.cc:116
 msgid "position:"
 msgstr ""
 
-#: ../src/core/Main.cc:118
+#: ../src/core/Main.cc:119
 #, fuzzy
 msgid "ms for double click (0: single click)"
 msgstr "Doppelklickintervall in Millisekunden"
 
-#: ../src/core/Main.cc:119
+#: ../src/core/Main.cc:120
 #, fuzzy
 msgid "icon gets pressed"
 msgstr "Symbole werden beim Anklicken gedrückt"
 
-#: ../src/core/Main.cc:120
+#: ../src/core/Main.cc:121
 #, fuzzy
 msgid "vertical bar"
 msgstr "Vertikale Anordnung"
 
-#: ../src/core/Main.cc:121
+#: ../src/core/Main.cc:122
 msgid "bar alfa (0-100)"
 msgstr ""
 
-#: ../src/core/Main.cc:122
+#: ../src/core/Main.cc:123
 #, fuzzy
 msgid "unfocused bar alfa (0-100)"
 msgstr "Transparenz der inaktiven Leiste"
 
-#: ../src/core/Main.cc:123
+#: ../src/core/Main.cc:124
 msgid "color filter (0: none 1: hovered 2: others, 3: all)"
 msgstr ""
 
-#: ../src/core/Main.cc:124
+#: ../src/core/Main.cc:125
 msgid "filter color (default green 0xff00c800)"
 msgstr ""
 
-#: ../src/core/Main.cc:125
+#: ../src/core/Main.cc:126
 #, fuzzy
 msgid "number of animated icons: 1, 3, 5, 7, 9, ..."
 msgstr "Zahl der animierten Symbole"
 
-#: ../src/core/Main.cc:126
+#: ../src/core/Main.cc:127
 #, fuzzy
 msgid "if set disables font rendering"
 msgstr "Schriftanzeige unterdrücken"
 
-#: ../src/core/Main.cc:129
+#: ../src/core/Main.cc:130
 msgid "View man(1)."
 msgstr ""
 
