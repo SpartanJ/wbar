@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: wbar es\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-01-10 00:15-0430\n"
+"POT-Creation-Date: 2011-01-10 12:28-0430\n"
 "PO-Revision-Date: 2011-01-05 14:12-0430\n"
 "Last-Translator: Yadickson Soto <yadickson@gmail.com>\n"
 "Language-Team: ES <yadickson@gmail.com>\n"
@@ -284,7 +284,7 @@ msgstr "deshabilitar texto"
 msgid "View man(1)."
 msgstr "Ver manual (1)."
 
-#: ../src/core/Main.cc:284 ../src/config/Run.cc:125
+#: ../src/core/Main.cc:291 ../src/config/Run.cc:125
 msgid "Error run program: "
 msgstr "Error ejecutando programa: "
 

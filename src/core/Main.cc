@@ -196,7 +196,14 @@ int main(int argc, char **argv)
         for (it++; it != list.end() ; it++)
         {
             p = (*it);
-            ((SuperBar *)barra)->addIcon(p->getIconName(), p->getCommand(), p->getTitle());
+            try
+            {
+                ((SuperBar *)barra)->addIcon(p->getIconName(), p->getCommand(), p->getTitle());
+            }
+            catch (const char *m)
+            {
+                std::cout << m << std::endl;
+            }
             if (p) delete p;
         }
 
