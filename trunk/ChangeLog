@@ -1,3 +1,10 @@
+wbar (2.1.0)
+
+  * Se da solución a carga de iconos no encontrados.
+  * Se agregan nuevos iconos a la aplicación. (Closed: #31)
+
+ -- Yadickson Soto <yadickson@gmail.com> (10-01-2011)
+
 wbar (2.0.2)
 
   * Se da solución a problema de compilación. (Closed: #35)
@@ -17,7 +24,6 @@ wbar (2.0.0)
   * Se incorpora configurador de la aplicacion.
   * Se eliminan iconos de aplicaciones lo libres.
   * Se agrega icono de proyecto.
-  * Se da solución a carga de iconos no encontrados.
   * Se da solución a problema de carga de fuente no ubicada.
   * Se incorpora desplazamiento de la barra al borde.
   * Se incorpora funcionalida de no recarga de la barra por click derecho.

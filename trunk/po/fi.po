@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: wbar 2.0.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-01-10 00:15-0430\n"
+"POT-Creation-Date: 2011-01-10 12:28-0430\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: Yadickson Soto <yadickson@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -299,7 +299,7 @@ msgstr "Tekstin esitys pois päältä"
 msgid "View man(1)."
 msgstr ""
 
-#: ../src/core/Main.cc:284 ../src/config/Run.cc:125
+#: ../src/core/Main.cc:291 ../src/config/Run.cc:125
 msgid "Error run program: "
 msgstr ""
 
