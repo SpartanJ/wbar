@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: wbar es\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-01-07 20:41-0430\n"
+"POT-Creation-Date: 2011-01-10 00:15-0430\n"
 "PO-Revision-Date: 2011-01-05 14:12-0430\n"
 "Last-Translator: Yadickson Soto <yadickson@gmail.com>\n"
 "Language-Team: ES <yadickson@gmail.com>\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: ../etc/wbar.desktop.in.h:1 ../src/config/Functions.cc:1243
+#: ../etc/wbar.desktop.in.h:1 ../src/config/Functions.cc:1274
 msgid "A light and fast launch bar."
 msgstr "Una ligera y rápida barra de inicio."
 
@@ -68,7 +68,7 @@ msgstr "Deshabilitar texto"
 msgid "Down"
 msgstr "Abajo"
 
-#: ../share/wbar.glade.h:12 ../src/config/Functions.cc:628
+#: ../share/wbar.glade.h:12 ../src/config/Functions.cc:644
 msgid "Edit"
 msgstr "Editar"
 
@@ -104,7 +104,7 @@ msgstr "Iconos"
 msgid "Jump factor"
 msgstr "Factor de salto"
 
-#: ../share/wbar.glade.h:21 ../src/config/Functions.cc:591
+#: ../share/wbar.glade.h:21 ../src/config/Functions.cc:607
 msgid "New"
 msgstr "Nuevo"
 
@@ -169,8 +169,8 @@ msgid "_Close"
 msgstr "_Cerrar"
 
 #: ../share/wbar.glade.h:37
-msgid "_Update"
-msgstr "_Actualizar"
+msgid "_Reload"
+msgstr "_Recargar"
 
 #: ../src/core/Bar.cc:27
 msgid " Image not found. Maybe using a relative path?"
@@ -284,6 +284,10 @@ msgstr "deshabilitar texto"
 msgid "View man(1)."
 msgstr "Ver manual (1)."
 
+#: ../src/core/Main.cc:284 ../src/config/Run.cc:125
+msgid "Error run program: "
+msgstr "Error ejecutando programa: "
+
 #: ../src/core/XWin.cc:17
 msgid "Couldn't open display"
 msgstr "No se puede acceder a la pantalla"
@@ -304,111 +308,111 @@ msgstr "No se puede obtener el fondo"
 msgid "Couldn't create window"
 msgstr "No se puede crear la ventana"
 
-#: ../src/config/Functions.cc:113
+#: ../src/config/Functions.cc:114
 msgid "Icon"
 msgstr "Icono"
 
-#: ../src/config/Functions.cc:117
+#: ../src/config/Functions.cc:118
 msgid "Title"
 msgstr "Título"
 
-#: ../src/config/Functions.cc:121
+#: ../src/config/Functions.cc:122
 msgid "Command"
 msgstr "Comando"
 
-#: ../src/config/Functions.cc:141
+#: ../src/config/Functions.cc:142
 msgid "top"
 msgstr "arriba"
 
-#: ../src/config/Functions.cc:144
+#: ../src/config/Functions.cc:145
 msgid "bottom"
 msgstr "abajo"
 
-#: ../src/config/Functions.cc:147
+#: ../src/config/Functions.cc:148
 msgid "left"
 msgstr "izquierda"
 
-#: ../src/config/Functions.cc:150
+#: ../src/config/Functions.cc:151
 msgid "right"
 msgstr "derecha"
 
-#: ../src/config/Functions.cc:153
+#: ../src/config/Functions.cc:154
 msgid "center"
 msgstr "centrar"
 
-#: ../src/config/Functions.cc:156
+#: ../src/config/Functions.cc:157
 msgid "bottom-left"
 msgstr "izquierda-abajo"
 
-#: ../src/config/Functions.cc:159
+#: ../src/config/Functions.cc:160
 msgid "bottom-right"
 msgstr "derecha-abajo"
 
-#: ../src/config/Functions.cc:162
+#: ../src/config/Functions.cc:163
 msgid "top-left"
 msgstr "izquierda-arriba"
 
-#: ../src/config/Functions.cc:165
+#: ../src/config/Functions.cc:166
 msgid "top-right"
 msgstr "derecha-arriba"
 
-#: ../src/config/Functions.cc:178
+#: ../src/config/Functions.cc:179
 msgid "none"
 msgstr "ninguno"
 
-#: ../src/config/Functions.cc:181
+#: ../src/config/Functions.cc:182
 msgid "hovered"
 msgstr "inmóvil"
 
-#: ../src/config/Functions.cc:184
+#: ../src/config/Functions.cc:185
 msgid "others"
 msgstr "otros"
 
-#: ../src/config/Functions.cc:187
+#: ../src/config/Functions.cc:188
 msgid "all"
 msgstr "todos"
 
-#: ../src/config/Functions.cc:663
+#: ../src/config/Functions.cc:679
 msgid "Error save config in "
 msgstr "Error al guardar la configuración en "
 
-#: ../src/config/Functions.cc:932
+#: ../src/config/Functions.cc:963
 msgid "Fields must not be empty"
 msgstr "Los campos no deben estar vacíos"
 
-#: ../src/config/Functions.cc:1106
+#: ../src/config/Functions.cc:1137
 msgid "Open exec file"
 msgstr "Abrir archivo ejecutable"
 
-#: ../src/config/Functions.cc:1130 ../src/config/Functions.cc:1192
+#: ../src/config/Functions.cc:1161 ../src/config/Functions.cc:1223
 msgid "Open image file"
 msgstr "Abrir archivo de imagen"
 
-#: ../src/config/Functions.cc:1140 ../src/config/Functions.cc:1202
+#: ../src/config/Functions.cc:1171 ../src/config/Functions.cc:1233
 msgid "Images"
 msgstr "Imagenes"
 
-#: ../src/config/Functions.cc:1160
+#: ../src/config/Functions.cc:1191
 msgid "Open font file"
 msgstr "Abrir archivo de fuente"
 
-#: ../src/config/Functions.cc:1169
+#: ../src/config/Functions.cc:1200
 msgid "Fonts"
 msgstr "Fuentes"
 
-#: ../src/config/Functions.cc:1238
+#: ../src/config/Functions.cc:1269
 msgid "About"
 msgstr "Acerca de"
 
-#: ../src/config/Functions.cc:1240
+#: ../src/config/Functions.cc:1271
 msgid "wbar config"
 msgstr "configuración wbar"
 
-#: ../src/config/Functions.cc:1242
+#: ../src/config/Functions.cc:1273
 msgid "Licence GPL - 2010"
 msgstr "Licencia GPL - 2010"
 
-#: ../src/config/Functions.cc:1245
+#: ../src/config/Functions.cc:1276
 msgid "wbar project website"
 msgstr "sitio web del proyecto wbar"
 
@@ -416,25 +420,10 @@ msgstr "sitio web del proyecto wbar"
 msgid "Problem load font file."
 msgstr "Problema al cargar el archivo de fuente."
 
-#, fuzzy
-#~ msgid "Bardock Manager"
-#~ msgstr "Página web del administrador bardock"
+#: ../src/config/Run.cc:136
+msgid "Error kill program: "
+msgstr "Error terminando programa: "
 
-#~ msgid "Program for running applications on desktop bar."
-#~ msgstr ""
-#~ "Programa para la ejecución de aplicaciones en la barra de escritorio."
-
-#~ msgid "Bardock manager website"
-#~ msgstr "Página web del administrador bardock"
-
-#~ msgid "Icon name:"
-#~ msgstr "Nombre de icono:"
-
-#~ msgid "_Settings"
-#~ msgstr "_Configuración"
-
-#~ msgid "Font size:"
-#~ msgstr "Tamaño de fuente:"
-
-#~ msgid "Path:"
-#~ msgstr "Ruta:"
+#: ../src/utils/Config.cc:41
+msgid "Error copy file: "
+msgstr "Error copiando archivo: "

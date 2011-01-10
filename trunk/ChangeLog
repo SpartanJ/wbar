@@ -1,3 +1,10 @@
+wbar (2.0.2)
+
+  * Se da solución a problema de compilación. (Closed: #35)
+  * Se agrega funcionalidad de filtro de color en wbar-config. (Closed: #36)
+
+ -- Yadickson Soto <yadickson@gmail.com> (10-01-2011)
+
 wbar (2.0.1)
 
   * Se da solución a problema de internacionalización de wbar.

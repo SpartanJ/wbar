@@ -1,5 +1,6 @@
 #include "Functions.h"
 #include <glade/glade.h>
+#include <gdk/gdk.h>
 #include <stdlib.h>
 #include <fstream>
 #include <string.h>
@@ -387,10 +388,25 @@ void set_config_states(std::string command)
         else if (filter == "all") gtk_combo_box_set_active (GTK_COMBO_BOX (combo), FILTER_ALL);
         else /*if (filter == "none")*/ gtk_combo_box_set_active (GTK_COMBO_BOX (combo), FILTER_NONE);
     }
+    
     if(opt.isSet(FC))
     {
         checkbutton = glade_xml_get_widget (xml, "checkbutton_fc");
         gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON (checkbutton), true);
+
+        std::string scolor = opt.getArg(FC);
+
+        Utils util;
+        scolor = util.replace(scolor, "0x", "#");
+
+        if (scolor.length() > 7)
+            scolor = scolor.substr (0, 7);
+
+        GdkColor rgb;
+        GtkWidget * color = glade_xml_get_widget (xml, "colorbutton_fc");
+
+        gdk_color_parse (scolor.c_str(), &rgb);
+        gtk_color_button_set_color (GTK_COLOR_BUTTON (color), &rgb);
     }
 }
 
@@ -906,6 +922,21 @@ std::string getCommand()
         }
     }
 
+    checkbutton = glade_xml_get_widget (xml, "checkbutton_fc");
+
+    if(gtk_toggle_button_get_active (GTK_TOGGLE_BUTTON (checkbutton)))
+    {
+        GtkWidget * color = glade_xml_get_widget (xml, "colorbutton_fc");
+        GdkColor rgb;
+        gchar text[16];
+        
+        gtk_color_button_get_color (GTK_COLOR_BUTTON (color), &rgb);
+		g_snprintf (text, sizeof (text), "0x%02x%02x%02x00", rgb.red >> 8, rgb.green >> 8, rgb.blue >> 8);
+        
+        command += " --fc ";
+        command += text;
+    }
+    
     return command;
 }
 

@@ -10,7 +10,8 @@
 #include <unistd.h>
 #include <fstream>
 #include <dirent.h>
-#include <config.h>
+#include <iostream>
+#include "i18n.h"
 
 Run::Run()
 {
@@ -119,7 +120,10 @@ bool Run::start(std::list<std::string> list)
 
 bool Run::start(std::string command)
 {
-    system ((PACKAGE_NAME" " + command + " &").c_str());
+    if (system ((PACKAGE_NAME" " + command + " &").c_str()) != 0)
+    {
+        std::cout << _("Error run program: ") << PACKAGE_NAME" " + command << std::endl;
+    }
     return Run::getPID() > 0;
 }
 
@@ -127,7 +131,10 @@ void Run::stop()
 {
     if (Run::getPID() > 0)
     {
-	system ("killall "PACKAGE_NAME);
+        if (system ("killall "PACKAGE_NAME) != 0)
+        {
+            std::cout << _("Error kill program: ") << PACKAGE_NAME << std::endl;
+        }
     }
 }
 
