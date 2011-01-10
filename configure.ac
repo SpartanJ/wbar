@@ -1,6 +1,6 @@
 dnl make yadickson soto
 
-AC_INIT(wbar, 2.0.1)
+AC_INIT(wbar, 2.0.2)
 AM_INIT_AUTOMAKE(AC_PACKAGE_NAME, AC_PACKAGE_VERSION)
 
 AM_CONFIG_HEADER(config.h)
@@ -64,7 +64,7 @@ PKG_CHECK_MODULES(gui_modules, [gtk+-2.0 libglade-2.0])
 AC_SUBST(gui_modules_CFLAGS)
 AC_SUBST(gui_modules_LIBS)
 
-CPPFLAGS="${CPPFLAGS} -Wall -Werror -g -O2"
+CPPFLAGS="${CPPFLAGS} -Wall -Wunused -Werror -g -O2"
 
 AC_CONFIG_FILES([Makefile \
 share/Makefile \

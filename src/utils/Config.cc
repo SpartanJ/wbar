@@ -11,7 +11,8 @@
 #include <fstream>
 #include <dirent.h>
 #include <regex.h>
-#include <config.h>
+#include <iostream>
+#include "i18n.h"
 
 Config::Config()
 {
@@ -34,7 +35,11 @@ std::string Config::getFile()
         command += "cp ";
         command += DEFAULT_CONFIGDIR"/wbar.cfg ";
         command += configFile;
-        system(command.c_str());
+
+        if (system(command.c_str()) != 0)
+        {
+            std::cout << _("Error copy file: ") << DEFAULT_CONFIGDIR"/wbar.cfg" << std::endl;
+        }
     }
 
     return configFile;

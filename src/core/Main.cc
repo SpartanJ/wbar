@@ -278,7 +278,12 @@ int main(int argc, char **argv)
                     if ((ev.xbutton.time - dblclk0 <dblclk_tm || dblclk_tm==0) && inum != -1)
                     {
                         if (fork()==0)
-                            execlp("sh", "sh", "-c", barra->iconCommand(inum).c_str(), NULL);
+                        {
+                            if (execlp("sh", "sh", "-c", barra->iconCommand(inum).c_str(), NULL) != 0)
+                            {
+                                std::cout << _("Error run program: ") << barra->iconCommand(inum) << std::endl;
+                            }
+                        }
 
                     }
                     else dblclk0 = ev.xbutton.time;

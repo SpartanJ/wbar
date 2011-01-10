@@ -6,3 +6,6 @@ src/core/Main.cc
 src/core/XWin.cc
 src/config/Functions.cc
 src/core/SuperBar.cc
+src/config/Run.cc
+src/utils/Config.cc
+
