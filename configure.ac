@@ -1,6 +1,6 @@
 dnl make yadickson soto
 
-AC_INIT(wbar, 2.1.0)
+AC_INIT(wbar, 2.1.1)
 AM_INIT_AUTOMAKE(AC_PACKAGE_NAME, AC_PACKAGE_VERSION)
 
 AM_CONFIG_HEADER(config.h)

@@ -915,10 +915,10 @@ std::string getCommand()
 
         switch((int)gtk_combo_box_get_active (GTK_COMBO_BOX (combo)))
         {
-            case FILTER_HOVERED: command += " hovered"; break;
-            case FILTER_OTHERS: command += " others"; break;
-            case FILTER_ALL: command += " all"; break;
-            case FILTER_NONE: command += " none"; break;
+            case FILTER_NONE:    command += " 0"; break;
+            case FILTER_HOVERED: command += " 1"; break;
+            case FILTER_OTHERS:  command += " 2"; break;
+            case FILTER_ALL:     command += " 3"; break;
         }
     }
 
