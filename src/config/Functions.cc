@@ -3,6 +3,7 @@
 #include <gdk/gdk.h>
 #include <stdlib.h>
 #include <fstream>
+#include <sstream>
 #include <string.h>
 #include "i18n.h"
 #include "Utils.h"
@@ -382,10 +383,13 @@ void set_config_states(std::string command)
         GtkWidget * combo = glade_xml_get_widget (xml, "combobox_filter");
 
         std::string filter = opt.getArg(FILTER);
-
-        if (filter == "hovered") gtk_combo_box_set_active (GTK_COMBO_BOX (combo), FILTER_HOVERED);
-        else if (filter == "others") gtk_combo_box_set_active (GTK_COMBO_BOX (combo), FILTER_OTHERS);
-        else if (filter == "all") gtk_combo_box_set_active (GTK_COMBO_BOX (combo), FILTER_ALL);
+        int f;
+        std::stringstream ss(filter);
+        ss >> f;
+        
+        if (f == 1) gtk_combo_box_set_active (GTK_COMBO_BOX (combo), FILTER_HOVERED);
+        else if (f == 2) gtk_combo_box_set_active (GTK_COMBO_BOX (combo), FILTER_OTHERS);
+        else if (f == 3) gtk_combo_box_set_active (GTK_COMBO_BOX (combo), FILTER_ALL);
         else /*if (filter == "none")*/ gtk_combo_box_set_active (GTK_COMBO_BOX (combo), FILTER_NONE);
     }
     
