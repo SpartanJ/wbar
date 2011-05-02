@@ -1,6 +1,6 @@
 dnl make yadickson soto
 
-AC_INIT(wbar, 2.1.1)
+AC_INIT(wbar, 2.1.2)
 AM_INIT_AUTOMAKE(AC_PACKAGE_NAME, AC_PACKAGE_VERSION)
 
 AM_CONFIG_HEADER(config.h)
@@ -77,3 +77,19 @@ src/Makefile])
 
 AC_OUTPUT
 
+
+if test -d po \
+   &&  test -e po/Makefile ; then
+   echo "======================================="
+   echo ""
+   echo "Execute make update-po"
+   echo ""
+   cd po
+   make update-po | perl -ne 'print if /:$/'
+   echo ""
+   for file in $(ls *.po); do \
+       sed -i '/^\"POT-Creation-Date:.*\\n.*$/d' $file
+   done
+   cd ..
+   echo "======================================="
+fi

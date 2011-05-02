@@ -7,7 +7,6 @@ msgid ""
 msgstr ""
 "Project-Id-Version: wbar 2.0.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-01-11 02:29-0430\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: Yadickson Soto <yadickson@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,7 +16,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8-bit\n"
 "Generated-By: pygettext.py 1.5\n"
 
-#: ../etc/wbar.desktop.in.h:1 ../src/config/Functions.cc:1274
+#: ../etc/wbar.desktop.in.h:1 ../src/config/Functions.cc:1278
 msgid "A light and fast launch bar."
 msgstr ""
 
@@ -72,7 +71,7 @@ msgstr "Tekstin esitys pois päältä"
 msgid "Down"
 msgstr "Alas"
 
-#: ../share/wbar.glade.h:12 ../src/config/Functions.cc:644
+#: ../share/wbar.glade.h:12 ../src/config/Functions.cc:648
 msgid "Edit"
 msgstr ""
 
@@ -109,7 +108,7 @@ msgstr "Kuvakes"
 msgid "Jump factor"
 msgstr "Hyppykerroin"
 
-#: ../share/wbar.glade.h:21 ../src/config/Functions.cc:607
+#: ../share/wbar.glade.h:21 ../src/config/Functions.cc:611
 msgid "New"
 msgstr ""
 
@@ -299,7 +298,7 @@ msgstr "Tekstin esitys pois päältä"
 msgid "View man(1)."
 msgstr ""
 
-#: ../src/core/Main.cc:291 ../src/config/Run.cc:125
+#: ../src/core/Main.cc:291 ../src/config/Run.cc:126
 msgid "Error run program: "
 msgstr ""
 
@@ -323,119 +322,119 @@ msgstr ""
 msgid "Couldn't create window"
 msgstr ""
 
-#: ../src/config/Functions.cc:114
+#: ../src/config/Functions.cc:115
 #, fuzzy
 msgid "Icon"
 msgstr "Kuvakes"
 
-#: ../src/config/Functions.cc:118
+#: ../src/config/Functions.cc:119
 msgid "Title"
 msgstr "Otsikko"
 
-#: ../src/config/Functions.cc:122
+#: ../src/config/Functions.cc:123
 #, fuzzy
 msgid "Command"
 msgstr "komento"
 
-#: ../src/config/Functions.cc:142
+#: ../src/config/Functions.cc:143
 msgid "top"
 msgstr "ylhäällä"
 
-#: ../src/config/Functions.cc:145
+#: ../src/config/Functions.cc:146
 msgid "bottom"
 msgstr "alhaalla"
 
-#: ../src/config/Functions.cc:148
+#: ../src/config/Functions.cc:149
 #, fuzzy
 msgid "left"
 msgstr "ylhäällä vasemmalla"
 
-#: ../src/config/Functions.cc:151
+#: ../src/config/Functions.cc:152
 msgid "right"
 msgstr "oikealla"
 
-#: ../src/config/Functions.cc:154
+#: ../src/config/Functions.cc:155
 msgid "center"
 msgstr ""
 
-#: ../src/config/Functions.cc:157
+#: ../src/config/Functions.cc:158
 msgid "bottom-left"
 msgstr "alhaalla vasemmalla"
 
-#: ../src/config/Functions.cc:160
+#: ../src/config/Functions.cc:161
 msgid "bottom-right"
 msgstr "alhaalla oikealla"
 
-#: ../src/config/Functions.cc:163
+#: ../src/config/Functions.cc:164
 msgid "top-left"
 msgstr "ylhäällä vasemmalla"
 
-#: ../src/config/Functions.cc:166
+#: ../src/config/Functions.cc:167
 msgid "top-right"
 msgstr "ylhäällä oikealla"
 
-#: ../src/config/Functions.cc:179
+#: ../src/config/Functions.cc:180
 msgid "none"
 msgstr "ei mikään"
 
-#: ../src/config/Functions.cc:182
+#: ../src/config/Functions.cc:183
 msgid "hovered"
 msgstr "leijaileva"
 
-#: ../src/config/Functions.cc:185
+#: ../src/config/Functions.cc:186
 msgid "others"
 msgstr "muut"
 
-#: ../src/config/Functions.cc:188
+#: ../src/config/Functions.cc:189
 msgid "all"
 msgstr "kaikki"
 
-#: ../src/config/Functions.cc:679
+#: ../src/config/Functions.cc:683
 msgid "Error save config in "
 msgstr ""
 
-#: ../src/config/Functions.cc:963
+#: ../src/config/Functions.cc:967
 msgid "Fields must not be empty"
 msgstr ""
 
-#: ../src/config/Functions.cc:1137
+#: ../src/config/Functions.cc:1141
 #, fuzzy
 msgid "Open exec file"
 msgstr "Avaa valintaikkuna"
 
-#: ../src/config/Functions.cc:1161 ../src/config/Functions.cc:1223
+#: ../src/config/Functions.cc:1165 ../src/config/Functions.cc:1227
 #, fuzzy
 msgid "Open image file"
 msgstr "Avaa valintaikkuna"
 
-#: ../src/config/Functions.cc:1171 ../src/config/Functions.cc:1233
+#: ../src/config/Functions.cc:1175 ../src/config/Functions.cc:1237
 msgid "Images"
 msgstr "Kuvat"
 
-#: ../src/config/Functions.cc:1191
+#: ../src/config/Functions.cc:1195
 #, fuzzy
 msgid "Open font file"
 msgstr "Avaa valintaikkuna"
 
-#: ../src/config/Functions.cc:1200
+#: ../src/config/Functions.cc:1204
 #, fuzzy
 msgid "Fonts"
 msgstr "Fontti:"
 
-#: ../src/config/Functions.cc:1269
+#: ../src/config/Functions.cc:1273
 msgid "About"
 msgstr "Tietoa"
 
-#: ../src/config/Functions.cc:1271
+#: ../src/config/Functions.cc:1275
 #, fuzzy
 msgid "wbar config"
 msgstr "Tietoa sovelluksesta WbarConf"
 
-#: ../src/config/Functions.cc:1273
+#: ../src/config/Functions.cc:1277
 msgid "Licence GPL - 2010"
 msgstr ""
 
-#: ../src/config/Functions.cc:1276
+#: ../src/config/Functions.cc:1280
 msgid "wbar project website"
 msgstr ""
 
@@ -444,7 +443,7 @@ msgstr ""
 msgid "Problem load font file."
 msgstr "Valitse fonttitiedosto"
 
-#: ../src/config/Run.cc:136
+#: ../src/config/Run.cc:137
 msgid "Error kill program: "
 msgstr ""
 

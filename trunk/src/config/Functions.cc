@@ -680,7 +680,7 @@ void on_settings_update()
                                   GTK_DIALOG_DESTROY_WITH_PARENT,
                                   GTK_MESSAGE_ERROR,
                                   GTK_BUTTONS_OK,
-                                  (_("Error save config in ") + filename).c_str());
+                                  "%s",(_("Error save config in ") + filename).c_str());
 
         gtk_dialog_run (GTK_DIALOG (dialog));
         gtk_widget_destroy (dialog);
