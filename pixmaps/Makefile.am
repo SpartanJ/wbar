@@ -9,8 +9,6 @@ osxbarback.png \
 anjuta.png \
 bluefish.png \
 gimp.png \
-iceweasel.png \
-nautilus.png \
 ooffice.png \
 pidgin.png \
 synaptic.png \
