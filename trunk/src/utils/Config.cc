@@ -16,6 +16,7 @@
 
 Config::Config()
 {
+    configFile = "";
 }
 
 Config::~Config()
@@ -24,6 +25,11 @@ Config::~Config()
 
 std::string Config::getFile()
 {
+    if (configFile != "")
+    {
+        return configFile;
+    }
+
     std::string homeDir = getenv("HOME");
     std::string configFile = homeDir + "/.wbar";
 
@@ -106,3 +112,7 @@ std::list < App * > Config::getAppList()
     return list;
 }
 
+void Config::setFile( std::string configFile )
+{
+   this->configFile = configFile;
+}

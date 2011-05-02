@@ -6,11 +6,13 @@
 
 enum Options
 {
+    CONFIG,
     BPRESS,
     ABOVE_DESK,
     VBAR,
     NOFONT,
     POS,
+    GROW,
     ISIZE,
     IDIST,
     NANIM,

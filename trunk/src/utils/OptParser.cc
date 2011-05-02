@@ -2,11 +2,13 @@
 
 static struct option long_options[] =
 {
+    {"config", 1, 0, 0},
     {"bpress", 0, 0, 0},
     {"above-desk", 0, 0, 0},
     {"vbar", 0, 0, 0},
     {"nofont", 0, 0, 0},
     {"pos", 1, 0, 0},
+    {"grow", 1, 0, 0},
     {"isize", 1, 0, 0},
     {"idist", 1, 0, 0},
     {"nanim", 1, 0, 0},

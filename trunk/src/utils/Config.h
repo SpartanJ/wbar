@@ -11,7 +11,10 @@ class Config
     Config();
     ~Config();
     std::string getFile();
+    void setFile( std::string configFile );
     std::list < App * > getAppList();
+    private:
+    std::string configFile;
 };
 
 #endif
