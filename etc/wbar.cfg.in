@@ -1,6 +1,6 @@
 i: @PIXMAPDIR@/@PACKAGE_NAME@/osxbarback.png
 c: @PACKAGE_NAME@ @DEFAULT_ARGV@
-t: 
+t: none
 
 i: @PIXMAPDIR@/@PACKAGE_NAME@/wbar.png
 c: wbar-config
