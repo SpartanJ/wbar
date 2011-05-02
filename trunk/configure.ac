@@ -1,7 +1,7 @@
 dnl make yadickson soto
 
-AC_INIT(wbar, 2.1.2)
-AM_INIT_AUTOMAKE(AC_PACKAGE_NAME, AC_PACKAGE_VERSION)
+AC_INIT([wbar], [2.1.2])
+AM_INIT_AUTOMAKE([ filename-length-max=256 tar-ustar ])
 
 AM_CONFIG_HEADER(config.h)
 AC_CONFIG_MACRO_DIR([m4])
@@ -10,8 +10,14 @@ AC_PROG_CXX
 AC_PROG_INSTALL
 AC_HEADER_STDC
 
+
 eval "prefix=$prefix"
-eval "exec_prefix=$exec_prefix"
+
+if test "$prefix" = "NONE" ; then
+    eval "prefix=/usr"
+fi
+
+eval "exec_prefix=$prefix"
 eval "libdir=$libdir"
 eval "bindir=$bindir"
 eval "datadir=$datadir"
@@ -60,9 +66,16 @@ PKG_CHECK_MODULES(modules, [imlib2])
 AC_SUBST(modules_CFLAGS)
 AC_SUBST(modules_LIBS)
 
-PKG_CHECK_MODULES(gui_modules, [gtk+-2.0 libglade-2.0])
-AC_SUBST(gui_modules_CFLAGS)
-AC_SUBST(gui_modules_LIBS)
+AC_ARG_ENABLE(wbar-config, AS_HELP_STRING([--disable-wbar-config],
+	[build without the GTK+ configuration interface]),[use_wbar_config=$enableval],
+	[use_wbar_config=yes])
+if test "$use_wbar_config" = "yes"; then
+	PKG_CHECK_MODULES(gui_modules, [gtk+-2.0 libglade-2.0])
+	AC_SUBST(gui_modules_CFLAGS)
+	AC_SUBST(gui_modules_LIBS)
+fi
+
+AM_CONDITIONAL([WBAR_CONFIG],[test "$use_wbar_config" = "yes"])
 
 CPPFLAGS="${CPPFLAGS} -Wall -Wunused -Werror -g -O2"
 
@@ -73,6 +86,9 @@ etc/wbar.cfg \
 etc/wbar.desktop.in \
 pixmaps/Makefile \
 po/Makefile.in \
+doc/Makefile
+doc/man/Makefile
+doc/man/es/Makefile
 src/Makefile])
 
 AC_OUTPUT

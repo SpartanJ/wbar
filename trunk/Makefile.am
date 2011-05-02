@@ -1,4 +1,4 @@
 CLEANFILES = *~ po/*~
-SUBDIRS = src po pixmaps etc share
+SUBDIRS = src po pixmaps etc share doc
 
 
