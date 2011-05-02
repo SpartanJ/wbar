@@ -7,7 +7,6 @@ msgid ""
 msgstr ""
 "Project-Id-Version: wbar 2.0.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-01-11 02:29-0430\n"
 "PO-Revision-Date: 2008-05-02 16:10+0200\n"
 "Last-Translator: Yadickson Soto <yadickson@gmail.com>\n"
 "Language-Team: Deutsch <yadickson@gmail.com>\n"
@@ -16,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8-bit\n"
 
-#: ../etc/wbar.desktop.in.h:1 ../src/config/Functions.cc:1274
+#: ../etc/wbar.desktop.in.h:1 ../src/config/Functions.cc:1278
 msgid "A light and fast launch bar."
 msgstr ""
 
@@ -71,7 +70,7 @@ msgstr "Schriftanzeige unterdrücken"
 msgid "Down"
 msgstr "Nach unten"
 
-#: ../share/wbar.glade.h:12 ../src/config/Functions.cc:644
+#: ../share/wbar.glade.h:12 ../src/config/Functions.cc:648
 msgid "Edit"
 msgstr ""
 
@@ -108,7 +107,7 @@ msgstr "Symbols"
 msgid "Jump factor"
 msgstr "Jump-Faktor"
 
-#: ../share/wbar.glade.h:21 ../src/config/Functions.cc:607
+#: ../share/wbar.glade.h:21 ../src/config/Functions.cc:611
 msgid "New"
 msgstr ""
 
@@ -298,7 +297,7 @@ msgstr "Schriftanzeige unterdrücken"
 msgid "View man(1)."
 msgstr ""
 
-#: ../src/core/Main.cc:291 ../src/config/Run.cc:125
+#: ../src/core/Main.cc:291 ../src/config/Run.cc:126
 msgid "Error run program: "
 msgstr ""
 
@@ -322,119 +321,119 @@ msgstr ""
 msgid "Couldn't create window"
 msgstr ""
 
-#: ../src/config/Functions.cc:114
+#: ../src/config/Functions.cc:115
 #, fuzzy
 msgid "Icon"
 msgstr "Symbols"
 
-#: ../src/config/Functions.cc:118
+#: ../src/config/Functions.cc:119
 msgid "Title"
 msgstr "Titel"
 
-#: ../src/config/Functions.cc:122
+#: ../src/config/Functions.cc:123
 #, fuzzy
 msgid "Command"
 msgstr "Befehl"
 
-#: ../src/config/Functions.cc:142
+#: ../src/config/Functions.cc:143
 msgid "top"
 msgstr "Oben"
 
-#: ../src/config/Functions.cc:145
+#: ../src/config/Functions.cc:146
 msgid "bottom"
 msgstr "Unten"
 
-#: ../src/config/Functions.cc:148
+#: ../src/config/Functions.cc:149
 #, fuzzy
 msgid "left"
 msgstr "Oben links"
 
-#: ../src/config/Functions.cc:151
+#: ../src/config/Functions.cc:152
 msgid "right"
 msgstr "Rechts"
 
-#: ../src/config/Functions.cc:154
+#: ../src/config/Functions.cc:155
 msgid "center"
 msgstr "Mitte"
 
-#: ../src/config/Functions.cc:157
+#: ../src/config/Functions.cc:158
 msgid "bottom-left"
 msgstr "Unten links"
 
-#: ../src/config/Functions.cc:160
+#: ../src/config/Functions.cc:161
 msgid "bottom-right"
 msgstr "Unten rechts"
 
-#: ../src/config/Functions.cc:163
+#: ../src/config/Functions.cc:164
 msgid "top-left"
 msgstr "Oben links"
 
-#: ../src/config/Functions.cc:166
+#: ../src/config/Functions.cc:167
 msgid "top-right"
 msgstr "Oben rechts"
 
-#: ../src/config/Functions.cc:179
+#: ../src/config/Functions.cc:180
 msgid "none"
 msgstr "Kein"
 
-#: ../src/config/Functions.cc:182
+#: ../src/config/Functions.cc:183
 msgid "hovered"
 msgstr "Nur hervorgehobene Symbole"
 
-#: ../src/config/Functions.cc:185
+#: ../src/config/Functions.cc:186
 msgid "others"
 msgstr "Alle nicht hervorgehobenen Symbole"
 
-#: ../src/config/Functions.cc:188
+#: ../src/config/Functions.cc:189
 msgid "all"
 msgstr "Alle"
 
-#: ../src/config/Functions.cc:679
+#: ../src/config/Functions.cc:683
 msgid "Error save config in "
 msgstr ""
 
-#: ../src/config/Functions.cc:963
+#: ../src/config/Functions.cc:967
 msgid "Fields must not be empty"
 msgstr ""
 
-#: ../src/config/Functions.cc:1137
+#: ../src/config/Functions.cc:1141
 #, fuzzy
 msgid "Open exec file"
 msgstr "Öffnen des Dateiauswahldialogs"
 
-#: ../src/config/Functions.cc:1161 ../src/config/Functions.cc:1223
+#: ../src/config/Functions.cc:1165 ../src/config/Functions.cc:1227
 #, fuzzy
 msgid "Open image file"
 msgstr "Öffnen des Dateiauswahldialogs"
 
-#: ../src/config/Functions.cc:1171 ../src/config/Functions.cc:1233
+#: ../src/config/Functions.cc:1175 ../src/config/Functions.cc:1237
 msgid "Images"
 msgstr "Bilddateien"
 
-#: ../src/config/Functions.cc:1191
+#: ../src/config/Functions.cc:1195
 #, fuzzy
 msgid "Open font file"
 msgstr "Öffnen des Dateiauswahldialogs"
 
-#: ../src/config/Functions.cc:1200
+#: ../src/config/Functions.cc:1204
 #, fuzzy
 msgid "Fonts"
 msgstr "Schrift:"
 
-#: ../src/config/Functions.cc:1269
+#: ../src/config/Functions.cc:1273
 msgid "About"
 msgstr "Über"
 
-#: ../src/config/Functions.cc:1271
+#: ../src/config/Functions.cc:1275
 #, fuzzy
 msgid "wbar config"
 msgstr "Über Wbarconf"
 
-#: ../src/config/Functions.cc:1273
+#: ../src/config/Functions.cc:1277
 msgid "Licence GPL - 2010"
 msgstr ""
 
-#: ../src/config/Functions.cc:1276
+#: ../src/config/Functions.cc:1280
 msgid "wbar project website"
 msgstr ""
 
@@ -443,7 +442,7 @@ msgstr ""
 msgid "Problem load font file."
 msgstr "Schrift auswählen..."
 
-#: ../src/config/Run.cc:136
+#: ../src/config/Run.cc:137
 msgid "Error kill program: "
 msgstr ""
 
