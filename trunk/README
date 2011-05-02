@@ -42,6 +42,10 @@ Installing: (for the impacient)
 
 $ ./configure --prefix=/usr --exec_prefix=/usr --sysconfdir=/etc
 
+or disable wbar-config
+
+$ ./configure --prefix=/usr --exec_prefix=/usr --sysconfdir=/etc --disable-wbar-config
+
 $ make
 
 As root
