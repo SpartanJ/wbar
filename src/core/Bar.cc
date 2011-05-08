@@ -12,7 +12,7 @@ using namespace std;
 /* Bar Constructor & Destructor */
 Bar::Bar(XWin *win, string barImg, int iSize, int iDist, float zFactor,
         float jFactor, int bOrient, int bPosition, int nAnim,
-        int offset) :
+        int offset, int grow) :
 
 /* Initialization */
     buffer(0), cleaning_buffer(0), barback(0), bar(0), window(win), icon_dist(iDist),
@@ -21,6 +21,7 @@ Bar::Bar(XWin *win, string barImg, int iSize, int iDist, float zFactor,
 {
 
     this->bOffset = offset;
+    this->grow = grow;
 
     /* Load Bar back ground */
     if (!(bar = LOAD_IMAGE(barImg.c_str())))
@@ -116,15 +117,27 @@ void Bar::scale(bool updateBG)
     up_growth-= icon_size*0.125;
     dn_growth-= icon_size*0.125;
 
+    std::cout << "hola" << std::endl;
+
     /* Set new window width */
     window->w = (int)(width + 2*icon_offset);
-    window->h = height + 2*MARGEN +
+    window->h = 1.75*height + 2*MARGEN +
             (int)((up_growth>0.0? up_growth : 0.0))+
             (int)((dn_growth>0.0? dn_growth : 0.0));
 
     /* Initial Bar position */
-    y = MARGEN + (int)(up_growth>0.0? up_growth : 0.0);
-    x = (int)icon_offset;
+
+    switch(grow)
+    {
+        case 1: // normal
+            y = MARGEN + (int)(up_growth>0.0? up_growth : 0.0);
+            x = (int)icon_offset;
+            break;
+        case 2: // inverted
+            y = MARGEN;
+            x = (int)icon_offset;
+            break;
+    }
 
     if (updateBG)
         acquireBack();
@@ -267,8 +280,17 @@ void Bar::transform(int mousex)
 #endif
 
 
-            cur_ic->y = cur_ic->oy - (int)(jump_factor*(cur_ic->size-icon_size));
-            cur_ic->need_update = 1;
+            switch(grow)
+            {
+                case 1: // normal
+                    cur_ic->y = cur_ic->oy - (int)(jump_factor*(cur_ic->size-icon_size));
+                    cur_ic->need_update = 1;
+                    break;
+                case 2: // inverted
+                    cur_ic->y = cur_ic->oy;
+                    cur_ic->need_update = 1;
+                    break;
+            }
         }
     }
 }
@@ -572,6 +594,20 @@ void Bar::setPosition(string pos)
         position = 4;
     }
     acquireBack();
+}
+/*}}}*/
+
+/* Grow icon the Bar */
+void Bar::setGrow(string g)
+{
+    if (!g.compare("normal")) grow = 1;
+    else if (!g.compare("inverted")) grow = 2;
+    else
+    {
+        std::cout << _("Invalid icon grow bar.") << " " << g << std::endl;
+        std::cout << _("Set default icon grow bar.") << std::endl;
+        grow = 1;
+    }
 }
 /*}}}*/
 

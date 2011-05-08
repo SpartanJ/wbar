@@ -44,7 +44,7 @@ extern "C"
     void checkbutton_toggled (GtkToggleButton *togglebutton, gpointer data);
     gboolean widget_hide(GtkWidget * widget, GdkEvent * event, gpointer data);
     void show_about();
-
+    
 #ifdef __cplusplus
 }
 #endif

@@ -2,6 +2,15 @@ CLEANFILES = *~
 
 bin_PROGRAMS = wbar
 
+AM_CPPFLAGS = \
+	-DPACKAGE_LOCALE_DIR=\""$(prefix)/$(DATADIRNAME)/locale"\" \
+	-DPACKAGE_SRC_DIR=\""$(srcdir)"\" \
+	-DPACKAGE_DATA_DIR=\""$(datadir)"\" \
+	-Wall \
+	-Wunused \
+	-Werror \
+	-I$(top_srcdir)/src/utils
+
 if WBAR_CONFIG
  bin_PROGRAMS += wbar-config
 endif
@@ -27,7 +36,7 @@ $(top_srcdir)/src/config/Run.h \
 $(top_srcdir)/src/config/Run.cc \
 $(top_srcdir)/src/config/Functions.cc \
 $(top_srcdir)/src/config/Functions.h \
-$(top_srcdir)/src/config/Main.cc \
+$(top_srcdir)/src/config/MainConfig.cc \
 $(UTILS)
 endif
 
@@ -42,11 +51,11 @@ $(top_srcdir)/src/utils/OptParser.cc \
 $(top_srcdir)/src/utils/OptParser.h \
 $(top_srcdir)/src/utils/i18n.h
 
-wbar_CPPFLAGS = @modules_CFLAGS@ -I$(top_srcdir)/src/utils
-wbar_LDFLAGS = @modules_LIBS@
+wbar_CXXFLAGS = @modules_CFLAGS@
+wbar_LDADD = @modules_LIBS@
 
 if WBAR_CONFIG
-wbar_config_CPPFLAGS = @gui_modules_CFLAGS@ -I$(top_srcdir)/src/utils
-wbar_config_LDFLAGS = @gui_modules_LIBS@
+wbar_config_CXXFLAGS = @gui_modules_CFLAGS@
+wbar_config_LDADD = @gui_modules_LIBS@
 endif
 

@@ -70,7 +70,7 @@ char ** Run::getArg(int &argc)
             }
 
             file.close();
-	    Utils util;
+            Utils util;
             list = util.split(line, " ");
 
             argc = list.size();
