@@ -117,8 +117,6 @@ void Bar::scale(bool updateBG)
     up_growth-= icon_size*0.125;
     dn_growth-= icon_size*0.125;
 
-    std::cout << "hola" << std::endl;
-
     /* Set new window width */
     window->w = (int)(width + 2*icon_offset);
     window->h = 1.75*height + 2*MARGEN +
