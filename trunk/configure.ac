@@ -1,6 +1,6 @@
 dnl make yadickson soto
 
-AC_INIT([wbar], [2.1.2])
+AC_INIT([wbar], [2.2.0])
 AM_INIT_AUTOMAKE([ filename-length-max=256 tar-ustar ])
 
 AM_CONFIG_HEADER(config.h)
@@ -55,7 +55,7 @@ AC_DEFINE_UNQUOTED(GLADE_PACKAGE_DIR, "$GLADE_PACKAGE_DIR" , [ The glade package
 AC_SUBST(GLADE_PACKAGE_NAME, "$GLADE_PACKAGE_DIR/AC_PACKAGE_NAME.glade")
 AC_DEFINE_UNQUOTED(GLADE_PACKAGE_NAME, "$GLADE_PACKAGE_NAME" , [ The glade package name ])
 
-AC_SUBST(DEFAULT_ARGV, "--bpress --above-desk --vbar --pos right --isize 32 --idist 5 --nanim 4 --falfa 65")
+AC_SUBST(DEFAULT_ARGV, "--bpress --above-desk --vbar --grow left --pos right --isize 32 --idist 5 --nanim 4 --falfa 65")
 AC_DEFINE_UNQUOTED(DEFAULT_ARGV, "$DEFAULT_ARGV" , [ The default argv ])
 
 AC_PROG_INTLTOOL()
@@ -76,8 +76,6 @@ if test "$use_wbar_config" = "yes"; then
 fi
 
 AM_CONDITIONAL([WBAR_CONFIG],[test "$use_wbar_config" = "yes"])
-
-CPPFLAGS="${CPPFLAGS} -Wall -Wunused -Werror -g -O2"
 
 AC_CONFIG_FILES([Makefile \
 share/Makefile \

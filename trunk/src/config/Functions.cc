@@ -30,6 +30,13 @@ static const gchar * translater = "Yadickson Soto <yadickson@gmail.com>";
 
 static GladeXML * xml = NULL;
 static bool edit = false;
+std::string configFile;
+
+enum GrowIcons
+{
+    GROW_NORMAL,
+    GROW_INVERTED
+};
 
 enum Positions
 {
@@ -131,6 +138,22 @@ void set_comboboxs()
     GtkTreeIter iter;
     GtkCellRenderer *cell; 
 
+    combo = glade_xml_get_widget (xml, "combobox_grow");
+    list_store = gtk_list_store_new (COMBO_COLUMNS, G_TYPE_STRING, G_TYPE_INT);
+    gtk_combo_box_set_model (GTK_COMBO_BOX(combo), GTK_TREE_MODEL (list_store));
+
+    cell = gtk_cell_renderer_text_new();
+    gtk_cell_layout_pack_start(GTK_CELL_LAYOUT(combo), cell, TRUE);
+    gtk_cell_layout_set_attributes(GTK_CELL_LAYOUT(combo), cell, "text", 0, NULL); 
+
+    gtk_list_store_append(list_store, &iter);
+    gtk_list_store_set (list_store, &iter, COMBO_COLUMN_TEXT, _("normal"), COMBO_COLUMN_ID, GROW_NORMAL, -1);
+
+    gtk_list_store_append (list_store, &iter);
+    gtk_list_store_set (list_store, &iter, COMBO_COLUMN_TEXT, _("inverted"), COMBO_COLUMN_ID, GROW_INVERTED, -1);
+
+    gtk_combo_box_set_active (GTK_COMBO_BOX (combo), GROW_NORMAL);
+
     combo = glade_xml_get_widget (xml, "combobox_pos");
     list_store = gtk_list_store_new (COMBO_COLUMNS, G_TYPE_STRING, G_TYPE_INT);
     gtk_combo_box_set_model (GTK_COMBO_BOX(combo), GTK_TREE_MODEL (list_store));
@@ -194,7 +217,7 @@ void set_comboboxs()
 
 void set_config()
 {
-    Config config;
+    Config config;    
     std::list <App *> list = config.getAppList();
 
     if (list.size() == 0) return;
@@ -268,6 +291,61 @@ void set_config_states(std::string command)
         }
     }
 
+    OptParser tmpoptparser(argc, argv);
+
+    if ( tmpoptparser.isSet( CONFIG ) )
+    {
+       configFile = tmpoptparser.getArg( CONFIG );
+       Config config;
+       config.setFile (configFile);
+       config.getAppList ();
+
+        std::list<App *> list = config.getAppList();
+        std::list<App *>::iterator it;
+        App *p;
+
+        if (list.size() != 0)
+        {
+            it = list.begin();
+            p = (*it);
+        }
+        else
+        {
+            throw _("Configuration empty.");
+        }
+
+        command = p->getCommand();
+        delete p;
+        
+        if (command.empty())
+        {
+            command = PACKAGE_NAME" "DEFAULT_ARGV;
+        }
+
+        if (argc <= 1 || tmpoptparser.isSet( CONFIG ))
+        {
+            std::list<std::string> list;
+            Utils util;
+            list = util.split ( command, " " );
+            argc = list.size();
+
+            if (argc > 1)
+            {
+                if (argc > 0) delete[] argv;
+                std::list<std::string>::iterator ac;
+                argv = new char * [argc + 1];
+                int i = 0;
+
+                for (ac = list.begin();ac != list.end();ac++, i++)
+                {
+                    argv[i] = strdup((*ac).c_str());
+                }
+
+                argv[argc] = NULL;
+            }
+        }
+    }
+
     OptParser opt(argc, argv);
 
     if(opt.isSet(BPRESS))
@@ -307,6 +385,17 @@ void set_config_states(std::string command)
         else if (pos == "top-left") gtk_combo_box_set_active (GTK_COMBO_BOX (combo), POS_TOP_LEFT);
         else if (pos == "top-right") gtk_combo_box_set_active (GTK_COMBO_BOX (combo), POS_TOP_RIGHT);
         else /*if (pos == "right")*/ gtk_combo_box_set_active (GTK_COMBO_BOX (combo), POS_RIGHT);
+    }
+    if(opt.isSet(GROW))
+    {
+        checkbutton = glade_xml_get_widget (xml, "checkbutton_grow");
+        gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON (checkbutton), true);
+        GtkWidget * combo = glade_xml_get_widget (xml, "combobox_grow");
+
+        std::string pos = opt.getArg(GROW);
+
+        if (pos == "inverted") gtk_combo_box_set_active (GTK_COMBO_BOX (combo), GROW_INVERTED);
+        else /*if (pos == "normal")*/ gtk_combo_box_set_active (GTK_COMBO_BOX (combo), GROW_NORMAL);
     }
     if(opt.isSet(OFFSET))
     {
@@ -412,6 +501,8 @@ void set_config_states(std::string command)
         gdk_color_parse (scolor.c_str(), &rgb);
         gtk_color_button_set_color (GTK_COLOR_BUTTON (color), &rgb);
     }
+
+    if (argc > 0) delete[] argv;
 }
 
 void set_signals()
@@ -471,6 +562,10 @@ void set_signals()
 
     check = glade_xml_get_widget (xml, "checkbutton_pos");
     widget = glade_xml_get_widget (xml, "combobox_pos");
+    g_signal_connect (G_OBJECT (check), "toggled", G_CALLBACK (checkbutton_toggled), widget);
+
+    check = glade_xml_get_widget (xml, "checkbutton_grow");
+    widget = glade_xml_get_widget (xml, "combobox_grow");
     g_signal_connect (G_OBJECT (check), "toggled", G_CALLBACK (checkbutton_toggled), widget);
 
     check = glade_xml_get_widget (xml, "checkbutton_offset");
@@ -671,7 +766,7 @@ void on_settings_delete()
 void on_settings_update()
 {
     Config config;
-    std::string filename = config.getFile();
+    std::string filename = configFile.empty() ? config.getFile() : configFile;
     std::ofstream file(filename.c_str());
 
     if (!file.is_open())
@@ -739,6 +834,14 @@ void on_settings_update()
     file.close();
 
     Run run;
+
+    if (!configFile.empty())
+    {
+        fullcommand = PACKAGE_NAME;
+        fullcommand += " --config ";
+        fullcommand += configFile;
+    }
+
     run.restart(fullcommand);
 }
 
@@ -801,6 +904,20 @@ std::string getCommand()
             case POS_BOTTOM_RIGHT: command += " bottom-right"; break;
             case POS_TOP_LEFT: command += " top-left"; break;
             case POS_TOP_RIGHT: command += " top-right"; break;
+        }
+    }
+
+    checkbutton = glade_xml_get_widget (xml, "checkbutton_grow");
+
+    if (gtk_toggle_button_get_active (GTK_TOGGLE_BUTTON (checkbutton)))
+    {
+        command += " --grow";
+        GtkWidget * combo = glade_xml_get_widget (xml, "combobox_grow");
+
+        switch((int)gtk_combo_box_get_active (GTK_COMBO_BOX (combo)))
+        {
+            case GROW_NORMAL: command += " normal"; break;
+            case GROW_INVERTED: command += " inverted"; break;
         }
     }
 

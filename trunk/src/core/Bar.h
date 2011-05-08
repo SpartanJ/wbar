@@ -54,7 +54,7 @@ protected:
     int width, height;
     int orientation;
     int position;
-
+    int grow;
     /* actual zoomed icon */
     int zoomed_icon;
     /* is bar focused? */
@@ -81,7 +81,7 @@ protected:
 public:
 
     Bar(XWin *win, std::string barImg, int iSize, int iDist, float zFactor,
-        float jFactor, int bOrient, int bPosition, int nAnim, int offset);
+        float jFactor, int bOrient, int bPosition, int nAnim, int offset, int grow);
 
     virtual ~Bar();
 
@@ -99,6 +99,7 @@ public:
     void iconDown(int i_num);
     void iconUp(int i_num);
     void setPosition(std::string p);
+    void setGrow(std::string g);
 
     //void setZoom(float zoomf);
     //float getZoom();

@@ -38,7 +38,7 @@ class SuperBar : public Bar{
     public:
 	SuperBar(XWin *win, std::string barImg, std::string barFont, int iSize, int iDist, 
 		float zFactor, float jFactor, int bOrient, int bPosition, int nAnim,
-		int barAlfa, int unfocusAlfa, int filtSel, unsigned int filtCol, bool dfont, int offset);
+		int barAlfa, int unfocusAlfa, int filtSel, unsigned int filtCol, bool dfont, int offset, int grow);
 
 	~SuperBar();
 

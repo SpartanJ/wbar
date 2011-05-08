@@ -80,3 +80,7 @@ std::string OptParser::getArg(Options opt)
     return "";
 }
 
+char ** OptParser::getArgv ()
+{
+    return this->argv;
+}

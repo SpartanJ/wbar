@@ -38,7 +38,8 @@ class OptParser
 
 	bool isSet(Options opt);
 	std::string getArg(Options opt);
-
+    char ** getArgv();
+        
     private:
     int argc;
     char **argv;

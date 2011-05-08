@@ -1,4 +1,4 @@
-<?xml version="1.0"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <glade-interface>
   <!-- interface-requires gtk+ 2.16 -->
   <!-- interface-naming-policy project-wide -->
@@ -43,7 +43,6 @@
     <child internal-child="vbox">
       <widget class="GtkVBox" id="dialog-vbox3">
         <property name="visible">True</property>
-        <property name="orientation">vertical</property>
         <property name="spacing">2</property>
         <child>
           <widget class="GtkNotebook" id="notebook1">
@@ -52,7 +51,6 @@
             <child>
               <widget class="GtkVBox" id="vbox4">
                 <property name="visible">True</property>
-                <property name="orientation">vertical</property>
                 <child>
                   <widget class="GtkToolbar" id="toolbar1">
                     <property name="visible">True</property>
@@ -146,7 +144,6 @@
                       <widget class="GtkVBox" id="vbox5">
                         <property name="visible">True</property>
                         <property name="border_width">5</property>
-                        <property name="orientation">vertical</property>
                         <property name="spacing">5</property>
                         <child>
                           <placeholder/>
@@ -252,12 +249,10 @@
               <widget class="GtkVBox" id="vbox2">
                 <property name="visible">True</property>
                 <property name="border_width">10</property>
-                <property name="orientation">vertical</property>
                 <property name="spacing">5</property>
                 <child>
                   <widget class="GtkVBox" id="vbox6">
                     <property name="visible">True</property>
-                    <property name="orientation">vertical</property>
                     <property name="spacing">5</property>
                     <child>
                       <widget class="GtkTable" id="table2">
@@ -285,7 +280,7 @@
                             <property name="visible">True</property>
                             <property name="can_focus">True</property>
                             <property name="editable">False</property>
-                            <property name="invisible_char">&#x25CF;</property>
+                            <property name="invisible_char">●</property>
                           </widget>
                           <packing>
                             <property name="left_attach">3</property>
@@ -297,7 +292,7 @@
                           <widget class="GtkSpinButton" id="spinbutton_font_size">
                             <property name="visible">True</property>
                             <property name="can_focus">True</property>
-                            <property name="invisible_char">&#x25CF;</property>
+                            <property name="invisible_char">●</property>
                             <property name="adjustment">10 10 24 1 0 0</property>
                           </widget>
                           <packing>
@@ -361,7 +356,7 @@
                           <widget class="GtkEntry" id="entry_image_name">
                             <property name="visible">True</property>
                             <property name="can_focus">True</property>
-                            <property name="invisible_char">&#x25CF;</property>
+                            <property name="invisible_char">●</property>
                           </widget>
                           <packing>
                             <property name="left_attach">1</property>
@@ -402,7 +397,7 @@
                 <child>
                   <widget class="GtkTable" id="table5">
                     <property name="visible">True</property>
-                    <property name="n_rows">7</property>
+                    <property name="n_rows">8</property>
                     <property name="n_columns">2</property>
                     <property name="row_spacing">4</property>
                     <child>
@@ -489,8 +484,8 @@
                         <property name="draw_indicator">True</property>
                       </widget>
                       <packing>
-                        <property name="top_attach">5</property>
-                        <property name="bottom_attach">6</property>
+                        <property name="top_attach">6</property>
+                        <property name="bottom_attach">7</property>
                       </packing>
                     </child>
                     <child>
@@ -498,14 +493,14 @@
                         <property name="visible">True</property>
                         <property name="sensitive">False</property>
                         <property name="can_focus">True</property>
-                        <property name="invisible_char">&#x2022;</property>
+                        <property name="invisible_char">•</property>
                         <property name="adjustment">0 0 200 1 0 0</property>
                       </widget>
                       <packing>
                         <property name="left_attach">1</property>
                         <property name="right_attach">2</property>
-                        <property name="top_attach">5</property>
-                        <property name="bottom_attach">6</property>
+                        <property name="top_attach">6</property>
+                        <property name="bottom_attach">7</property>
                         <property name="x_options">GTK_FILL</property>
                       </packing>
                     </child>
@@ -518,8 +513,8 @@
                         <property name="draw_indicator">True</property>
                       </widget>
                       <packing>
-                        <property name="top_attach">6</property>
-                        <property name="bottom_attach">7</property>
+                        <property name="top_attach">7</property>
+                        <property name="bottom_attach">8</property>
                       </packing>
                     </child>
                     <child>
@@ -536,6 +531,33 @@
                     </child>
                     <child>
                       <placeholder/>
+                    </child>
+                    <child>
+                      <widget class="GtkCheckButton" id="checkbutton_grow">
+                        <property name="label" translatable="yes">Grow icons</property>
+                        <property name="visible">True</property>
+                        <property name="can_focus">True</property>
+                        <property name="receives_default">False</property>
+                        <property name="draw_indicator">True</property>
+                      </widget>
+                      <packing>
+                        <property name="top_attach">5</property>
+                        <property name="bottom_attach">6</property>
+                      </packing>
+                    </child>
+                    <child>
+                      <widget class="GtkComboBox" id="combobox_grow">
+                        <property name="width_request">100</property>
+                        <property name="visible">True</property>
+                        <property name="sensitive">False</property>
+                      </widget>
+                      <packing>
+                        <property name="left_attach">1</property>
+                        <property name="right_attach">2</property>
+                        <property name="top_attach">5</property>
+                        <property name="bottom_attach">6</property>
+                        <property name="x_options">GTK_FILL</property>
+                      </packing>
                     </child>
                   </widget>
                   <packing>
@@ -580,7 +602,7 @@
                     <property name="visible">True</property>
                     <property name="sensitive">False</property>
                     <property name="can_focus">True</property>
-                    <property name="invisible_char">&#x25CF;</property>
+                    <property name="invisible_char">●</property>
                     <property name="adjustment">24 24 64 1 0 0</property>
                   </widget>
                   <packing>
@@ -711,7 +733,7 @@
                     <property name="visible">True</property>
                     <property name="sensitive">False</property>
                     <property name="can_focus">True</property>
-                    <property name="invisible_char">&#x25CF;</property>
+                    <property name="invisible_char">●</property>
                     <property name="adjustment">1 1 32 1 0 0</property>
                   </widget>
                   <packing>
@@ -727,7 +749,7 @@
                     <property name="visible">True</property>
                     <property name="sensitive">False</property>
                     <property name="can_focus">True</property>
-                    <property name="invisible_char">&#x25CF;</property>
+                    <property name="invisible_char">●</property>
                     <property name="adjustment">5 1 100 1 0 0</property>
                   </widget>
                   <packing>
@@ -743,7 +765,7 @@
                     <property name="visible">True</property>
                     <property name="sensitive">False</property>
                     <property name="can_focus">True</property>
-                    <property name="invisible_char">&#x25CF;</property>
+                    <property name="invisible_char">●</property>
                     <property name="adjustment">1.8 0.10000000000000001 10 0.10000000000000001 0 0</property>
                     <property name="digits">1</property>
                   </widget>
@@ -760,7 +782,7 @@
                     <property name="visible">True</property>
                     <property name="sensitive">False</property>
                     <property name="can_focus">True</property>
-                    <property name="invisible_char">&#x25CF;</property>
+                    <property name="invisible_char">●</property>
                     <property name="adjustment">1 0.10000000000000001 10 0.10000000000000001 0 0</property>
                     <property name="digits">1</property>
                   </widget>
@@ -777,7 +799,7 @@
                     <property name="visible">True</property>
                     <property name="sensitive">False</property>
                     <property name="can_focus">True</property>
-                    <property name="invisible_char">&#x25CF;</property>
+                    <property name="invisible_char">●</property>
                     <property name="adjustment">250 0 500 1 0 0</property>
                   </widget>
                   <packing>
@@ -793,7 +815,7 @@
                     <property name="visible">True</property>
                     <property name="sensitive">False</property>
                     <property name="can_focus">True</property>
-                    <property name="invisible_char">&#x25CF;</property>
+                    <property name="invisible_char">●</property>
                     <property name="adjustment">90 0 100 1 0 0</property>
                   </widget>
                   <packing>
@@ -809,7 +831,7 @@
                     <property name="visible">True</property>
                     <property name="sensitive">False</property>
                     <property name="can_focus">True</property>
-                    <property name="invisible_char">&#x25CF;</property>
+                    <property name="invisible_char">●</property>
                     <property name="adjustment">60 0 100 1 0 0</property>
                   </widget>
                   <packing>
@@ -1011,13 +1033,11 @@
     <child internal-child="vbox">
       <widget class="GtkVBox" id="dialog-vbox2">
         <property name="visible">True</property>
-        <property name="orientation">vertical</property>
         <property name="spacing">2</property>
         <child>
           <widget class="GtkVBox" id="vbox1">
             <property name="visible">True</property>
             <property name="border_width">5</property>
-            <property name="orientation">vertical</property>
             <property name="spacing">5</property>
             <child>
               <widget class="GtkLabel" id="label16">
@@ -1035,7 +1055,7 @@
               <widget class="GtkEntry" id="entry_title">
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
-                <property name="invisible_char">&#x25CF;</property>
+                <property name="invisible_char">●</property>
               </widget>
               <packing>
                 <property name="expand">False</property>
@@ -1061,7 +1081,7 @@
                   <widget class="GtkEntry" id="entry_command">
                     <property name="visible">True</property>
                     <property name="can_focus">True</property>
-                    <property name="invisible_char">&#x25CF;</property>
+                    <property name="invisible_char">●</property>
                   </widget>
                   <packing>
                     <property name="position">0</property>
@@ -1107,7 +1127,7 @@
                   <widget class="GtkEntry" id="entry_icon">
                     <property name="visible">True</property>
                     <property name="can_focus">True</property>
-                    <property name="invisible_char">&#x25CF;</property>
+                    <property name="invisible_char">●</property>
                   </widget>
                   <packing>
                     <property name="position">0</property>
