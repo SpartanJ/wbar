@@ -124,8 +124,7 @@ int main(int argc, char **argv)
             std::cout << "   --pos    p         " << _("position:") << std::endl;
             std::cout << "                        " << "top | bottom | left | right | " << std::endl;
             std::cout << "                        " << "center | <bot|top>-<right|left>" << std::endl;
-            std::cout << "   --grow   g         " << _("set the icons in bar to grow:") << std::endl;
-            std::cout << "                        " << "top | bottom | left | right | " << std::endl;
+            std::cout << "   --grow             " << _("investing icons growth") << std::endl;
             std::cout << "   --dblclk ms        " << _("ms for double click (0: single click)") << std::endl;
             std::cout << "   --bpress           " << _("icon gets pressed") << std::endl;
             std::cout << "   --vbar             " << _("vertical bar") << std::endl;
@@ -173,6 +172,8 @@ int main(int argc, char **argv)
 
         vertbar = optparser.isSet(VBAR)?1:0;
 
+        bool grow = optparser.isSet(GROW)?true:false;
+
         if (optparser.isSet(BALFA) || optparser.isSet(FALFA) || optparser.isSet(FILTER) || !(p->getTitle().empty() || optparser.isSet(NOFONT)))
         {
             barra = new SuperBar(&barwin, p->getIconName(), p->getTitle(),
@@ -189,7 +190,7 @@ int main(int argc, char **argv)
                     strtoul((optparser.isSet(FC)?optparser.getArg(FC).c_str():"0xff00c800"), NULL, 16),
                     optparser.isSet(NOFONT)?0:1,
                     optparser.isSet(OFFSET)?atoi(optparser.getArg(OFFSET).c_str()):0,
-                    1);
+                    grow);
         }
         else
         {
@@ -202,7 +203,7 @@ int main(int argc, char **argv)
                     4,
                     optparser.isSet(NANIM)?atoi(optparser.getArg(NANIM).c_str()):5,
                     optparser.isSet(OFFSET)?atoi(optparser.getArg(OFFSET).c_str()):0,
-                    1);
+                    grow);
         }
 
         if (p) delete p;
@@ -226,12 +227,10 @@ int main(int argc, char **argv)
         if (optparser.isSet(ABOVE_DESK))
         {
             barwin.mapWindow();
-            barra->setGrow(optparser.getArg(GROW));
             barra->setPosition(optparser.getArg(POS));
         }
         else
         {
-            barra->setGrow(optparser.getArg(GROW));
             barra->setPosition(optparser.getArg(POS));
             barwin.mapWindow();
         }

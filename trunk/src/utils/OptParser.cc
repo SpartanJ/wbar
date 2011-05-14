@@ -8,7 +8,7 @@ static struct option long_options[] =
     {"vbar", 0, 0, 0},
     {"nofont", 0, 0, 0},
     {"pos", 1, 0, 0},
-    {"grow", 1, 0, 0},
+    {"grow", 0, 0, 0},
     {"isize", 1, 0, 0},
     {"idist", 1, 0, 0},
     {"nanim", 1, 0, 0},

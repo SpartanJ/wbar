@@ -9,7 +9,7 @@ using namespace std;
 /* Super Constructor *//*{{{*/
 SuperBar::SuperBar(XWin *win, string barImg, string barFont, int iSize, int iDist, 
     float zFactor, float jFactor, int bOrient, int bPosition, int nAnim, int barAlfa, 
-    int unfocusAlfa, int filtSel, unsigned int filtCol, bool dfont, int offset, int grow) :
+    int unfocusAlfa, int filtSel, unsigned int filtCol, bool dfont, int offset, bool grow) :
 
     Bar(win, barImg, iSize, iDist, zFactor, jFactor, bOrient, bPosition, nAnim, offset, grow),
     font(NULL), drawfont(dfont), rest_w(0), filtSel(filtSel), filtRed((filtCol & 0x00ff0000)>>16), 
