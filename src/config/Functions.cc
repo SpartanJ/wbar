@@ -138,22 +138,6 @@ void set_comboboxs()
     GtkTreeIter iter;
     GtkCellRenderer *cell; 
 
-    combo = glade_xml_get_widget (xml, "combobox_grow");
-    list_store = gtk_list_store_new (COMBO_COLUMNS, G_TYPE_STRING, G_TYPE_INT);
-    gtk_combo_box_set_model (GTK_COMBO_BOX(combo), GTK_TREE_MODEL (list_store));
-
-    cell = gtk_cell_renderer_text_new();
-    gtk_cell_layout_pack_start(GTK_CELL_LAYOUT(combo), cell, TRUE);
-    gtk_cell_layout_set_attributes(GTK_CELL_LAYOUT(combo), cell, "text", 0, NULL); 
-
-    gtk_list_store_append(list_store, &iter);
-    gtk_list_store_set (list_store, &iter, COMBO_COLUMN_TEXT, _("normal"), COMBO_COLUMN_ID, GROW_NORMAL, -1);
-
-    gtk_list_store_append (list_store, &iter);
-    gtk_list_store_set (list_store, &iter, COMBO_COLUMN_TEXT, _("inverted"), COMBO_COLUMN_ID, GROW_INVERTED, -1);
-
-    gtk_combo_box_set_active (GTK_COMBO_BOX (combo), GROW_NORMAL);
-
     combo = glade_xml_get_widget (xml, "combobox_pos");
     list_store = gtk_list_store_new (COMBO_COLUMNS, G_TYPE_STRING, G_TYPE_INT);
     gtk_combo_box_set_model (GTK_COMBO_BOX(combo), GTK_TREE_MODEL (list_store));
@@ -390,12 +374,6 @@ void set_config_states(std::string command)
     {
         checkbutton = glade_xml_get_widget (xml, "checkbutton_grow");
         gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON (checkbutton), true);
-        GtkWidget * combo = glade_xml_get_widget (xml, "combobox_grow");
-
-        std::string pos = opt.getArg(GROW);
-
-        if (pos == "inverted") gtk_combo_box_set_active (GTK_COMBO_BOX (combo), GROW_INVERTED);
-        else /*if (pos == "normal")*/ gtk_combo_box_set_active (GTK_COMBO_BOX (combo), GROW_NORMAL);
     }
     if(opt.isSet(OFFSET))
     {
@@ -562,10 +540,6 @@ void set_signals()
 
     check = glade_xml_get_widget (xml, "checkbutton_pos");
     widget = glade_xml_get_widget (xml, "combobox_pos");
-    g_signal_connect (G_OBJECT (check), "toggled", G_CALLBACK (checkbutton_toggled), widget);
-
-    check = glade_xml_get_widget (xml, "checkbutton_grow");
-    widget = glade_xml_get_widget (xml, "combobox_grow");
     g_signal_connect (G_OBJECT (check), "toggled", G_CALLBACK (checkbutton_toggled), widget);
 
     check = glade_xml_get_widget (xml, "checkbutton_offset");
@@ -912,13 +886,6 @@ std::string getCommand()
     if (gtk_toggle_button_get_active (GTK_TOGGLE_BUTTON (checkbutton)))
     {
         command += " --grow";
-        GtkWidget * combo = glade_xml_get_widget (xml, "combobox_grow");
-
-        switch((int)gtk_combo_box_get_active (GTK_COMBO_BOX (combo)))
-        {
-            case GROW_NORMAL: command += " normal"; break;
-            case GROW_INVERTED: command += " inverted"; break;
-        }
     }
 
     checkbutton = glade_xml_get_widget (xml, "checkbutton_offset");

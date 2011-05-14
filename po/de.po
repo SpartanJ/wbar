@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8-bit\n"
 
-#: ../etc/wbar.desktop.in.h:1 ../src/config/Functions.cc:1395
+#: ../etc/wbar.desktop.in.h:1 ../src/config/Functions.cc:1362
 msgid "A light and fast launch bar."
 msgstr ""
 
@@ -70,7 +70,7 @@ msgstr "Schriftanzeige unterdrücken"
 msgid "Down"
 msgstr "Nach unten"
 
-#: ../share/wbar.glade.h:12 ../src/config/Functions.cc:743
+#: ../share/wbar.glade.h:12 ../src/config/Functions.cc:717
 msgid "Edit"
 msgstr ""
 
@@ -88,30 +88,30 @@ msgid "Font:"
 msgstr "Schrift:"
 
 #: ../share/wbar.glade.h:16
-msgid "Grow icons"
-msgstr ""
-
-#: ../share/wbar.glade.h:17
 msgid "Icon distance"
 msgstr "Symbolabstand"
 
-#: ../share/wbar.glade.h:18
+#: ../share/wbar.glade.h:17
 msgid "Icon gets pressed"
 msgstr "Symbole werden beim Anklicken gedrückt"
 
-#: ../share/wbar.glade.h:19
+#: ../share/wbar.glade.h:18
 msgid "Icon size"
 msgstr "Symbolgröße"
 
-#: ../share/wbar.glade.h:20
+#: ../share/wbar.glade.h:19
 msgid "Icons"
 msgstr "Symbols"
+
+#: ../share/wbar.glade.h:20
+msgid "Investing icons growth"
+msgstr ""
 
 #: ../share/wbar.glade.h:21
 msgid "Jump factor"
 msgstr "Jump-Faktor"
 
-#: ../share/wbar.glade.h:22 ../src/config/Functions.cc:706
+#: ../share/wbar.glade.h:22 ../src/config/Functions.cc:680
 msgid "New"
 msgstr ""
 
@@ -184,27 +184,19 @@ msgstr ""
 msgid " Image not found. Maybe using a relative path?"
 msgstr ""
 
-#: ../src/core/Bar.cc:590
+#: ../src/core/Bar.cc:588
 msgid "Invalid bar position."
 msgstr ""
 
-#: ../src/core/Bar.cc:591
+#: ../src/core/Bar.cc:589
 msgid "Set default bar position."
-msgstr ""
-
-#: ../src/core/Bar.cc:605
-msgid "Invalid icon grow bar."
-msgstr ""
-
-#: ../src/core/Bar.cc:606
-msgid "Set default icon grow bar."
 msgstr ""
 
 #: ../src/core/Icon.cc:10
 msgid " Couldn't load icon image."
 msgstr ""
 
-#: ../src/core/Main.cc:65 ../src/config/Functions.cc:314
+#: ../src/core/Main.cc:65 ../src/config/Functions.cc:298
 #, fuzzy
 msgid "Configuration empty."
 msgstr "Konfiguration gespeichert!"
@@ -268,56 +260,56 @@ msgid "position:"
 msgstr ""
 
 #: ../src/core/Main.cc:127
-msgid "set the icons in bar to grow:"
+msgid "investing icons growth"
 msgstr ""
 
-#: ../src/core/Main.cc:129
+#: ../src/core/Main.cc:128
 #, fuzzy
 msgid "ms for double click (0: single click)"
 msgstr "Doppelklickintervall in Millisekunden"
 
-#: ../src/core/Main.cc:130
+#: ../src/core/Main.cc:129
 #, fuzzy
 msgid "icon gets pressed"
 msgstr "Symbole werden beim Anklicken gedrückt"
 
-#: ../src/core/Main.cc:131
+#: ../src/core/Main.cc:130
 #, fuzzy
 msgid "vertical bar"
 msgstr "Vertikale Anordnung"
 
-#: ../src/core/Main.cc:132
+#: ../src/core/Main.cc:131
 msgid "bar alfa (0-100)"
 msgstr ""
 
-#: ../src/core/Main.cc:133
+#: ../src/core/Main.cc:132
 #, fuzzy
 msgid "unfocused bar alfa (0-100)"
 msgstr "Transparenz der inaktiven Leiste"
 
-#: ../src/core/Main.cc:134
+#: ../src/core/Main.cc:133
 msgid "color filter (0: none 1: hovered 2: others, 3: all)"
 msgstr ""
 
-#: ../src/core/Main.cc:135
+#: ../src/core/Main.cc:134
 msgid "filter color (default green 0xff00c800)"
 msgstr ""
 
-#: ../src/core/Main.cc:136
+#: ../src/core/Main.cc:135
 #, fuzzy
 msgid "number of animated icons: 1, 3, 5, 7, 9, ..."
 msgstr "Zahl der animierten Symbole"
 
-#: ../src/core/Main.cc:137
+#: ../src/core/Main.cc:136
 #, fuzzy
 msgid "if set disables font rendering"
 msgstr "Schriftanzeige unterdrücken"
 
-#: ../src/core/Main.cc:139
+#: ../src/core/Main.cc:138
 msgid "View man(1)."
 msgstr ""
 
-#: ../src/core/Main.cc:316 ../src/config/Run.cc:126
+#: ../src/core/Main.cc:315 ../src/config/Run.cc:126
 msgid "Error run program: "
 msgstr ""
 
@@ -356,112 +348,104 @@ msgid "Command"
 msgstr "Befehl"
 
 #: ../src/config/Functions.cc:150
-msgid "normal"
-msgstr ""
-
-#: ../src/config/Functions.cc:153
-msgid "inverted"
-msgstr ""
-
-#: ../src/config/Functions.cc:166
 msgid "top"
 msgstr "Oben"
 
-#: ../src/config/Functions.cc:169
+#: ../src/config/Functions.cc:153
 msgid "bottom"
 msgstr "Unten"
 
-#: ../src/config/Functions.cc:172
+#: ../src/config/Functions.cc:156
 #, fuzzy
 msgid "left"
 msgstr "Oben links"
 
-#: ../src/config/Functions.cc:175
+#: ../src/config/Functions.cc:159
 msgid "right"
 msgstr "Rechts"
 
-#: ../src/config/Functions.cc:178
+#: ../src/config/Functions.cc:162
 msgid "center"
 msgstr "Mitte"
 
-#: ../src/config/Functions.cc:181
+#: ../src/config/Functions.cc:165
 msgid "bottom-left"
 msgstr "Unten links"
 
-#: ../src/config/Functions.cc:184
+#: ../src/config/Functions.cc:168
 msgid "bottom-right"
 msgstr "Unten rechts"
 
-#: ../src/config/Functions.cc:187
+#: ../src/config/Functions.cc:171
 msgid "top-left"
 msgstr "Oben links"
 
-#: ../src/config/Functions.cc:190
+#: ../src/config/Functions.cc:174
 msgid "top-right"
 msgstr "Oben rechts"
 
-#: ../src/config/Functions.cc:203
+#: ../src/config/Functions.cc:187
 msgid "none"
 msgstr "Kein"
 
-#: ../src/config/Functions.cc:206
+#: ../src/config/Functions.cc:190
 msgid "hovered"
 msgstr "Nur hervorgehobene Symbole"
 
-#: ../src/config/Functions.cc:209
+#: ../src/config/Functions.cc:193
 msgid "others"
 msgstr "Alle nicht hervorgehobenen Symbole"
 
-#: ../src/config/Functions.cc:212
+#: ../src/config/Functions.cc:196
 msgid "all"
 msgstr "Alle"
 
-#: ../src/config/Functions.cc:778
+#: ../src/config/Functions.cc:752
 msgid "Error save config in "
 msgstr ""
 
-#: ../src/config/Functions.cc:1084
+#: ../src/config/Functions.cc:1051
 msgid "Fields must not be empty"
 msgstr ""
 
-#: ../src/config/Functions.cc:1258
+#: ../src/config/Functions.cc:1225
 #, fuzzy
 msgid "Open exec file"
 msgstr "Öffnen des Dateiauswahldialogs"
 
-#: ../src/config/Functions.cc:1282 ../src/config/Functions.cc:1344
+#: ../src/config/Functions.cc:1249 ../src/config/Functions.cc:1311
 #, fuzzy
 msgid "Open image file"
 msgstr "Öffnen des Dateiauswahldialogs"
 
-#: ../src/config/Functions.cc:1292 ../src/config/Functions.cc:1354
+#: ../src/config/Functions.cc:1259 ../src/config/Functions.cc:1321
 msgid "Images"
 msgstr "Bilddateien"
 
-#: ../src/config/Functions.cc:1312
+#: ../src/config/Functions.cc:1279
 #, fuzzy
 msgid "Open font file"
 msgstr "Öffnen des Dateiauswahldialogs"
 
-#: ../src/config/Functions.cc:1321
+#: ../src/config/Functions.cc:1288
 #, fuzzy
 msgid "Fonts"
 msgstr "Schrift:"
 
-#: ../src/config/Functions.cc:1390
+#: ../src/config/Functions.cc:1357
 msgid "About"
 msgstr "Über"
 
-#: ../src/config/Functions.cc:1392
+#: ../src/config/Functions.cc:1359
 #, fuzzy
 msgid "wbar config"
 msgstr "Über Wbarconf"
 
-#: ../src/config/Functions.cc:1394
+#: ../src/config/Functions.cc:1361
 msgid "Licence GPL - 2010"
 msgstr ""
 
-#: ../src/config/Functions.cc:1397
+#: ../src/config/Functions.cc:1364
 msgid "wbar project website"
 msgstr ""
 
