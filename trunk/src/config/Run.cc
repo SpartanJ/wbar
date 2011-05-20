@@ -33,11 +33,11 @@ int Run::getPID()
     if (process)
     {
         char spid[50];
-        char* tmp;
-        tmp=fgets(spid, sizeof(spid), process);
+        if (fgets(spid, sizeof(spid), process) != NULL);
+        {
+            pid = atoi(spid);
+        }
         pclose(process);
-        pid = atoi(spid);
-	if (tmp) delete tmp;
     }
 
     return pid;

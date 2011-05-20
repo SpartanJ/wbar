@@ -21,7 +21,7 @@ Description: light and fast launch bar
 
 Package: wbar-config
 Architecture: i386
-Depends: wbar, ${shlibs:Depends}, ${misc:Depends}
+Depends: wbar (= ${binary:Version}), ${shlibs:Depends}, ${misc:Depends}
 Recommends: gnome-extra-icons
 Description: gui config wbar
  Wbar-config is a quick qui application for wbar.
