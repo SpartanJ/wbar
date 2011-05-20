@@ -1,0 +1,109 @@
+wbar (2.2.1-1) lucid; urgency=low
+
+  * solve grow icons
+
+ -- Yadickson Soto <yadickson.soto@smartmatic.com>  Sun, 08 May 2011 16:18:42 -0400
+
+wbar (2.2.0-1) lucid; urgency=low
+
+  * new release, add grow and config parameters
+
+ -- Yadickson Soto <yadickson.soto@smartmatic.com>  Sat, 07 May 2011 23:21:20 -0400
+
+wbar (2.1.3-1) lucid; urgency=low
+
+  * solve load with out font file
+
+ -- Yadickson Soto <yadickson.soto@smartmatic.com>  Mon, 02 May 2011 19:56:33 -0400
+
+wbar (2.1.2-1) lucid; urgency=low
+
+  * solved problem (Closed: #42)
+  * add disable wbar-config with configure (Closed: #44)
+
+ -- Yadickson Soto <yadickson@gmail.com>  Mon, 02 May 2011 17:42:25 -0400
+
+wbar (2.1.1-1) stable; urgency=low
+
+  * Se da solución a falla de filtro de color. (Closed: #36)
+
+ -- Yadickson Soto <yadickson@gmail.com>  Tue, 11 Jan 2011 02:37:41 -0430
+
+wbar (2.1.0-1) stable; urgency=low
+
+  * Se da solución a carga de iconos no encontrados.
+  * Se agregan nuevos iconos a la aplicación. (Closed: #31)
+
+ -- Yadickson Soto <yadickson@gmail.com>  Mon, 10 Jan 2011 12:34:23 -0430
+
+wbar (2.0.2-1) stable; urgency=low
+
+  * Se da solución a problema de compilación. (Closed: #35)
+  * Se agrega funcionalidad de filtro de color en wbar-config. (Closed: #36)
+  * Se agrega auto arranque para LXDE. (Closed: #16)
+
+ -- Yadickson Soto <yadickson@gmail.com>  Mon, 10 Jan 2011 00:20:38 -0430
+
+wbar (2.0.1-1) stable; urgency=low
+
+  * Se da solución a problema de internacionalización de wbar.
+  * Se incorporan los manuales actualizados.
+
+ -- Yadickson Soto <yadickson@gmail.com>  Fri, 07 Jan 2011 20:46:04 -0430
+
+wbar (2.0.0-1) stable; urgency=low
+
+  * Nueva estructura.
+  * Se incorpora configurador de la aplicacion.
+  * Se eliminan iconos de aplicaciones lo libres.
+  * Se agrega icono de proyecto.
+  * Se da solución a problema de carga de fuente no ubicada.
+  * Se incorpora desplazamiento de la barra al borde.
+  * Se incorpora funcionalida de no recarga de la barra por click derecho.
+
+ -- Yadickson Soto <yadickson@gmail.com>  Wed, 05 Jan 2011 14:57:50 -0430
+
+wbar (1.3.4-3) stable; urgency=low
+
+  * Se da solucion a repintado de la barra. 
+
+ -- Yadickson Soto <yadickson@gmail.com>  Fri, 17 Dec 2010 20:51:10 -0430
+
+wbar (1.3.4-2) stable; urgency=low
+
+  * Se incorporan imagenes.
+  * Se valida carga de imagenes.
+  * Se implementa lectura de comandos por archivo de configuracion. 
+
+ -- Yadickson Soto <yadickson@gmail.com>  Fri, 17 Dec 2010 00:13:48 -0430
+
+wbar (1.3.4-1) stable; urgency=low
+
+  * Se realizan cambios para permitir la compilacion.
+
+ -- Yadickson Soto <yadickson@gmail.com>  Wed, 15 Dec 2010 23:56:48 -0430
+
+wbar (1.3.3-3) stable; urgency=low
+
+  * Empaquetado de la aplicación con mejoras.
+
+ -- Yadickson Soto <yadickson@gmail.com>  Wed, 15 Dec 2010 20:29:38 -0430
+
+wbar (1.3.3-2) unstable; urgency=low
+
+  * Repacked again to get rid of non-free icons (Closes: #540612)
+  * Make the dustin font a recommendation (Closes: #539654)
+  * Fixed sample file so program works out of the box (Closes: #539661)
+  * Add recommendation of gnome-extra-icons
+  * Changed icons in debian/dot.wbar to GNOME icons
+  * Add README.source (dpatch package template)
+  * Add README.Debian that explain importance of -above-desk option.
+  * Bumped Standards-Version to 3.8.3
+
+ -- Krzysztof Burghardt <krzysztof@burghardt.pl>  Fri, 20 Nov 2009 19:32:22 +0100
+
+wbar (1.3.3-1) unstable; urgency=low
+
+  * Initial release (Closes: #519993)
+
+ -- Krzysztof Burghardt <krzysztof@burghardt.pl>  Mon, 16 Mar 2009 20:10:28 +0100

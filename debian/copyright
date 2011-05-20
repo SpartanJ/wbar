@@ -1,0 +1,43 @@
+This package was debianized by:
+
+    Krzysztof Burghardt <krzysztof@burghardt.pl> on Mon, 16 Mar 2009 19:29:11 +0100
+
+It was downloaded from:
+
+    <http://code.google.com/p/wbar/>
+
+Upstream Author:
+
+    Rodolfo Granata <warlock.cc@gmail.com>
+
+Copyright:
+
+    Copyright © 2006 Rodolfo Granata
+
+License:
+
+   This package is free software; you can redistribute it and/or modify
+   it under the terms of the GNU General Public License version 2 as
+   published by the Free Software Foundation.
+
+    This package is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with this package; if not, write to the Free Software
+    Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301 USA
+
+On Debian systems, the complete text of the GNU General
+Public License version 2 can be found in `/usr/share/common-licenses/GPL-2'.
+
+Please note that sources was repacked to remove non-free font file (comic.ttf),
+and icons that contains Skype and Firefox logos was removed too.
+
+The Debian packaging is:
+
+    Copyright © 2009 Krzysztof Burghardt <krzysztof@burghardt.pl>
+
+and is licensed under the GPL version 2,
+see `/usr/share/common-licenses/GPL-2'.
