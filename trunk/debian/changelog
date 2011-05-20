@@ -1,3 +1,9 @@
+wbar (2.2.2-1) lucid; urgency=low
+
+  * solve problem compilation
+
+ -- Yadickson Soto <yadickson.soto@smartmatic.com>  Fri, 20 May 2011 18:15:46 +0200
+
 wbar (2.2.1-1) lucid; urgency=low
 
   * solve grow icons
