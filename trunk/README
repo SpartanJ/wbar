@@ -20,7 +20,7 @@ Thanks
 
 Dependencies:
 -------------
-libimlib2-dev, intltool, pkg-config, libglade2-dev, libgtk2.0-dev
+libimlib2-dev, intltool, pkg-config, libglade2-dev, libgtk2.0-dev, libx11-dev
 
 General:
 --------

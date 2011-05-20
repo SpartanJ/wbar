@@ -1,0 +1,28 @@
+Source: wbar
+Section: contrib/x11
+Priority: optional
+Maintainer: Krzysztof Burghardt <krzysztof@burghardt.pl>
+Uploaders: Yadickson Soto <yadickson@gmail.com>
+Build-Depends: debhelper (>= 7), cdbs, libimlib2-dev, intltool, pkg-config, libglade2-dev, libgtk2.0-dev, libx11-dev
+Standards-Version: 3.9.1
+Homepage: http://code.google.com/p/wbar/
+
+Package: wbar
+Architecture: i386
+Depends: ${shlibs:Depends}, ${misc:Depends}
+Recommends: gnome-extra-icons
+Description: light and fast launch bar
+ Wbar is a quick launch bar. It's fast, light and cool eye-candy.
+ .
+ Initially developed for Fluxbox, then tested on WindowMaker, Xfce, GNOME, etc.
+ .
+ It can run on top of desktops such as xfdesktop or nautilus with the
+ -above-desk switch.
+
+Package: wbar-config
+Architecture: i386
+Depends: wbar, ${shlibs:Depends}, ${misc:Depends}
+Recommends: gnome-extra-icons
+Description: gui config wbar
+ Wbar-config is a quick qui application for wbar.
+ .

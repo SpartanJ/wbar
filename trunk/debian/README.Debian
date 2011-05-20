@@ -1,0 +1,25 @@
+wbar for Debian
+---------------
+
+If user is running a desktop environment under X that have it's own desktop
+application then wbar started without -above-desk option may draw itself below
+the current desktop application and thus it will not be visible.
+
+If you want to draw bar over a desktop application (ie: xfdesktop) use:
+    -above-desk
+
+To draw bar vertically use:
+    -vbar
+
+Other options are described in wbar(1) manual page.
+
+Sample configuration file (examples/dot.wbar) contains more sophisticated
+command line example. Fell free to copy this file to ~/.wbar and customise.
+
+As wbar does not return immediately after it start, so user have to add & to
+the end of command line to put wbar into background if it start from .xsession.
+
+Sample .xsession call can looks like that:
+wbar -above-desk &
+
+ -- Krzysztof Burghardt <krzysztof@burghardt.pl>  Fri, 20 Nov 2009 19:12:46 +0100
