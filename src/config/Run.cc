@@ -36,8 +36,8 @@ int Run::getPID()
         char* tmp;
         tmp=fgets(spid, sizeof(spid), process);
         pclose(process);
-
         pid = atoi(spid);
+	if (tmp) delete tmp;
     }
 
     return pid;
