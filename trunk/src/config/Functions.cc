@@ -162,10 +162,10 @@ void set_comboboxs()
     gtk_list_store_set (list_store, &iter, COMBO_COLUMN_TEXT, _("center"), COMBO_COLUMN_ID, POS_CENTER, -1);
 
     gtk_list_store_append (list_store, &iter);
-    gtk_list_store_set (list_store, &iter, COMBO_COLUMN_TEXT, _("bottom-left"), COMBO_COLUMN_ID, POS_BOTTOM_LEFT, -1);
+    gtk_list_store_set (list_store, &iter, COMBO_COLUMN_TEXT, _("bot-left"), COMBO_COLUMN_ID, POS_BOTTOM_LEFT, -1);
 
     gtk_list_store_append (list_store, &iter);
-    gtk_list_store_set (list_store, &iter, COMBO_COLUMN_TEXT, _("bottom-right"), COMBO_COLUMN_ID, POS_BOTTOM_RIGHT, -1);
+    gtk_list_store_set (list_store, &iter, COMBO_COLUMN_TEXT, _("bot-right"), COMBO_COLUMN_ID, POS_BOTTOM_RIGHT, -1);
 
     gtk_list_store_append (list_store, &iter);
     gtk_list_store_set (list_store, &iter, COMBO_COLUMN_TEXT, _("top-left"), COMBO_COLUMN_ID, POS_TOP_LEFT, -1);
@@ -364,8 +364,8 @@ void set_config_states(std::string command)
         else if (pos == "bottom") gtk_combo_box_set_active (GTK_COMBO_BOX (combo), POS_BOTTOM);
         else if (pos == "left") gtk_combo_box_set_active (GTK_COMBO_BOX (combo), POS_LEFT);
         else if (pos == "center") gtk_combo_box_set_active (GTK_COMBO_BOX (combo), POS_CENTER);
-        else if (pos == "bottom-left") gtk_combo_box_set_active (GTK_COMBO_BOX (combo), POS_BOTTOM_LEFT);
-        else if (pos == "bottom-right") gtk_combo_box_set_active (GTK_COMBO_BOX (combo), POS_BOTTOM_RIGHT);
+        else if (pos == "bot-left") gtk_combo_box_set_active (GTK_COMBO_BOX (combo), POS_BOTTOM_LEFT);
+        else if (pos == "bot-right") gtk_combo_box_set_active (GTK_COMBO_BOX (combo), POS_BOTTOM_RIGHT);
         else if (pos == "top-left") gtk_combo_box_set_active (GTK_COMBO_BOX (combo), POS_TOP_LEFT);
         else if (pos == "top-right") gtk_combo_box_set_active (GTK_COMBO_BOX (combo), POS_TOP_RIGHT);
         else /*if (pos == "right")*/ gtk_combo_box_set_active (GTK_COMBO_BOX (combo), POS_RIGHT);
@@ -874,8 +874,8 @@ std::string getCommand()
             case POS_LEFT: command += " left"; break;
             case POS_RIGHT: command += " right"; break;
             case POS_CENTER: command += " center"; break;
-            case POS_BOTTOM_LEFT: command += " bottom-left"; break;
-            case POS_BOTTOM_RIGHT: command += " bottom-right"; break;
+            case POS_BOTTOM_LEFT: command += " bot-left"; break;
+            case POS_BOTTOM_RIGHT: command += " bot-right"; break;
             case POS_TOP_LEFT: command += " top-left"; break;
             case POS_TOP_RIGHT: command += " top-right"; break;
         }
