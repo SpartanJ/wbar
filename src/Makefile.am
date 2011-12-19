@@ -52,7 +52,7 @@ $(top_srcdir)/src/utils/OptParser.h \
 $(top_srcdir)/src/utils/i18n.h
 
 wbar_CXXFLAGS = @modules_CFLAGS@
-wbar_LDADD = @modules_LIBS@
+wbar_LDADD = @modules_LIBS@ @INTLLIBS@
 
 if WBAR_CONFIG
 wbar_config_CXXFLAGS = @gui_modules_CFLAGS@
