@@ -129,7 +129,8 @@ void SuperBar::initFilters(){
 /*}}}*/
 
 /* Add Icon to the bar *//*{{{*/
-void SuperBar::addIcon(string path, string comm, string txt){
+void SuperBar::addIcon(string path, string comm, string txt, 
+	unsigned long winid, unsigned char *icondata, int iw, int ih){
     SuperIcon *ic;
     int textW, textH;
 
@@ -138,7 +139,7 @@ void SuperBar::addIcon(string path, string comm, string txt){
 	imlib_get_text_size(txt.c_str(), &textW, &textH);
     }
 
-    icons.push_back( new SuperIcon(path, comm, txt,
+    icons.push_back( new SuperIcon(path, comm, txt, winid, icondata, iw, ih,
 	(int)icon_offset + icon_size/2 + icons.size() * icon_unit, // x coord
 	y + (int)(0.125 * icon_size), textW, textH) ); // y coord
 
@@ -151,9 +152,12 @@ void SuperBar::addIcon(string path, string comm, string txt){
 	imlib_image_filter();
     }
 
-    scale();
 }
 /*}}}*/
+
+void SuperBar::removeIcon(){
+    icons.pop_back();
+}
 
 /* Unfocus *//*{{{*/
 inline void SuperBar::unfocus(){

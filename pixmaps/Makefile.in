@@ -211,6 +211,7 @@ ooffice.png \
 pidgin.png \
 synaptic.png \
 terminal.png \
+questionmark.png \
 wbar.png
 
 pixmapdir = @PIXMAPDIR@

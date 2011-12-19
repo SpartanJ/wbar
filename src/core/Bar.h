@@ -77,7 +77,6 @@ protected:
     void drawBack();
     virtual void cleanBack();
 
-    void scale(bool updateBG = true);
 
 public:
 
@@ -87,20 +86,25 @@ public:
     virtual ~Bar();
 
     /* add an Icon */
-    void addIcon(std::string path, std::string comm);
+    void addIcon(std::string path, std::string comm, 
+	    unsigned long winid, unsigned char *icondata, int iw, int ih);
 
     /* Icon information */
     int iconIndex(int mouse_x);
     std::string iconCommand(int i_num);
+    unsigned long iconWinId(int i_num);
+    int iconsShown();
 
     /* Focus & unfocus events */
     void refresh(int mouse_x = -1);
+    void refreshUnfocused(int mouse_x = -1);
 
     /* Icon press events */
     void iconDown(int i_num);
     void iconUp(int i_num);
     void setPosition(std::string p);
 
+    void scale(bool updateBG = true);
     //void setZoom(float zoomf);
     //float getZoom();
 };

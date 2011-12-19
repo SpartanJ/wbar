@@ -17,6 +17,7 @@ class SuperIcon : public Icon{
 
     public:
 	SuperIcon(std::string iconImg, std::string cmd, std::string txt, 
+		unsigned long winid, unsigned char *icondata, int iw, int ih,
 		int x, int y, int tw, int th);
 	~SuperIcon();
 
