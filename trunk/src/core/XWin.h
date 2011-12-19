@@ -14,10 +14,12 @@ private:
     Display     *display;
     Visual      *visual;
     Window      window;
+    Window      taskWindow;
     Atom        delWindow;
     Colormap    colormap;
     int     depth;
     int     eventMask;
+	int		rootEventMask;
 
     int x, y;
     int w, h;
@@ -32,6 +34,7 @@ public:
     void selectInput(int mask);
 
     void mapWindow();
+    void unMapWindow();
     void lowerWindow();
     void raiseWindow();
     bool nextEvent(XEvent *ev);
@@ -53,6 +56,17 @@ public:
     void setSticky();
     void skipTaskNPager();
     void bottomLayer();
+    void doFlush();
+    char *atomName(Atom atomname);
+    unsigned char *windowProp(Window *targetWin, const char *reqProp, unsigned long *len);
+    Atom issetHint(Window targetWin, const char *reqProp, const char *reqHint);
+    Atom *haveAtom(Window targetWin, const char *reqProp);
+    unsigned char *windowIcon(Window targetWin, int *iw, int *ih);
+    void windowAction(unsigned long winid);
+    void windowIconify(unsigned long winid);
+    int windowFocused();
+    void selectWindowInput(unsigned long winid);
+    void flushAll();
 };
 
 #endif /* _XWIN_H_ */

@@ -14,7 +14,19 @@
 #include "Utils.h"
 #include "i18n.h"
 
+static size_t configitems;
+static std::list<App *> list;
+static std::list<App *>::iterator it;
+static App *p;
+
+static Bar *barra;
+static XWin barwin(50,50,50,50);
+
+unsigned long bg_window;
 void corpshandler(int);
+int mapIcons();
+static XErrorHandler oldXHandler = (XErrorHandler) 0 ;
+static int eErrorHandler(Display *, XErrorEvent *);
 
 int main(int argc, char **argv)
 {
@@ -28,8 +40,7 @@ int main(int argc, char **argv)
     /* Variables */
     struct sigaction sigh;
 
-    Bar *barra = NULL;
-
+    barra = NULL;
     try
     {
         unsigned int dblclk_tm, butpress, noreload;
@@ -51,9 +62,7 @@ int main(int argc, char **argv)
            config.setFile( tmpoptparser.getArg( CONFIG ) );
         }
 
-        std::list<App *> list = config.getAppList();
-        std::list<App *>::iterator it;
-        App *p;
+        list = config.getAppList();
 
         if (list.size() != 0)
         {
@@ -96,8 +105,6 @@ int main(int argc, char **argv)
         }
 
         XEvent ev;
-
-        XWin barwin(50, 50, 50, 50);
 
         OptParser optparser(argc, argv);
 
@@ -157,7 +164,7 @@ int main(int argc, char **argv)
         /* tell X what events we're intrested in */
         barwin.selectInput(PointerMotionMask | ExposureMask | ButtonPressMask |
                 ButtonReleaseMask | LeaveWindowMask | EnterWindowMask);
-
+        
         /* Image library set up */
         INIT_IMLIB(barwin.getDisplay(), barwin.getVisual(), barwin.getColormap(),
                 barwin.getDrawable(), 2048*2048);
@@ -207,23 +214,12 @@ int main(int argc, char **argv)
         }
 
         if (p) delete p;
-
-        for (it++; it != list.end(); it++)
-        {
-            p = (*it);
-            try
-            {
-                ((SuperBar *)barra)->addIcon(p->getIconName(), p->getCommand(), p->getTitle());
-            }
-            catch (const char *m)
-            {
-                std::cout << m << std::endl;
-            }
-            if (p) delete p;
-        }
+	// note the size of icons in config befor we add any active icons
+	configitems = (size_t) list.size();
+	//loop until actual window data is obtained
+	while (mapIcons());
 
         /* Show the Bar */
-
         if (optparser.isSet(ABOVE_DESK))
         {
             barwin.mapWindow();
@@ -234,13 +230,12 @@ int main(int argc, char **argv)
             barra->setPosition(optparser.getArg(POS));
             barwin.mapWindow();
         }
-
+        barwin.lowerWindow();
         barra->refresh();
 
         /* Event Loop */
         while (true)
         {
-
             barwin.nextEvent(&ev);
             switch (ev.type)
             {
@@ -251,6 +246,8 @@ int main(int argc, char **argv)
 
                 /* Button Press */
             case ButtonPress:
+            //KDE won't honor stacking order and dock property. Lower explicitly
+            barwin.lowerWindow();
                 switch (ev.xbutton.button)
                 {
                 case 1:
@@ -281,6 +278,9 @@ int main(int argc, char **argv)
 
                 /* Button Release */
             case ButtonRelease:
+            // some programs like skype miss their exit notification so the icon
+            // still remains in the taskbar. Just reload the bar if such icon clicked
+                oldXHandler = XSetErrorHandler(eErrorHandler);
                 switch (ev.xbutton.button)
                 {
                 case 3:/* Redraw Bar*/
@@ -304,24 +304,38 @@ int main(int argc, char **argv)
 
                     if (butpress!=0)
                         barra->iconUp(inum);
-
                     /* Double click time 200 ms */
-                    if ((ev.xbutton.time - dblclk0 <dblclk_tm || dblclk_tm==0) && inum != -1)
-                    {
-                        if (fork()==0)
-                        {
-                            if (execlp("sh", "sh", "-c", barra->iconCommand(inum).c_str(), NULL) != 0)
-                            {
-                                std::cout << _("Error run program: ") << barra->iconCommand(inum) << std::endl;
-                            }
-                        }
+                    if (barra->iconWinId(inum)) {
+                	// raise event may go to a window already gone
+                        oldXHandler = XSetErrorHandler(eErrorHandler);
+                	barwin.windowAction(barra->iconWinId(inum));
+            		(void) XSetErrorHandler(oldXHandler);
+            	    } else {
+                	if ((ev.xbutton.time - dblclk0 <dblclk_tm || dblclk_tm==0) && inum != -1)
+                	{
+                    	    if (fork()==0)
+                    	    {
+                        	if (execlp("sh", "sh", "-c", barra->iconCommand(inum).c_str(), NULL) != 0)
+                        	{
+                            	    std::cout << _("Error run program: ") << barra->iconCommand(inum) << std::endl;
+                        	}
+                    	    }
 
-                    }
-                    else dblclk0 = ev.xbutton.time;
+                	}
+                	else dblclk0 = ev.xbutton.time;
+            	    }
                     break;
+                case 2:/* Iconify window */
+	            if (!vertbar)
+                        inum = barra->iconIndex(ev.xbutton.x);
+                    else
+                        inum = barra->iconIndex(ev.xbutton.y);
+		    if (barra->iconWinId(inum))
+			barwin.windowIconify(barra->iconWinId(inum));
+		    break;
                 }
+                (void) XSetErrorHandler(oldXHandler);
                 break;
-                
 
                 /* Motion Notify */
             case MotionNotify:
@@ -330,13 +344,14 @@ int main(int argc, char **argv)
                 else
                     barra->refresh(ev.xmotion.y);
                 break;
-                
 
                 /* Leave & Enter Notify */
             case LeaveNotify:
                 /* NotifyGrab && Ungrab r notified on B1 click*/
                 if (ev.xcrossing.mode!=NotifyGrab && !(ev.xcrossing.state&Button1Mask))
                     barra->refresh();
+                //hack for kde multiple notifications in grab mode
+                barwin.flushAll();
                 break;
 
             case EnterNotify:
@@ -348,10 +363,33 @@ int main(int argc, char **argv)
                         barra->refresh(ev.xcrossing.y);
                 }
                 break;
-                
-
-            default:
-                break;
+	    	case PropertyNotify:
+			if ((std::string) barwin.atomName(ev.xproperty.atom) 
+		    		== "_NET_WM_ICON")
+			{
+				mapIcons();
+		    		if (!barwin.windowFocused())
+		    			barra->refreshUnfocused();
+				else if (!vertbar)
+        		    	    barra->refresh(ev.xcrossing.x);
+		    		else
+        		    	    barra->refresh(ev.xcrossing.y);
+            		}
+			if ((std::string) barwin.atomName(ev.xproperty.atom) 
+		    		== "_NET_CLIENT_LIST")
+			{
+				//loop until actual window data is obtained
+		    		while (mapIcons());
+		    		if (!barwin.windowFocused())
+		    			barra->refreshUnfocused();
+				    else if (!vertbar)
+        		        barra->refresh(ev.xcrossing.x);
+		    		else
+        		    	barra->refresh(ev.xcrossing.y);
+			}
+			break;
+        	default:
+        		break;
 
             }
         }
@@ -373,3 +411,110 @@ void corpshandler(int sig)
 
     }
 }
+
+int mapIcons()
+{
+    unsigned char *runningApp;
+    unsigned long len, tmp_len, winid;
+    std::string pixmapdir = PIXMAPDIR;
+    std::string packagename = PACKAGE_NAME;
+    std::string icon,cmnd;
+    unsigned char *titl;
+    int firstrun=0;
+    // on the first run, there will be no icons displayed
+    if (!barra->iconsShown())
+	firstrun=1;
+    //roll back the list to contain only the icons from config
+    while ((size_t)list.size() > configitems)
+    {
+	list.pop_back();
+	((SuperBar *)barra)->removeIcon();
+	it--;
+    }
+    // add currently running tasks to the list
+    runningApp = barwin.windowProp(NULL, "_NET_CLIENT_LIST", &len);
+    long *array = (long*) runningApp;
+    // in e16 WM, context menus block XQueue to stay on top and focused 
+    // until closed, and so wbar gets and old _NET_CLIENT_LIST with
+    // nonexistent windows there, crashing wbar on quering them.
+    // Since no windows to display can appear or disappear during that, 
+    // we work around the problem by just ignoring BadWindow errors
+    oldXHandler = XSetErrorHandler(eErrorHandler);
+    for (unsigned long k = 0; k < len; k++){
+        Window w = (Window) array[k];
+        if (barwin.issetHint(w, "_NET_WM_WINDOW_TYPE", 
+    		"_NET_WM_WINDOW_TYPE_DESKTOP")&&firstrun) 
+    	    bg_window = w;
+        if (!barwin.issetHint(w,"_NET_WM_STATE","_NET_WM_STATE_SKIP_TASKBAR") &&
+    		(barwin.issetHint(w,"_NET_WM_WINDOW_TYPE",
+    		"_NET_WM_WINDOW_TYPE_NORMAL") ||
+    		!barwin.haveAtom(w,"_NET_WM_WINDOW_TYPE"))) {
+	    icon="";
+	    int iiw,iih;
+	    if (barwin.windowIcon(w, &iiw, &iih) == NULL)
+		icon=pixmapdir+"/"+packagename+"/"+"questionmark.png";
+	    cmnd="";
+	    winid=(unsigned long) w;
+	    titl=barwin.windowProp(&w,"WM_NAME",&tmp_len);
+	    // now, THIS is impossible, so we're dealing with an old NET_CLIENT_LIST
+	    if (!titl) 
+		continue;
+    	    const char *title=(const char*) titl;
+    	    App *app = new App(icon, cmnd, title, winid);
+    	    list.push_back(app);
+    	    icon = cmnd = "";
+    	    titl = NULL;
+    	    winid=0;
+	}
+    }
+    //if this is not an initial run
+    if (!firstrun)
+        // and we added no windows
+	if ((size_t)list.size() == configitems)
+	    //then there is no need to add icons
+	    return 0;
+    for (it++; it != list.end(); it++)
+    {
+        p = (*it);
+        try
+            {
+        	if (p->getIconName() != "")
+            	    ((SuperBar *)barra)->addIcon(p->getIconName(), 
+            		p->getCommand(), p->getTitle(), p->getWinid(), 
+            		NULL, 0, 0);
+                else {
+            	    int iw, ih;
+        			barwin.selectWindowInput(p->getWinid()); 
+            	    unsigned char *icondata = barwin.windowIcon((Window) p->getWinid(), &iw, &ih);
+            	    if (icondata) {
+            		((SuperBar *)barra)->addIcon(p->getIconName(), 
+            		    p->getCommand(), p->getTitle(), p->getWinid(), 
+            		    icondata, iw, ih);
+            	    } else {
+                	std::cout << "window has gone, not adding" << std::endl;
+                	return -1;
+            	    }
+            	}
+            }
+            catch (const char *m)
+            {
+                std::cout << m << std::endl;
+            }
+    	    if (p) delete p;
+        }
+	(void) XSetErrorHandler(oldXHandler);
+	barra->scale();
+	if (firstrun)
+	    it--;
+	return 0;
+}
+
+static int eErrorHandler(Display *display, XErrorEvent *theEvent)
+{	
+	std::cout << "error code:" << (int) theEvent->error_code 
+		<< " request code:" << (int) theEvent->request_code << std::endl;
+	return 0;
+	exit (-1);
+    /* No exit! - but keep lint happy */
+}
+

@@ -3,9 +3,12 @@
 #include <iostream>
 #include "Bar.h"
 #include "i18n.h"
+#include <X11/Xatom.h>
 
 /* Posicionamiento de la ventana */
 #define MARGEN 4
+
+extern unsigned long bg_window;
 
 using namespace std;
 
@@ -57,15 +60,13 @@ Bar::~Bar()
 /*}}}*/
 
 /* Add Icon */
-void Bar::addIcon(string path, string comm)
+void Bar::addIcon(string path, string comm, unsigned long winid, 
+		    unsigned char *icondata, int iw, int ih)
 {
-
     icons.push_back(new Icon(path, comm,
-            (int)icon_offset + icon_size/2 + icons.size() * icon_unit, // x coord
-            y + (int)(0.125 * icon_size)));  // y coord
-
-    /* not efficient to call it here but ... user doesn't have to call it */
-    scale();
+	    (int)icon_offset + icon_size/2 + icons.size() * icon_unit, // x coord
+            y + (int)(0.125 * icon_size), // y coord
+            winid, icondata, iw, ih));
 }
 /*}}}*/
 
@@ -145,6 +146,10 @@ void Bar::scale(bool updateBG)
 void Bar::acquireBack()
 {
     int t_w, t_h;
+    Atom rootid, actual_type;
+    int actual_format;
+    unsigned long n_items, bytes_after;
+    unsigned char *prop;
 
     t_w = (orientation == 0)? window->w : window->h;
     t_h = (orientation == 0)? window->h : window->w;
@@ -202,7 +207,20 @@ void Bar::acquireBack()
     buffer = CREATE_IMAGE(t_w, t_h);
 
     /* Get background Image */
-    USE_DRAWABLE(DefaultRootWindow(window->display));
+    // for DEs using an FM-based desktop, set it as bg source
+    if (bg_window) {
+	USE_DRAWABLE((Window)bg_window);
+    // otherwise, snapshot a backgroung pixmap set at the root window
+    } else if ((rootid = XInternAtom(window->display, "_XROOTPMAP_ID", True)) &&
+       XGetWindowProperty(window->display, DefaultRootWindow (window->display),
+	rootid, 0, 1, False, XA_PIXMAP, &actual_type, &actual_format, &n_items, 
+	&bytes_after, &prop) == Success && prop) {
+	    USE_DRAWABLE(*((Drawable *)prop));
+	    XFree(prop);
+    } else 
+	// last resort: snaphsot the whole display, potentially resulting in 
+	// some artifacts from the windows above the bar
+	USE_DRAWABLE(DefaultRootWindow(window->display));
     barback = IMAGE_FROM_DRAWABLE(window->x, window->y, t_w, t_h);
     USE_DRAWABLE(window->window);
 }
@@ -445,6 +463,16 @@ void Bar::refresh(int mouse_x)
 }
 /*}}}*/
 
+/* Refresh the bar not having cursor focus*/
+void Bar::refreshUnfocused(int mouse_x)
+{
+    /* Relative coords */
+    mouse_x -= (int)(icon_offset + icon_size/2.0);
+    unfocus();
+    render();
+}
+/*}}}*/
+
 /* In & out of the bar */
 inline void Bar::unfocus()
 {
@@ -600,6 +628,18 @@ string Bar::iconCommand(int i_num)
     if (i_num<0 || i_num>=(int)icons.size()) return NULL;
 
     return icons[i_num]->command;
+}
+
+unsigned long Bar::iconWinId(int i_num)
+{
+    if (i_num<0 || i_num>=(int)icons.size()) return 0;
+
+    return icons[i_num]->wid;
+}
+
+int Bar::iconsShown()
+{
+    return (int)icons.size();
 }
 
 int Bar::iconIndex(int mousex)

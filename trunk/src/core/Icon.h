@@ -28,6 +28,7 @@ protected:
     int cx, csize;
 
     std::string command;
+    unsigned long wid;
 
     /* extend friendship? */
     friend class Bar;
@@ -35,7 +36,8 @@ protected:
 
 public:
 
-    Icon(std::string iconImg, std::string cmd, int x, int y);
+    Icon(std::string iconImg, std::string cmd, int x, int y,
+	unsigned long winid, unsigned char *icondata, int iw, int ih);
     ~Icon();
 };
 

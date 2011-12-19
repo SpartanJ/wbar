@@ -42,7 +42,9 @@ class SuperBar : public Bar{
 
 	~SuperBar();
 
-	void addIcon(std::string path, std::string comm, std::string text);
+	void addIcon(std::string path, std::string comm, std::string text, 
+		unsigned long winid, unsigned char *icondata, int iw, int ih);
+	void removeIcon();
 };
 
 

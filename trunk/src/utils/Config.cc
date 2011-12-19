@@ -94,7 +94,7 @@ std::list < App * > Config::getAppList()
         {
             if (icon != "" && command != "" && title != "")
             {
-                App *app = new App(icon, command, title);
+                App *app = new App(icon, command, title, 0);
                 list.push_back(app);
             }
 
