@@ -12,6 +12,9 @@ extern unsigned long bg_window;
 
 using namespace std;
 
+static XErrorHandler oldXHandler = (XErrorHandler) 0 ;
+static int rootErrorHandler(Display *display, XErrorEvent *theEvent);
+
 /* Bar Constructor & Destructor */
 Bar::Bar(XWin *win, string barImg, int iSize, int iDist, float zFactor,
         float jFactor, int bOrient, int bPosition, int nAnim,
@@ -207,6 +210,9 @@ void Bar::acquireBack()
     buffer = CREATE_IMAGE(t_w, t_h);
 
     /* Get background Image */
+    // with KDM->IceWM and the like, root windown may be readable by root only
+    // if no wallpaper is set. Just proceed with no background then
+    oldXHandler = XSetErrorHandler(rootErrorHandler);
     // for DEs using an FM-based desktop, set it as bg source
     if (bg_window) {
 	USE_DRAWABLE((Window)bg_window);
@@ -217,12 +223,15 @@ void Bar::acquireBack()
 	&bytes_after, &prop) == Success && prop) {
 	    USE_DRAWABLE(*((Drawable *)prop));
 	    XFree(prop);
-    } else 
+    } else {
 	// last resort: snaphsot the whole display, potentially resulting in 
 	// some artifacts from the windows above the bar
+	throw ("last resort");
 	USE_DRAWABLE(DefaultRootWindow(window->display));
+    }
     barback = IMAGE_FROM_DRAWABLE(window->x, window->y, t_w, t_h);
     USE_DRAWABLE(window->window);
+    (void) XSetErrorHandler(oldXHandler);
 }
 /*}}}*/
 
@@ -675,3 +684,13 @@ float Bar::getZoom()
 /*}}}*/
 #endif
 
+static int rootErrorHandler(Display *display, XErrorEvent *theEvent)
+{
+	if (theEvent->error_code == 9 && theEvent->request_code == 14) {
+	    std::cout << "root window is readable by root only" << std::endl;
+	    std::cout << "you may work around that by setting a wallpaper" << std::endl;
+	}
+        std::cout << "error code:" << (int) theEvent->error_code 
+                << " request code:" << (int) theEvent->request_code << std::endl;
+        return 0;
+}
