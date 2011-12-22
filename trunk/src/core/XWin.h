@@ -31,7 +31,7 @@ public:
     XWin(int x, int y, int w, int h);
     ~XWin();
 
-    void selectInput(int mask);
+    void selectInput(int mask, int taskbar_set);
 
     void mapWindow();
     void unMapWindow();

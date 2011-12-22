@@ -387,6 +387,11 @@ void set_config_states(std::string command)
         checkbutton = glade_xml_get_widget (xml, "checkbutton_noreload");
         gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON (checkbutton), true);
     }
+    if(opt.isSet(TASKBAR))
+    {
+        checkbutton = glade_xml_get_widget (xml, "checkbutton_taskbar");
+        gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON (checkbutton), true);
+    }
     if(opt.isSet(ISIZE))
     {
         checkbutton = glade_xml_get_widget (xml, "checkbutton_isize");
@@ -906,6 +911,13 @@ std::string getCommand()
         command += " --noreload";
     }
 
+    checkbutton = glade_xml_get_widget (xml, "checkbutton_taskbar");
+
+    if (gtk_toggle_button_get_active (GTK_TOGGLE_BUTTON (checkbutton)))
+    {
+        command += " --taskbar";
+    }
+
     checkbutton = glade_xml_get_widget (xml, "checkbutton_isize");
 
     if (gtk_toggle_button_get_active (GTK_TOGGLE_BUTTON (checkbutton)))
@@ -1024,7 +1036,7 @@ std::string getCommand()
         command += " --fc ";
         command += text;
     }
-    
+
     return command;
 }
 

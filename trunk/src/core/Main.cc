@@ -15,6 +15,7 @@
 #include "i18n.h"
 
 static size_t configitems;
+static unsigned int taskbar;
 static std::list<App *> list;
 static std::list<App *>::iterator it;
 static App *p;
@@ -122,6 +123,7 @@ int main(int argc, char **argv)
             std::cout << "   -v, --version      " << _("show version") << std::endl;
             std::cout << "   --config filepath  " << _("conf-file (eg: $HOME/.wbar)") << std::endl;
             std::cout << "   --above-desk       " << _("run over a desktop app (ie: xfdesktop)") << std::endl;
+            std::cout << "   --taskbar		" << _("enable taskbar") << std::endl;
             std::cout << "   --noreload         " << _("right click does not force reload anymore") << std::endl;
             std::cout << "   --offset i         " << _("offset bar (eg: 20)") << std::endl;
             std::cout << "   --isize  i         " << _("icon size (eg: 32)") << std::endl;
@@ -161,10 +163,14 @@ int main(int argc, char **argv)
             barwin.lowerWindow();
         }
 
+
+        taskbar = optparser.isSet(TASKBAR)?1:0;
+
         /* tell X what events we're intrested in */
-        barwin.selectInput(PointerMotionMask | ExposureMask | ButtonPressMask |
-                ButtonReleaseMask | LeaveWindowMask | EnterWindowMask);
-        
+            barwin.selectInput(PointerMotionMask | ExposureMask | 
+            ButtonPressMask |ButtonReleaseMask | LeaveWindowMask | 
+            EnterWindowMask,taskbar);
+
         /* Image library set up */
         INIT_IMLIB(barwin.getDisplay(), barwin.getVisual(), barwin.getColormap(),
                 barwin.getDrawable(), 2048*2048);
@@ -432,39 +438,42 @@ int mapIcons()
 	it--;
     }
     // add currently running tasks to the list
-    runningApp = barwin.windowProp(NULL, "_NET_CLIENT_LIST", &len);
-    long *array = (long*) runningApp;
-    // in e16 WM, context menus block XQueue to stay on top and focused 
-    // until closed, and so wbar gets and old _NET_CLIENT_LIST with
-    // nonexistent windows there, crashing wbar on quering them.
-    // Since no windows to display can appear or disappear during that, 
-    // we work around the problem by just ignoring BadWindow errors
-    oldXHandler = XSetErrorHandler(eErrorHandler);
-    for (unsigned long k = 0; k < len; k++){
-        Window w = (Window) array[k];
-        if (barwin.issetHint(w, "_NET_WM_WINDOW_TYPE", 
-    		"_NET_WM_WINDOW_TYPE_DESKTOP")&&firstrun) 
-    	    bg_window = w;
-        if (!barwin.issetHint(w,"_NET_WM_STATE","_NET_WM_STATE_SKIP_TASKBAR") &&
-    		(barwin.issetHint(w,"_NET_WM_WINDOW_TYPE",
-    		"_NET_WM_WINDOW_TYPE_NORMAL") ||
-    		!barwin.haveAtom(w,"_NET_WM_WINDOW_TYPE"))) {
-	    icon="";
-	    int iiw,iih;
-	    if (barwin.windowIcon(w, &iiw, &iih) == NULL)
-		icon=pixmapdir+"/"+packagename+"/"+"questionmark.png";
-	    cmnd="";
-	    winid=(unsigned long) w;
-	    titl=barwin.windowProp(&w,"WM_NAME",&tmp_len);
-	    // now, THIS is impossible, so we're dealing with an old NET_CLIENT_LIST
-	    if (!titl) 
-		continue;
-    	    const char *title=(const char*) titl;
-    	    App *app = new App(icon, cmnd, title, winid);
-    	    list.push_back(app);
-    	    icon = cmnd = "";
-    	    titl = NULL;
-    	    winid=0;
+    if (taskbar) {
+        runningApp = barwin.windowProp(NULL, "_NET_CLIENT_LIST", &len);
+	long *array = (long*) runningApp;
+	// in e16 WM, context menus block XQueue to stay on top and focused 
+	// until closed, and so wbar gets and old _NET_CLIENT_LIST with
+	// nonexistent windows there, crashing wbar on quering them.
+	// Since no windows to display can appear or disappear during that, 
+	// we work around the problem by just ignoring BadWindow errors
+	oldXHandler = XSetErrorHandler(eErrorHandler);
+	for (unsigned long k = 0; k < len; k++){
+    	    Window w = (Window) array[k];
+    	    if (barwin.issetHint(w, "_NET_WM_WINDOW_TYPE", 
+    		    "_NET_WM_WINDOW_TYPE_DESKTOP")&&firstrun) 
+    		bg_window = w;
+    	    if (!barwin.issetHint(w,"_NET_WM_STATE","_NET_WM_STATE_SKIP_TASKBAR")
+    			&& (barwin.issetHint(w,"_NET_WM_WINDOW_TYPE",
+			"_NET_WM_WINDOW_TYPE_NORMAL") ||
+    			!barwin.haveAtom(w,"_NET_WM_WINDOW_TYPE"))) {
+		icon="";
+		int iiw,iih;
+		if (barwin.windowIcon(w, &iiw, &iih) == NULL)
+		    icon=pixmapdir+"/"+packagename+"/"+"questionmark.png";
+		cmnd="";
+		winid=(unsigned long) w;
+		titl=barwin.windowProp(&w,"WM_NAME",&tmp_len);
+		// now, THIS is impossible, so we're dealing with an 
+		// old NET_CLIENT_LIST
+		if (!titl) 
+		    continue;
+    		const char *title=(const char*) titl;
+    		App *app = new App(icon, cmnd, title, winid);
+    		list.push_back(app);
+    		icon = cmnd = "";
+    		titl = NULL;
+    		winid=0;
+	    }
 	}
     }
     //if this is not an initial run
