@@ -25,6 +25,7 @@ enum Options
     FC,
     OFFSET,
     NORELOAD,
+    TASKBAR,
     HELP = 'h',
     VERS = 'v'
 };

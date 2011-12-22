@@ -518,6 +518,19 @@
                       </packing>
                     </child>
                     <child>
+                      <widget class="GtkCheckButton" id="checkbutton_taskbar">
+                        <property name="label" translatable="yes">Enable taskbar</property>
+                        <property name="visible">True</property>
+                        <property name="can_focus">True</property>
+                        <property name="receives_default">False</property>
+                        <property name="draw_indicator">True</property>
+                      </widget>
+                      <packing>
+                        <property name="top_attach">8</property>
+                        <property name="bottom_attach">9</property>
+                      </packing>
+                    </child>
+                    <child>
                       <widget class="GtkCheckButton" id="checkbutton_grow">
                         <property name="label" translatable="yes">Investing icons growth</property>
                         <property name="visible">True</property>

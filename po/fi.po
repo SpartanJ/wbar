@@ -10,10 +10,10 @@ msgstr ""
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: Yadickson Soto <yadickson@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
-"Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8-bit\n"
+"Language: \n"
 "Generated-By: pygettext.py 1.5\n"
 
 #: ../etc/wbar.desktop.in.h:1 ../src/config/Functions.cc:1362
@@ -181,157 +181,161 @@ msgstr "Sulje"
 msgid "_Reload"
 msgstr ""
 
-#: ../src/core/Bar.cc:28
+#: ../src/core/Bar.cc:31
 msgid " Image not found. Maybe using a relative path?"
 msgstr ""
 
-#: ../src/core/Bar.cc:588
+#: ../src/core/Bar.cc:616
 msgid "Invalid bar position."
 msgstr ""
 
-#: ../src/core/Bar.cc:589
+#: ../src/core/Bar.cc:617
 msgid "Set default bar position."
 msgstr ""
 
-#: ../src/core/Icon.cc:10
+#: ../src/core/Icon.cc:16
 msgid " Couldn't load icon image."
 msgstr ""
 
-#: ../src/core/Main.cc:65 ../src/config/Functions.cc:298
+#: ../src/core/Main.cc:74 ../src/config/Functions.cc:298
 #, fuzzy
 msgid "Configuration empty."
 msgstr "Asetukset tallennettu!"
 
-#: ../src/core/Main.cc:106
+#: ../src/core/Main.cc:113
 msgid "Version of "
 msgstr ""
 
-#: ../src/core/Main.cc:112
+#: ../src/core/Main.cc:119
 msgid "Usage: wbar [option] ... [option]"
 msgstr ""
 
-#: ../src/core/Main.cc:113
+#: ../src/core/Main.cc:120
 msgid "Options:"
 msgstr ""
 
-#: ../src/core/Main.cc:114
+#: ../src/core/Main.cc:121
 msgid "this help"
 msgstr ""
 
-#: ../src/core/Main.cc:115
+#: ../src/core/Main.cc:122
 msgid "show version"
 msgstr ""
 
-#: ../src/core/Main.cc:116
+#: ../src/core/Main.cc:123
 msgid "conf-file (eg: $HOME/.wbar)"
 msgstr ""
 
-#: ../src/core/Main.cc:117
+#: ../src/core/Main.cc:124
 #, fuzzy
 msgid "run over a desktop app (ie: xfdesktop)"
 msgstr "Suorita työpöytäsovellusten yllä"
 
-#: ../src/core/Main.cc:118
+#: ../src/core/Main.cc:125
 msgid "right click does not force reload anymore"
 msgstr ""
 
-#: ../src/core/Main.cc:119
+#: ../src/core/Main.cc:126
 msgid "offset bar (eg: 20)"
 msgstr ""
 
-#: ../src/core/Main.cc:120
-msgid "icon size (eg: 32)"
-msgstr ""
-
-#: ../src/core/Main.cc:121
-#, fuzzy
-msgid "icon dist (eg: 1)"
-msgstr "Kuvakkeiden etäisyys"
-
-#: ../src/core/Main.cc:122
-msgid "zoom factor (eg: 1.8 or 2.5)"
-msgstr ""
-
-#: ../src/core/Main.cc:123
-msgid "jump factor (eg: 1.0 or 0.0)"
-msgstr ""
-
-#: ../src/core/Main.cc:124
-msgid "position:"
-msgstr ""
-
 #: ../src/core/Main.cc:127
-msgid "investing icons growth"
+msgid "icon size (eg: 32)"
 msgstr ""
 
 #: ../src/core/Main.cc:128
 #, fuzzy
-msgid "ms for double click (0: single click)"
-msgstr "Tuplaklikkausviive millisekunteina"
+msgid "icon dist (eg: 1)"
+msgstr "Kuvakkeiden etäisyys"
 
 #: ../src/core/Main.cc:129
-#, fuzzy
-msgid "icon gets pressed"
-msgstr "Kuvake tulee painetuksi"
-
-#: ../src/core/Main.cc:130
-#, fuzzy
-msgid "vertical bar"
-msgstr "Pystypalkki"
-
-#: ../src/core/Main.cc:131
-msgid "bar alfa (0-100)"
+msgid "zoom factor (eg: 1.8 or 2.5)"
 msgstr ""
 
-#: ../src/core/Main.cc:132
-#, fuzzy
-msgid "unfocused bar alfa (0-100)"
-msgstr "Valitsemattoman palkin läpinäkyvyys %"
+#: ../src/core/Main.cc:130
+msgid "jump factor (eg: 1.0 or 0.0)"
+msgstr ""
 
-#: ../src/core/Main.cc:133
-msgid "color filter (0: none 1: hovered 2: others, 3: all)"
+#: ../src/core/Main.cc:131
+msgid "position:"
 msgstr ""
 
 #: ../src/core/Main.cc:134
-msgid "filter color (default green 0xff00c800)"
+msgid "investing icons growth"
 msgstr ""
 
 #: ../src/core/Main.cc:135
 #, fuzzy
+msgid "ms for double click (0: single click)"
+msgstr "Tuplaklikkausviive millisekunteina"
+
+#: ../src/core/Main.cc:136
+#, fuzzy
+msgid "icon gets pressed"
+msgstr "Kuvake tulee painetuksi"
+
+#: ../src/core/Main.cc:137
+#, fuzzy
+msgid "vertical bar"
+msgstr "Pystypalkki"
+
+#: ../src/core/Main.cc:138
+msgid "bar alfa (0-100)"
+msgstr ""
+
+#: ../src/core/Main.cc:139
+#, fuzzy
+msgid "unfocused bar alfa (0-100)"
+msgstr "Valitsemattoman palkin läpinäkyvyys %"
+
+#: ../src/core/Main.cc:140
+msgid "color filter (0: none 1: hovered 2: others, 3: all)"
+msgstr ""
+
+#: ../src/core/Main.cc:141
+msgid "filter color (default green 0xff00c800)"
+msgstr ""
+
+#: ../src/core/Main.cc:142
+#, fuzzy
 msgid "number of animated icons: 1, 3, 5, 7, 9, ..."
 msgstr "Animoitavien kuvakkeiden lukumäärä"
 
-#: ../src/core/Main.cc:136
+#: ../src/core/Main.cc:143
 #, fuzzy
 msgid "if set disables font rendering"
 msgstr "Tekstin esitys pois päältä"
 
-#: ../src/core/Main.cc:138
+#: ../src/core/Main.cc:145
 msgid "View man(1)."
 msgstr ""
 
-#: ../src/core/Main.cc:315 ../src/config/Run.cc:126
+#: ../src/core/Main.cc:320 ../src/config/Run.cc:126
 msgid "Error run program: "
 msgstr ""
 
-#: ../src/core/XWin.cc:17
+#: ../src/core/XWin.cc:20
 msgid "Couldn't open display"
 msgstr ""
 
-#: ../src/core/XWin.cc:21
+#: ../src/core/XWin.cc:24
 msgid "Couldn't get visual"
 msgstr ""
 
-#: ../src/core/XWin.cc:23
+#: ../src/core/XWin.cc:26
 msgid "Couln't get colormap"
 msgstr ""
 
-#: ../src/core/XWin.cc:25
+#: ../src/core/XWin.cc:28
 msgid "Couldn't get depth"
 msgstr ""
 
-#: ../src/core/XWin.cc:28
+#: ../src/core/XWin.cc:31
 msgid "Couldn't create window"
+msgstr ""
+
+#: ../src/core/XWin.cc:312
+msgid "windowIcon() -- XGetWindowProperty"
 msgstr ""
 
 #: ../src/config/Functions.cc:122
@@ -370,11 +374,13 @@ msgid "center"
 msgstr ""
 
 #: ../src/config/Functions.cc:165
-msgid "bottom-left"
+#, fuzzy
+msgid "bot-left"
 msgstr "alhaalla vasemmalla"
 
 #: ../src/config/Functions.cc:168
-msgid "bottom-right"
+#, fuzzy
+msgid "bot-right"
 msgstr "alhaalla oikealla"
 
 #: ../src/config/Functions.cc:171

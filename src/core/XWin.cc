@@ -46,11 +46,14 @@ XWin::~XWin()
     XCloseDisplay(display);
 }
 
-void XWin::selectInput(int ev_mask)
+void XWin::selectInput(int ev_mask, int taskbar_set)
 {
-    eventMask = ev_mask|PropertyChangeMask;
+    eventMask = ev_mask;
     XSelectInput(display, window, ev_mask);
-    XSelectInput(display, XDefaultRootWindow(display), PropertyChangeMask);
+    if (taskbar_set) {
+	XSelectInput(display, XDefaultRootWindow(display), PropertyChangeMask);
+	eventMask = ev_mask|PropertyChangeMask;
+    }
 }
 
 void XWin::lowerWindow()
