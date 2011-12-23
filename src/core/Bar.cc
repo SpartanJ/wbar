@@ -226,7 +226,6 @@ void Bar::acquireBack()
     } else {
 	// last resort: snaphsot the whole display, potentially resulting in 
 	// some artifacts from the windows above the bar
-	throw ("last resort");
 	USE_DRAWABLE(DefaultRootWindow(window->display));
     }
     barback = IMAGE_FROM_DRAWABLE(window->x, window->y, t_w, t_h);
