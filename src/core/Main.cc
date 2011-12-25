@@ -5,6 +5,7 @@
 #include <stdlib.h>
 #include <iostream>
 #include <string.h>
+#include <libgen.h>
 
 #include "XWin.h"
 #include "ImgWrap.h"
@@ -163,7 +164,8 @@ int main(int argc, char **argv)
             barwin.lowerWindow();
         }
 
-
+	barwin.setName(basename(argv[0]));
+	
         taskbar = optparser.isSet(TASKBAR)?1:0;
 
         /* tell X what events we're intrested in */
