@@ -1,4 +1,5 @@
 #include <sys/select.h>
+#include <stdlib.h>
 #include <X11/Xutil.h>
 #include <X11/Xatom.h>
 #include "XWin.h"
@@ -87,6 +88,13 @@ bool XWin::nextEvent(XEvent *ev)
         /* queue length is relate to my only window */
         if ((qlen = XQLength(display)))
         {
+    	    if (XCheckTypedEvent(display, ClientMessage, ev) == True)
+    	    {
+    		if ((Atom)ev->xclient.data.l[0] == delWindow)
+    		    exit (0);
+    		else 
+    		    continue;
+    	    }
             if (XCheckMaskEvent(display, eventMask, ev) == False)
             {
                 /* process events we're not waiting for */
@@ -96,7 +104,8 @@ bool XWin::nextEvent(XEvent *ev)
         } else
             XMaskEvent(display, eventMask, ev);
     }
-    while ((ev->type == MotionNotify || ev->type == PropertyNotify) && qlen > 1);
+    while ((ev->type == MotionNotify || ev->type == PropertyNotify || 
+	    ev->type == ClientMessage) && qlen > 0);
     return true;
 }
 
