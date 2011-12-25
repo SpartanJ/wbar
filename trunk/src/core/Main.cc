@@ -438,8 +438,8 @@ int mapIcons()
 	it--;
     }
     // add currently running tasks to the list
-    if (taskbar) {
-        runningApp = barwin.windowProp(NULL, "_NET_CLIENT_LIST", &len);
+    if ( (taskbar) && 
+	    (runningApp = barwin.windowProp(NULL, "_NET_CLIENT_LIST", &len)) ) {
 	long *array = (long*) runningApp;
 	// in e16 WM, context menus block XQueue to stay on top and focused 
 	// until closed, and so wbar gets and old _NET_CLIENT_LIST with
