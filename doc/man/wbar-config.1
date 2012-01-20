@@ -1,35 +1,46 @@
 .\"                                      Hey, EMACS: -*- nroff -*-
-.\" First parameter, NAME, should be all caps
-.\" Second parameter, SECTION, should be 1-8, maybe w/ subsection
-.\" other parameters are allowed: see man(7), man(1)
-.TH WBAR-CONFIG 1 "December 30, 2010"
-.\" Please adjust this date whenever revising the manpage.
-.\"
-.\" Some roff macros, for reference:
-.\" .nh        disable hyphenation
-.\" .hy        enable hyphenation
-.\" .ad l      left justify
-.\" .ad b      justify to both left and right margins
-.\" .nf        disable filling
-.\" .fi        enable filling
-.\" .br        insert line break
-.\" .sp <n>    insert n+1 empty lines
-.\" for manpage-specific macros, see man(7)
+.TH WBAR-CONFIG 1 "January 14, 2012"
 .SH NAME
 wbar-config \- gui from settings for wbar
-.br
+.SH SYNOPSIS
+.B wbar-config
 .SH DESCRIPTION
-This application does not have execution parameters, autostart for gnome desktop.
-.br
+\fBwbar-config\fP is a program that creates and configures the settings for
+.BR wbar (1) .
+The config file consists of blocks of three lines each of the
+following format:
 .PP
-.\" TeX users may be more comfortable with the \fB<whatever>\fP and
-.\" \fI<whatever>\fP escape sequences to invode bold face and italics,
-.\" respectively.
-\fBwbar-config\fP - is a program that allows the settings for wbar.
-.SH SEE ALSO
-.BR wbar (1).
+i: /path/to/file.png
 .br
-.SH AUTHOR
+c: command --args
+.br
+t: description for mouseover
+.PP
+That means that there is one line starting with "i: " followed by the
+path to a png file which is used as the icon;
+followed by a line starting with "c: " which contains the command and
+arguments that should be run when the user clicks on this icon; and
+finally followed by a line starting with "t: " containing the text
+that shall be shown to the user when the mouse cursor is over the
+icon.
+.PP
+The first block is different, it describes general settings.
+Here the "i: " argument is the path the file used as background image.
+The "c: " argument has the default arguments for wbar.
+The "t: " line contains the path to the font that shall be used
+followed by slash and the font size.
+.PP
+For example:
+.PP
+i: PREFIX/share/pixmaps/wbar/osxbarback.png
+.br
+c: wbar --bpress --above-desk --vbar --pos right --isize 32 --idist 5 --nanim 4 --falfa 65
+.br
+t: /usr/pkg/lib/X11/fonts/TTF/DejaVuSans/10
+.SH SEE ALSO
+.BR wbar (1)
+.SH AUTHORS
 wbar-config was written by Yadickson Soto <yadickson@gmail.com>.
 .PP
-This manual page was written by Yadickson Soto <yadickson@gmail.com>.
+This manual page was written by Yadickson Soto <yadickson@gmail.com>
+and improved by Thomas Klausner <tk@giga.or.at>.
