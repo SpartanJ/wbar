@@ -26,6 +26,7 @@ enum Options
     OFFSET,
     NORELOAD,
     TASKBAR,
+    RSIZE,
     HELP = 'h',
     VERS = 'v'
 };

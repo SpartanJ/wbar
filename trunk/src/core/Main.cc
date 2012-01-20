@@ -27,6 +27,7 @@ static XWin barwin(50,50,50,50);
 unsigned long bg_window;
 void corpshandler(int);
 int mapIcons();
+static int refl_size;
 static XErrorHandler oldXHandler = (XErrorHandler) 0 ;
 static int eErrorHandler(Display *, XErrorEvent *);
 
@@ -139,6 +140,7 @@ int main(int argc, char **argv)
             std::cout << "   --bpress           " << _("icon gets pressed") << std::endl;
             std::cout << "   --vbar             " << _("vertical bar") << std::endl;
             std::cout << "   --balfa  i         " << _("bar alfa (0-100)") << std::endl;
+            std::cout << "   --rsize  i         " << _("Reflection size in percents (0-100)") << std::endl;
             std::cout << "   --falfa  i         " << _("unfocused bar alfa (0-100)") << std::endl;
             std::cout << "   --filter i         " << _("color filter (0: none 1: hovered 2: others, 3: all)") << std::endl;
             std::cout << "   --fc  0xAARRGGBB   " << _("filter color (default green 0xff00c800)") << std::endl;
@@ -186,6 +188,7 @@ int main(int argc, char **argv)
         noreload = optparser.isSet(NORELOAD)?1:0;
 
         vertbar = optparser.isSet(VBAR)?1:0;
+        refl_size = optparser.isSet(RSIZE)?atoi(optparser.getArg(RSIZE).c_str()):0;
 
         bool grow = optparser.isSet(GROW)?true:false;
 
@@ -492,7 +495,7 @@ int mapIcons()
         	if (p->getIconName() != "")
             	    ((SuperBar *)barra)->addIcon(p->getIconName(), 
             		p->getCommand(), p->getTitle(), p->getWinid(), 
-            		NULL, 0, 0);
+            		NULL, 0, 0, refl_size);
                 else {
             	    int iw, ih;
         			barwin.selectWindowInput(p->getWinid()); 
@@ -500,7 +503,7 @@ int mapIcons()
             	    if (icondata) {
             		((SuperBar *)barra)->addIcon(p->getIconName(), 
             		    p->getCommand(), p->getTitle(), p->getWinid(), 
-            		    icondata, iw, ih);
+            		    icondata, iw, ih, refl_size);
             	    } else {
                 	std::cout << "window has gone, not adding" << std::endl;
                 	return -1;

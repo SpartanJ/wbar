@@ -22,6 +22,7 @@ static struct option long_options[] =
     {"offset", 1, 0, 0 },
     {"noreload", 0, 0, 0 },
     {"taskbar", 0, 0, 0 },
+    {"rsize", 1, 0, 0 },
     {"help", 0, 0, HELP},
     {"version", 0, 0, VERS},
     {0, 0, 0, 0}
