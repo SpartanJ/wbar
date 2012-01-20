@@ -87,7 +87,8 @@ public:
 
     /* add an Icon */
     void addIcon(std::string path, std::string comm, 
-	    unsigned long winid, unsigned char *icondata, int iw, int ih);
+	    unsigned long winid, unsigned char *icondata, int iw, int ih, 
+	    int refl_size);
 
     /* Icon information */
     int iconIndex(int mouse_x);

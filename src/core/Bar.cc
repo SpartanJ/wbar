@@ -64,12 +64,12 @@ Bar::~Bar()
 
 /* Add Icon */
 void Bar::addIcon(string path, string comm, unsigned long winid, 
-		    unsigned char *icondata, int iw, int ih)
+		    unsigned char *icondata, int iw, int ih, int refl_size)
 {
     icons.push_back(new Icon(path, comm,
 	    (int)icon_offset + icon_size/2 + icons.size() * icon_unit, // x coord
             y + (int)(0.125 * icon_size), // y coord
-            winid, icondata, iw, ih));
+            winid, icondata, iw, ih, refl_size));
 }
 /*}}}*/
 
