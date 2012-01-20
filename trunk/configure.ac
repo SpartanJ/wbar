@@ -77,6 +77,10 @@ fi
 
 AM_CONDITIONAL([WBAR_CONFIG],[test "$use_wbar_config" = "yes"])
 
+AC_SUBST(PIDOF_BIN, "pidof ")
+AC_PATH_PROG(PIDOF_BIN, pidof, pgrep)
+AC_DEFINE_UNQUOTED(PIDOF_BIN, "$PIDOF_BIN ", [ program to retreive wbar pid ])
+
 AC_CONFIG_FILES([Makefile \
 share/Makefile \
 etc/Makefile \
