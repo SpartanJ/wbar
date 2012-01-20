@@ -13,6 +13,10 @@
 #include <iostream>
 #include "i18n.h"
 
+#ifndef PIDOF_BIN
+#define PIDOF_BIN "pidof "
+#endif
+
 Run::Run()
 {
 
@@ -28,7 +32,7 @@ int Run::getPID()
     int pid = -1;
     FILE * process;
 
-    process = popen("pidof "PACKAGE_NAME, "r");
+    process = popen(PIDOF_BIN PACKAGE_NAME, "r");
 
     if (process)
     {
