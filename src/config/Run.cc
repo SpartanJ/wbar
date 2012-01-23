@@ -37,7 +37,7 @@ int Run::getPID()
     if (process)
     {
         char spid[50];
-        if (fgets(spid, sizeof(spid), process) != NULL);
+        if (fgets(spid, sizeof(spid), process) != NULL)
         {
             pid = atoi(spid);
         }
