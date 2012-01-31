@@ -42,9 +42,9 @@ Icon::Icon(string iconImg, string cmd, int xx, int yy,
     	USE_IMAGE(icontmp);
     	IMAGE_ENABLE_ALPHA(1);
     	imlib_blend_image_onto_image(icon, 1, 0, 0, iw, ih, 0, 0, iw, 
-    									ih-refl_h); // was 10
+    									ih-refl_h);
     	imlib_blend_image_onto_image_skewed(icon, 1, 0, 0, iw, ih, 0, ih, iw , 
-    										0, 0, -refl_h); // was 10
+    										0, 0, -refl_h);
     	icon=imlib_clone_image();
     }
     USE_IMAGE(icon);
