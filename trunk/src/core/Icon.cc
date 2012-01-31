@@ -2,7 +2,6 @@
 #include "i18n.h"
 #include <string.h>
 
-#include <iostream>
 
 using namespace std;
 
@@ -14,7 +13,7 @@ Icon::Icon(string iconImg, string cmd, int xx, int yy,
     ox(xx), oy(yy), x(xx), y(yy), need_update(1), cx(xx), command(cmd),
     wid(winid){
     
-   	int refl_w, refl_h;
+   	int refl_h;
     
     if (iconImg == "") {
 		icon = imlib_create_image(iw, ih);
@@ -38,7 +37,6 @@ Icon::Icon(string iconImg, string cmd, int xx, int yy,
         	iw=imlib_image_get_width();
         	ih=imlib_image_get_height();
     	}
-    	refl_w = iw*(refl_size/100.0);
     	refl_h = ih*(refl_size/100.0);
     	icontmp = imlib_create_image(iw, ih);
     	USE_IMAGE(icontmp);
