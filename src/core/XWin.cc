@@ -2,10 +2,13 @@
 #include <stdlib.h>
 #include <X11/Xutil.h>
 #include <X11/Xatom.h>
+#include <string.h>
 #include "XWin.h"
 #include "i18n.h"
 
 using namespace std;
+
+unsigned char* repack64(unsigned char *repack_data, long repack_sz);
 
 XWin::XWin(int xx, int yy, int ww, int hh) :
     eventMask(NoEventMask), x(xx), y(yy), w(ww), h(hh)
@@ -309,6 +312,7 @@ unsigned char *XWin::windowIcon(Window targetWin, int *iw, int *ih){
     int form;
     unsigned long remain;
     unsigned char * list;
+    unsigned char * cardinal32_imagedata;
     unsigned long len;
 //	If not disabled, XErrorHandler will interrupt wbar. Otherwise, remember
 //	to handle the returned NULL
@@ -326,11 +330,13 @@ unsigned char *XWin::windowIcon(Window targetWin, int *iw, int *ih){
 	}
     *ih = *(int*)list;
 //	If not disabled, XErrorHandler will interrupt wbar.
-    if (XGetWindowProperty(display, targetWin, a, 10, (*iw)*(*ih), False, XA_CARDINAL, 
-		&actual_type, &form, &len, &remain, &list) != Success) {
+    if (XGetWindowProperty(display, targetWin, a, 2, (*iw)*(*ih), False,
+	    XA_CARDINAL,&actual_type, &form, &len, &remain, &list) != Success) {
 		    return 0;
-	}
-    return list;
+    }
+    cardinal32_imagedata = repack64(list, (*iw)*(*ih));
+    XFree(list);
+    return cardinal32_imagedata;
     }
     return 0;
 }
@@ -417,3 +423,42 @@ void XWin::flushAll()
     XSync(display,True);
 }
 
+unsigned char *repack64 (unsigned char* repack_data, long repack_sz) {
+    unsigned char *repack;
+    long repack_alloc;
+    long orig_idx, repack_idx;
+    /*
+    * Check if we are dealing with 64-bit arch. *
+    * There, a 64 bit long is returned for CARDINAL32 in XGetWindowProperty
+    * with its last four bytes padded with zeroes. We need to remove that
+    * padding to pass consistent data to imlib2 
+    */    
+    if (sizeof(long) == 8) {
+	repack_alloc = repack_sz*8;
+	if (!(repack = (unsigned char *) malloc(repack_alloc)))
+	    return NULL;
+	/* 
+	* seems somewhat bulky, but doing it in a cycle instead of byte-shift
+	* doesn't suffer from endianness incompatibility and doesn't
+	* cause potential slowdowns on SMP machines
+	*/
+	for (orig_idx=repack_idx=0; orig_idx<repack_alloc;) {
+	    repack[repack_idx] = repack_data[orig_idx];
+	    repack_idx++;orig_idx++;
+	    repack[repack_idx] = repack_data[orig_idx];
+	    repack_idx++;orig_idx++;
+	    repack[repack_idx] = repack_data[orig_idx];
+	    repack_idx++;orig_idx++;
+	    repack[repack_idx] = repack_data[orig_idx];
+	    repack_idx++;orig_idx++;
+	    /* skip four padding zeroes */
+	    orig_idx+=4;
+	}
+    } else { /* 32 bit is native for CARDINAL32, return the same data */
+	repack_alloc = repack_sz*4;
+	if (!(repack = (unsigned char*) malloc(repack_alloc)))
+	    return NULL;
+	memmove (repack,repack_data,repack_alloc);
+    }
+    return repack;
+}

@@ -25,7 +25,7 @@ Icon::Icon(string iconImg, string cmd, int xx, int yy,
     USE_IMAGE(icon);
     if (iconImg == "") {
 		DATA32 *imagedata = imlib_image_get_data();
-		memmove(imagedata,icondata,sizeof(long));
+		memmove(imagedata,icondata,iw*ih*4);
 		imlib_image_put_back_data(imagedata);
     }
     
