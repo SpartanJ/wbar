@@ -16,472 +16,336 @@ msgstr ""
 "Content-Transfer-Encoding: 8-bit\n"
 "Generated-By: pygettext.py 1.5\n"
 
-#: ../etc/wbar.desktop.in.h:1 ../src/config/Functions.cc:1396
 msgid "A light and fast launch bar."
 msgstr ""
 
-#: ../etc/wbar.desktop.in.h:2
 msgid "Warlock Bar"
 msgstr ""
 
-#: ../share/wbar.glade.h:1
-#, fuzzy
 msgid "<b>Command</b>"
-msgstr "Komento:"
+msgstr ""
 
-#: ../share/wbar.glade.h:2
 msgid "<b>Icon</b>"
 msgstr ""
 
-#: ../share/wbar.glade.h:3
 msgid "<b>Title</b>"
 msgstr ""
 
-#: ../share/wbar.glade.h:4
 msgid "Bar alfa level"
 msgstr "Palkin läpinäkyvyys %"
 
-#: ../share/wbar.glade.h:5
-#, fuzzy
 msgid "Bar image:"
-msgstr "Taustakuva:"
+msgstr ""
 
-#: ../share/wbar.glade.h:6
 msgid "Bar unfocused alfa level"
 msgstr "Valitsemattoman palkin läpinäkyvyys %"
 
-#: ../share/wbar.glade.h:7
 msgid "Border offset"
 msgstr ""
 
-#: ../share/wbar.glade.h:8
 msgid "Color filter mode"
 msgstr "Värin suodatustila"
 
-#: ../share/wbar.glade.h:9
-#, fuzzy
 msgid "Delete"
-msgstr "vasemmalla"
+msgstr ""
 
-#: ../share/wbar.glade.h:10
 msgid "Disable font rendering"
 msgstr "Tekstin esitys pois päältä"
 
-#: ../share/wbar.glade.h:11
 msgid "Down"
 msgstr "Alas"
 
-#: ../share/wbar.glade.h:12 ../src/config/Functions.cc:733
 msgid "Edit"
 msgstr ""
 
-#: ../share/wbar.glade.h:13
 msgid "Effects"
 msgstr ""
 
-#: ../share/wbar.glade.h:14
 msgid "Enable taskbar"
 msgstr ""
 
-#: ../share/wbar.glade.h:15
 msgid "Filter color"
 msgstr "Suodatusväri"
 
-#: ../share/wbar.glade.h:16
-#, fuzzy
 msgid "Font:"
 msgstr "Fontti:"
 
-#: ../share/wbar.glade.h:17
 msgid "Icon distance"
 msgstr "Kuvakkeiden etäisyys"
 
-#: ../share/wbar.glade.h:18
 msgid "Icon gets pressed"
 msgstr "Kuvake tulee painetuksi"
 
-#: ../share/wbar.glade.h:19
 msgid "Icon size"
 msgstr "Kuvakkeen koko"
 
-#: ../share/wbar.glade.h:20
 msgid "Icons"
 msgstr "Kuvakes"
 
-#: ../share/wbar.glade.h:21
 msgid "Investing icons growth"
 msgstr ""
 
-#: ../share/wbar.glade.h:22
 msgid "Jump factor"
 msgstr "Hyppykerroin"
 
-#: ../share/wbar.glade.h:23 ../src/config/Functions.cc:696
 msgid "New"
 msgstr ""
 
-#: ../share/wbar.glade.h:24
 msgid "No reload bar"
 msgstr ""
 
-#: ../share/wbar.glade.h:25
 msgid "Number of animated icons"
 msgstr "Animoitavien kuvakkeiden lukumäärä"
 
-#: ../share/wbar.glade.h:26
 msgid "Position screen"
 msgstr "Sijainti näytöllä"
 
-#: ../share/wbar.glade.h:27
 msgid "Preferences"
 msgstr ""
 
-#: ../share/wbar.glade.h:28
 msgid "Reflection percentage"
 msgstr ""
 
-#: ../share/wbar.glade.h:29
 msgid "Run over the desktop"
 msgstr "Suorita työpöytäsovellusten yllä"
 
-#: ../share/wbar.glade.h:30
 msgid "Settings"
 msgstr "Asetukset"
 
-#: ../share/wbar.glade.h:31
 msgid "Size:"
 msgstr ""
 
-#: ../share/wbar.glade.h:32
 msgid "Time for double click [ms]"
 msgstr "Tuplaklikkausviive millisekunteina"
 
-#: ../share/wbar.glade.h:33
 msgid "Up"
 msgstr "Ylös"
 
-#: ../share/wbar.glade.h:34
 msgid "Vertical bar"
 msgstr "Pystypalkki"
 
-#: ../share/wbar.glade.h:35
 msgid "Zoom factor"
 msgstr "Suurennuskerroin"
 
-#: ../share/wbar.glade.h:36
 msgid "_About"
 msgstr "_Tietoa"
 
-#: ../share/wbar.glade.h:37
 msgid "_Accept"
 msgstr ""
 
-#: ../share/wbar.glade.h:38
 msgid "_Cancel"
 msgstr ""
 
-#: ../share/wbar.glade.h:39
-#, fuzzy
 msgid "_Close"
-msgstr "Sulje"
+msgstr ""
 
-#: ../share/wbar.glade.h:40
 msgid "_Reload"
 msgstr ""
 
-#: ../src/core/Bar.cc:34
 msgid " Image not found. Maybe using a relative path?"
 msgstr ""
 
-#: ../src/core/Bar.cc:624
 msgid "Invalid bar position."
 msgstr ""
 
-#: ../src/core/Bar.cc:625
 msgid "Set default bar position."
 msgstr ""
 
-#: ../src/core/Icon.cc:23
 msgid " Couldn't load icon image."
 msgstr ""
 
-#: ../src/core/Main.cc:77 ../src/config/Functions.cc:298
-#, fuzzy
 msgid "Configuration empty."
-msgstr "Asetukset tallennettu!"
+msgstr ""
 
-#: ../src/core/Main.cc:116
 msgid "Version of "
 msgstr ""
 
-#: ../src/core/Main.cc:122
 msgid "Usage: wbar [option] ... [option]"
 msgstr ""
 
-#: ../src/core/Main.cc:123
 msgid "Options:"
 msgstr ""
 
-#: ../src/core/Main.cc:124
 msgid "this help"
 msgstr ""
 
-#: ../src/core/Main.cc:125
 msgid "show version"
 msgstr ""
 
-#: ../src/core/Main.cc:126
 msgid "conf-file (eg: $HOME/.wbar)"
 msgstr ""
 
-#: ../src/core/Main.cc:127
-#, fuzzy
 msgid "run over a desktop app (ie: xfdesktop)"
-msgstr "Suorita työpöytäsovellusten yllä"
+msgstr ""
 
-#: ../src/core/Main.cc:128
 msgid "enable taskbar"
 msgstr ""
 
-#: ../src/core/Main.cc:129
 msgid "right click does not force reload anymore"
 msgstr ""
 
-#: ../src/core/Main.cc:130
 msgid "offset bar (eg: 20)"
 msgstr ""
 
-#: ../src/core/Main.cc:131
 msgid "icon size (eg: 32)"
 msgstr ""
 
-#: ../src/core/Main.cc:132
-#, fuzzy
 msgid "icon dist (eg: 1)"
-msgstr "Kuvakkeiden etäisyys"
+msgstr ""
 
-#: ../src/core/Main.cc:133
 msgid "zoom factor (eg: 1.8 or 2.5)"
 msgstr ""
 
-#: ../src/core/Main.cc:134
 msgid "jump factor (eg: 1.0 or 0.0)"
 msgstr ""
 
-#: ../src/core/Main.cc:135
 msgid "position:"
 msgstr ""
 
-#: ../src/core/Main.cc:138
 msgid "investing icons growth"
 msgstr ""
 
-#: ../src/core/Main.cc:139
-#, fuzzy
 msgid "ms for double click (0: single click)"
-msgstr "Tuplaklikkausviive millisekunteina"
+msgstr ""
 
-#: ../src/core/Main.cc:140
-#, fuzzy
 msgid "icon gets pressed"
-msgstr "Kuvake tulee painetuksi"
+msgstr ""
 
-#: ../src/core/Main.cc:141
-#, fuzzy
 msgid "vertical bar"
-msgstr "Pystypalkki"
+msgstr ""
 
-#: ../src/core/Main.cc:142
 msgid "bar alfa (0-100)"
 msgstr ""
 
-#: ../src/core/Main.cc:143
 msgid "Reflection size in percents (0-100)"
 msgstr ""
 
-#: ../src/core/Main.cc:144
-#, fuzzy
 msgid "unfocused bar alfa (0-100)"
-msgstr "Valitsemattoman palkin läpinäkyvyys %"
+msgstr ""
 
-#: ../src/core/Main.cc:145
 msgid "color filter (0: none 1: hovered 2: others, 3: all)"
 msgstr ""
 
-#: ../src/core/Main.cc:146
 msgid "filter color (default green 0xff00c800)"
 msgstr ""
 
-#: ../src/core/Main.cc:147
-#, fuzzy
 msgid "number of animated icons: 1, 3, 5, 7, 9, ..."
-msgstr "Animoitavien kuvakkeiden lukumäärä"
+msgstr ""
 
-#: ../src/core/Main.cc:148
-#, fuzzy
 msgid "if set disables font rendering"
-msgstr "Tekstin esitys pois päältä"
+msgstr ""
 
-#: ../src/core/Main.cc:150
 msgid "View man(1)."
 msgstr ""
 
-#: ../src/core/Main.cc:331 ../src/config/Run.cc:130
 msgid "Error run program: "
 msgstr ""
 
-#: ../src/core/XWin.cc:24
 msgid "Couldn't open display"
 msgstr ""
 
-#: ../src/core/XWin.cc:28
 msgid "Couldn't get visual"
 msgstr ""
 
-#: ../src/core/XWin.cc:30
 msgid "Couln't get colormap"
 msgstr ""
 
-#: ../src/core/XWin.cc:32
 msgid "Couldn't get depth"
 msgstr ""
 
-#: ../src/core/XWin.cc:35
 msgid "Couldn't create window"
 msgstr ""
 
-#: ../src/core/XWin.cc:328
 msgid "windowIcon() -- XGetWindowProperty"
 msgstr ""
 
-#: ../src/config/Functions.cc:122
-#, fuzzy
 msgid "Icon"
-msgstr "Kuvakes"
+msgstr ""
 
-#: ../src/config/Functions.cc:126
 msgid "Title"
 msgstr "Otsikko"
 
-#: ../src/config/Functions.cc:130
-#, fuzzy
 msgid "Command"
-msgstr "komento"
+msgstr ""
 
-#: ../src/config/Functions.cc:150
 msgid "top"
 msgstr "ylhäällä"
 
-#: ../src/config/Functions.cc:153
 msgid "bottom"
 msgstr "alhaalla"
 
-#: ../src/config/Functions.cc:156
-#, fuzzy
 msgid "left"
-msgstr "ylhäällä vasemmalla"
+msgstr ""
 
-#: ../src/config/Functions.cc:159
 msgid "right"
 msgstr "oikealla"
 
-#: ../src/config/Functions.cc:162
 msgid "center"
 msgstr ""
 
-#: ../src/config/Functions.cc:165
-#, fuzzy
 msgid "bot-left"
-msgstr "alhaalla vasemmalla"
+msgstr ""
 
-#: ../src/config/Functions.cc:168
-#, fuzzy
 msgid "bot-right"
-msgstr "alhaalla oikealla"
+msgstr ""
 
-#: ../src/config/Functions.cc:171
 msgid "top-left"
 msgstr "ylhäällä vasemmalla"
 
-#: ../src/config/Functions.cc:174
 msgid "top-right"
 msgstr "ylhäällä oikealla"
 
-#: ../src/config/Functions.cc:187
 msgid "none"
 msgstr "ei mikään"
 
-#: ../src/config/Functions.cc:190
 msgid "hovered"
 msgstr "leijaileva"
 
-#: ../src/config/Functions.cc:193
 msgid "others"
 msgstr "muut"
 
-#: ../src/config/Functions.cc:196
 msgid "all"
 msgstr "kaikki"
 
-#: ../src/config/Functions.cc:768
 msgid "Error save config in "
 msgstr ""
 
-#: ../src/config/Functions.cc:1085
 msgid "Fields must not be empty"
 msgstr ""
 
-#: ../src/config/Functions.cc:1259
-#, fuzzy
 msgid "Open exec file"
-msgstr "Avaa valintaikkuna"
+msgstr ""
 
-#: ../src/config/Functions.cc:1283 ../src/config/Functions.cc:1345
-#, fuzzy
 msgid "Open image file"
-msgstr "Avaa valintaikkuna"
+msgstr ""
 
-#: ../src/config/Functions.cc:1293 ../src/config/Functions.cc:1355
 msgid "Images"
 msgstr "Kuvat"
 
-#: ../src/config/Functions.cc:1313
-#, fuzzy
 msgid "Open font file"
-msgstr "Avaa valintaikkuna"
+msgstr ""
 
-#: ../src/config/Functions.cc:1322
-#, fuzzy
 msgid "Fonts"
-msgstr "Fontti:"
+msgstr ""
 
-#: ../src/config/Functions.cc:1391
 msgid "About"
 msgstr "Tietoa"
 
-#: ../src/config/Functions.cc:1393
-#, fuzzy
 msgid "wbar config"
-msgstr "Tietoa sovelluksesta WbarConf"
+msgstr ""
 
-#: ../src/config/Functions.cc:1395
 msgid "Licence GPL - 2010"
 msgstr ""
 
-#: ../src/config/Functions.cc:1398
 msgid "wbar project website"
 msgstr ""
 
-#: ../src/core/SuperBar.cc:28
-#, fuzzy
 msgid "Problem load font file."
-msgstr "Valitse fonttitiedosto"
+msgstr ""
 
-#: ../src/config/Run.cc:141
 msgid "Error kill program: "
 msgstr ""
 
-#: ../src/utils/Config.cc:47
 msgid "Error copy file: "
 msgstr ""
 
@@ -509,8 +373,7 @@ msgstr ""
 #~ msgstr "Päivitä"
 
 #~ msgid "Restart wbar to see the changes, don't forget to save."
-#~ msgstr ""
-#~ "Käynnistä wbar uudelleen nähdäksesi muutokset, ethän unohda tallentaa."
+#~ msgstr "Käynnistä wbar uudelleen nähdäksesi muutokset, ethän unohda tallentaa."
 
 #~ msgid "Saving..."
 #~ msgstr "Tallennetaan..."
@@ -584,8 +447,7 @@ msgstr ""
 #~ msgstr "Avaa kuvakkeen valintaikkuna"
 
 #~ msgid "Restart wbar for saved changes to take effect"
-#~ msgstr ""
-#~ "Käynnistä wbar uudelleen, jotta tallennetut muutokset tulevat voimaan"
+#~ msgstr "Käynnistä wbar uudelleen, jotta tallennetut muutokset tulevat voimaan"
 
 #~ msgid "Save"
 #~ msgstr "Tallenna"
@@ -624,6 +486,4 @@ msgstr ""
 #~ msgstr "Uusi"
 
 #~ msgid "Please, save settings now to have latest configuration."
-#~ msgstr ""
-#~ "Ole hyvä ja tallenna asetukset nyt, jotta viimeisimmät muutokset tulevat "
-#~ "voimaan."
+#~ msgstr "Ole hyvä ja tallenna asetukset nyt, jotta viimeisimmät muutokset tulevat voimaan."

@@ -21,17 +21,17 @@ set -e
 case "$1" in
     configure)
 
-    file="/etc/xdg/lxsession/LXDE/autostart"
+    #file="/etc/xdg/lxsession/LXDE/autostart"
 
-    if [ -f $file ] ; then
+    #if [ -f $file ] ; then
 
-       find=$(cat $file | perl -ne 'print "1" if /^\@wbar/')
+    #   find=$(cat $file | perl -ne 'print "1" if /^\@wbar/')
 
-       if [ -z $find ]; then
-           echo "@wbar" >> $file
-       fi
+    #   if [ -z $find ]; then
+    #       echo "@wbar" >> $file
+    #   fi
 
-    fi
+    #fi
 
     ;;
 

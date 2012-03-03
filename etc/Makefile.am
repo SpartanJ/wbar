@@ -3,7 +3,7 @@ CLEANFILES = *~ $(wbardesktop:.desktop.in.in=.desktop)
 defaultdir = @DEFAULT_CONFIGDIR@
 default_DATA = $(wbarcfg:.cfg.in=.cfg)
 
-autostartdir = @AUTOSTARTDIR@
+autostartdir = @DEFAULT_CONFIGDIR@
 autostart_DATA = $(wbardesktop:.desktop.in.in=.desktop)
 
 @INTLTOOL_DESKTOP_RULE@

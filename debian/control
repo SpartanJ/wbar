@@ -3,14 +3,21 @@ Section: x11
 Priority: optional
 Maintainer: Krzysztof Burghardt <krzysztof@burghardt.pl>
 Uploaders: Yadickson Soto <yadickson@gmail.com>
-Build-Depends: debhelper (>= 7), cdbs, libimlib2-dev, intltool, pkg-config, libglade2-dev, libgtk2.0-dev, libx11-dev
+Build-Depends: debhelper (>= 7),
+	libimlib2-dev,
+	intltool,
+	pkg-config,
+	libglade2-dev,
+	libgtk2.0-dev,
+	libx11-dev,
+	bash-completion
 Standards-Version: 3.9.1
 Homepage: http://code.google.com/p/wbar/
 
 Package: wbar
 Architecture: any
 Depends: ${shlibs:Depends}, ${misc:Depends}
-Recommends: gnome-extra-icons
+Recommends: gnome-extra-icons, bash-completion
 Description: light and fast launch bar
  Wbar is a quick launch bar. It's fast, light and cool eye-candy.
  .

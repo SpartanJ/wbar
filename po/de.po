@@ -2,6 +2,7 @@
 # Copyright (C) YEAR ORGANIZATION
 # Yadickson Soto <yadickson@gmail.com>, 2009.
 #
+#, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: wbar 2.0.0\n"
@@ -14,453 +15,336 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: ../etc/wbar.desktop.in.h:1 ../src/config/Functions.cc:1396
 msgid "A light and fast launch bar."
 msgstr "Eine kleine und schnelle Startleiste"
 
-#: ../etc/wbar.desktop.in.h:2
 msgid "Warlock Bar"
 msgstr ""
 
-#: ../share/wbar.glade.h:1
 msgid "<b>Command</b>"
 msgstr "<b>Befehl</b>"
 
-#: ../share/wbar.glade.h:2
 msgid "<b>Icon</b>"
 msgstr "<b>Symbol</b>"
 
-#: ../share/wbar.glade.h:3
 msgid "<b>Title</b>"
 msgstr "<b>Name</b>"
 
-#: ../share/wbar.glade.h:4
 msgid "Bar alfa level"
 msgstr "Transparenz der Leiste"
 
-#: ../share/wbar.glade.h:5
 msgid "Bar image:"
 msgstr "Hintergrundbild:"
 
-#: ../share/wbar.glade.h:6
 msgid "Bar unfocused alfa level"
 msgstr "Transparenz der inaktiven Leiste"
 
-#: ../share/wbar.glade.h:7
 msgid "Border offset"
 msgstr "Abstand zum Bildschirmrand"
 
-#: ../share/wbar.glade.h:8
 msgid "Color filter mode"
 msgstr "Farbfiltermodus"
 
-#: ../share/wbar.glade.h:9
 msgid "Delete"
 msgstr "Löschen"
 
-#: ../share/wbar.glade.h:10
 msgid "Disable font rendering"
 msgstr "Schriftanzeige unterdrücken"
 
-#: ../share/wbar.glade.h:11
 msgid "Down"
 msgstr "Nach unten"
 
-#: ../share/wbar.glade.h:12 ../src/config/Functions.cc:733
 msgid "Edit"
 msgstr "Bearbeiten"
 
-#: ../share/wbar.glade.h:13
 msgid "Effects"
 msgstr "Effekte"
 
-#: ../share/wbar.glade.h:14
 msgid "Enable taskbar"
 msgstr ""
 
-#: ../share/wbar.glade.h:15
 msgid "Filter color"
 msgstr "Filterfarbe"
 
-#: ../share/wbar.glade.h:16
 msgid "Font:"
 msgstr "Schrift:"
 
-#: ../share/wbar.glade.h:17
 msgid "Icon distance"
 msgstr "Symbolabstand"
 
-#: ../share/wbar.glade.h:18
 msgid "Icon gets pressed"
 msgstr "Symbolklick animieren"
 
-#: ../share/wbar.glade.h:19
 msgid "Icon size"
 msgstr "Symbolgröße"
 
-#: ../share/wbar.glade.h:20
 msgid "Icons"
 msgstr "Symbole"
 
-#: ../share/wbar.glade.h:21
 msgid "Investing icons growth"
 msgstr "Umgekehrte Symbolanimation"
 
-#: ../share/wbar.glade.h:22
 msgid "Jump factor"
 msgstr "Jump-Faktor"
 
-#: ../share/wbar.glade.h:23 ../src/config/Functions.cc:696
 msgid "New"
 msgstr "Neu"
 
-#: ../share/wbar.glade.h:24
 msgid "No reload bar"
 msgstr "Bei Rechtsklick nicht neu laden"
 
-#: ../share/wbar.glade.h:25
 msgid "Number of animated icons"
 msgstr "Zahl der animierten Symbole"
 
-#: ../share/wbar.glade.h:26
 msgid "Position screen"
 msgstr "Position auf dem Bildschirm"
 
-#: ../share/wbar.glade.h:27
 msgid "Preferences"
 msgstr "Einstellungen"
 
-#: ../share/wbar.glade.h:28
 msgid "Reflection percentage"
 msgstr ""
 
-#: ../share/wbar.glade.h:29
 msgid "Run over the desktop"
 msgstr "Wbar oberhalb eines Desktopmanagers"
 
-#: ../share/wbar.glade.h:30
 msgid "Settings"
 msgstr "Einstellungen"
 
-#: ../share/wbar.glade.h:31
 msgid "Size:"
 msgstr "Größe:"
 
-#: ../share/wbar.glade.h:32
 msgid "Time for double click [ms]"
 msgstr "Doppelklickintervall in Millisekunden"
 
-#: ../share/wbar.glade.h:33
 msgid "Up"
 msgstr "Nach oben"
 
-#: ../share/wbar.glade.h:34
 msgid "Vertical bar"
 msgstr "Vertikale Anordnung"
 
-#: ../share/wbar.glade.h:35
 msgid "Zoom factor"
 msgstr "Zoomfaktor"
 
-#: ../share/wbar.glade.h:36
 msgid "_About"
 msgstr "_Über"
 
-#: ../share/wbar.glade.h:37
 msgid "_Accept"
 msgstr "_Annehmen"
 
-#: ../share/wbar.glade.h:38
 msgid "_Cancel"
 msgstr "_Abbrechen"
 
-#: ../share/wbar.glade.h:39
 msgid "_Close"
 msgstr "_Schließen"
 
-#: ../share/wbar.glade.h:40
 msgid "_Reload"
 msgstr "_Neu laden"
 
-#: ../src/core/Bar.cc:34
 msgid " Image not found. Maybe using a relative path?"
-msgstr ""
-" Bilddatei nicht gefunden. Wird eventuell ein relativer Pfad verwendet?"
+msgstr " Bilddatei nicht gefunden. Wird eventuell ein relativer Pfad verwendet?"
 
-#: ../src/core/Bar.cc:624
 msgid "Invalid bar position."
 msgstr "Ungültige Positionsangabe"
 
-#: ../src/core/Bar.cc:625
 msgid "Set default bar position."
 msgstr ""
 
-#: ../src/core/Icon.cc:23
 msgid " Couldn't load icon image."
 msgstr " Konnte Symboldatei nicht öffnen."
 
-#: ../src/core/Main.cc:77 ../src/config/Functions.cc:298
 msgid "Configuration empty."
 msgstr "Konfigurationsdatei leer!"
 
-#: ../src/core/Main.cc:116
 msgid "Version of "
 msgstr "Version ist "
 
-#: ../src/core/Main.cc:122
 msgid "Usage: wbar [option] ... [option]"
 msgstr "Aufruf: wbar [Option] ... [Option]"
 
-#: ../src/core/Main.cc:123
 msgid "Options:"
 msgstr "Optionen:"
 
-#: ../src/core/Main.cc:124
 msgid "this help"
 msgstr "Diese Hilfeseite"
 
-#: ../src/core/Main.cc:125
 msgid "show version"
 msgstr "Version anzeigen"
 
-#: ../src/core/Main.cc:126
 msgid "conf-file (eg: $HOME/.wbar)"
 msgstr "Konfigurationsdatei (z.B. $HOME/.wbar)"
 
-#: ../src/core/Main.cc:127
 msgid "run over a desktop app (ie: xfdesktop)"
 msgstr "Wbar oberhalb eines Desktopmanagers"
 
-#: ../src/core/Main.cc:128
 msgid "enable taskbar"
 msgstr ""
 
-#: ../src/core/Main.cc:129
 msgid "right click does not force reload anymore"
 msgstr "Bei Rechtsklick nicht neu laden"
 
-#: ../src/core/Main.cc:130
 msgid "offset bar (eg: 20)"
 msgstr "Abstand zum Bildschirmrand (in Pixeln, z.B. 20)"
 
-#: ../src/core/Main.cc:131
 msgid "icon size (eg: 32)"
 msgstr "Symbolgröße (in Pixeln, z.B. 32)"
 
-#: ../src/core/Main.cc:132
 msgid "icon dist (eg: 1)"
 msgstr "Abstand zwischen den Symbolen"
 
-#: ../src/core/Main.cc:133
 msgid "zoom factor (eg: 1.8 or 2.5)"
 msgstr "Zoomfaktor (z.B. 1.8 oder 2.5)"
 
-#: ../src/core/Main.cc:134
 msgid "jump factor (eg: 1.0 or 0.0)"
 msgstr ""
 
-#: ../src/core/Main.cc:135
 msgid "position:"
 msgstr "Position:"
 
-#: ../src/core/Main.cc:138
 msgid "investing icons growth"
 msgstr "Umgekehrte Symbolanimation"
 
-#: ../src/core/Main.cc:139
 msgid "ms for double click (0: single click)"
 msgstr "Doppelklickintervall in Millisekunden"
 
-#: ../src/core/Main.cc:140
 msgid "icon gets pressed"
 msgstr "Symbolklick animieren"
 
-#: ../src/core/Main.cc:141
 msgid "vertical bar"
 msgstr "Vertikale Anordnung"
 
-#: ../src/core/Main.cc:142
 msgid "bar alfa (0-100)"
 msgstr "Transparenz der Leiste (0-100)"
 
-#: ../src/core/Main.cc:143
 msgid "Reflection size in percents (0-100)"
 msgstr ""
 
-#: ../src/core/Main.cc:144
 msgid "unfocused bar alfa (0-100)"
 msgstr "Transparenz der inaktiven Leiste"
 
-#: ../src/core/Main.cc:145
 msgid "color filter (0: none 1: hovered 2: others, 3: all)"
-msgstr ""
-"Farbfiltermodus (0: kein 1: nur hervorgehobene Symbole 2: alle nicht "
-"hervorgehobenen Symbole 3: alle)"
+msgstr "Farbfiltermodus (0: kein 1: nur hervorgehobene Symbole 2: alle nicht hervorgehobenen Symbole 3: alle)"
 
-#: ../src/core/Main.cc:146
 msgid "filter color (default green 0xff00c800)"
 msgstr "Filterfarbe (Standard: Grün 0xff00c800)"
 
-#: ../src/core/Main.cc:147
 msgid "number of animated icons: 1, 3, 5, 7, 9, ..."
 msgstr "Anzahl der animierten Symbole"
 
-#: ../src/core/Main.cc:148
 msgid "if set disables font rendering"
 msgstr "Schriftanzeige unterdrücken"
 
-#: ../src/core/Main.cc:150
 msgid "View man(1)."
 msgstr "Manpage man(1) anzeigen."
 
-#: ../src/core/Main.cc:331 ../src/config/Run.cc:130
 msgid "Error run program: "
 msgstr ""
 
-#: ../src/core/XWin.cc:24
 msgid "Couldn't open display"
 msgstr ""
 
-#: ../src/core/XWin.cc:28
 msgid "Couldn't get visual"
 msgstr ""
 
-#: ../src/core/XWin.cc:30
 msgid "Couln't get colormap"
 msgstr ""
 
-#: ../src/core/XWin.cc:32
 msgid "Couldn't get depth"
 msgstr ""
 
-#: ../src/core/XWin.cc:35
 msgid "Couldn't create window"
 msgstr ""
 
-#: ../src/core/XWin.cc:328
 msgid "windowIcon() -- XGetWindowProperty"
 msgstr ""
 
-#: ../src/config/Functions.cc:122
 msgid "Icon"
 msgstr "Symbole"
 
-#: ../src/config/Functions.cc:126
 msgid "Title"
 msgstr "Titel"
 
-#: ../src/config/Functions.cc:130
 msgid "Command"
 msgstr "Befehl"
 
-#: ../src/config/Functions.cc:150
 msgid "top"
 msgstr "Oben"
 
-#: ../src/config/Functions.cc:153
 msgid "bottom"
 msgstr "Unten"
 
-#: ../src/config/Functions.cc:156
 msgid "left"
 msgstr "Links"
 
-#: ../src/config/Functions.cc:159
 msgid "right"
 msgstr "Rechts"
 
-#: ../src/config/Functions.cc:162
 msgid "center"
 msgstr "Mitte"
 
-#: ../src/config/Functions.cc:165
-#, fuzzy
 msgid "bot-left"
 msgstr "Unten links"
 
-#: ../src/config/Functions.cc:168
-#, fuzzy
 msgid "bot-right"
 msgstr "Unten rechts"
 
-#: ../src/config/Functions.cc:171
 msgid "top-left"
 msgstr "Oben links"
 
-#: ../src/config/Functions.cc:174
 msgid "top-right"
 msgstr "Oben rechts"
 
-#: ../src/config/Functions.cc:187
 msgid "none"
 msgstr "Kein"
 
-#: ../src/config/Functions.cc:190
 msgid "hovered"
 msgstr "Nur hervorgehobene Symbole"
 
-#: ../src/config/Functions.cc:193
 msgid "others"
 msgstr "Alle nicht hervorgehobenen Symbole"
 
-#: ../src/config/Functions.cc:196
 msgid "all"
 msgstr "Alle"
 
-#: ../src/config/Functions.cc:768
 msgid "Error save config in "
 msgstr ""
 
-#: ../src/config/Functions.cc:1085
 msgid "Fields must not be empty"
 msgstr "Felder dürfen nicht leer sein"
 
-#: ../src/config/Functions.cc:1259
 msgid "Open exec file"
 msgstr "Befehl auswählen"
 
-#: ../src/config/Functions.cc:1283 ../src/config/Functions.cc:1345
 msgid "Open image file"
 msgstr "Bilddatei auswählen"
 
-#: ../src/config/Functions.cc:1293 ../src/config/Functions.cc:1355
 msgid "Images"
 msgstr "Bilddateien"
 
-#: ../src/config/Functions.cc:1313
 msgid "Open font file"
 msgstr "Schriftart auswählen"
 
-#: ../src/config/Functions.cc:1322
 msgid "Fonts"
 msgstr "Schrift:"
 
-#: ../src/config/Functions.cc:1391
 msgid "About"
 msgstr "Über"
 
-#: ../src/config/Functions.cc:1393
-#, fuzzy
 msgid "wbar config"
-msgstr "Über Wbarconf"
+msgstr ""
 
-#: ../src/config/Functions.cc:1395
 msgid "Licence GPL - 2010"
 msgstr "Lizenz: GPL - 2010"
 
-#: ../src/config/Functions.cc:1398
 msgid "wbar project website"
 msgstr "wbar-Projektseite"
 
-#: ../src/core/SuperBar.cc:28
 msgid "Problem load font file."
 msgstr "Fehler beim Öffnen der Schriftdatei"
 
-#: ../src/config/Run.cc:141
 msgid "Error kill program: "
 msgstr ""
 
-#: ../src/utils/Config.cc:47
 msgid "Error copy file: "
 msgstr ""
 
@@ -488,8 +372,7 @@ msgstr ""
 #~ msgstr "Aktualisieren"
 
 #~ msgid "Restart wbar to see the changes, don't forget to save."
-#~ msgstr ""
-#~ "Starten Sie wbar neu, nachdem Sie die Konfiguration gespeichert haben."
+#~ msgstr "Starten Sie wbar neu, nachdem Sie die Konfiguration gespeichert haben."
 
 #~ msgid "Saving..."
 #~ msgstr "Speichern..."

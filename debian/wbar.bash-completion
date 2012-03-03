@@ -1,0 +1,117 @@
+# bash completion for wbar
+
+have wbar &&
+_wbar()
+{
+    local cur prev split=false
+
+    COMPREPLY=()
+    cur=`_get_cword`
+    prev=${COMP_WORDS[COMP_CWORD-1]}
+
+    _split_longopt && split=true
+
+    case $prev in
+        --config)
+			_filedir
+            return 0
+            ;;
+        --offset)
+            COMPREPLY=( $( compgen -W '20' -- "$cur" ) )
+            return 0
+            ;;
+        --isize)
+            COMPREPLY=( $( compgen -W '32' -- "$cur" ) )
+            return 0
+            ;;
+        --idist)
+            COMPREPLY=( $( compgen -W '1' -- "$cur" ) )
+            return 0
+            ;;
+        --zoomf)
+            COMPREPLY=( $( compgen -W '1.8' -- "$cur" ) )
+            return 0
+            ;;
+        --jumpf)
+            COMPREPLY=( $( compgen -W '1.0' -- "$cur" ) )
+            return 0
+            ;;
+        --pos)
+            COMPREPLY=( $( compgen -W 'top bottom left right center bot-rigth bot-left top-right top-left' -- "$cur" ) )
+            return 0
+            ;;
+        --dblclk)
+            COMPREPLY=( $( compgen -W '200' -- "$cur" ) )
+            return 0
+            ;;
+        --balfa)
+            COMPREPLY=( $( compgen -W '1' -- "$cur" ) )
+            return 0
+            ;;
+        --rsize)
+            COMPREPLY=( $( compgen -W '10' -- "$cur" ) )
+            return 0
+            ;;
+        --falfa)
+            COMPREPLY=( $( compgen -W '1' -- "$cur" ) )
+            return 0
+            ;;
+        --filter)
+            COMPREPLY=( $( compgen -W '0 1 2 3' -- "$cur" ) )
+            return 0
+            ;;
+        --fc)
+            COMPREPLY=( $( compgen -W '0xff00c800' -- "$cur" ) )
+            return 0
+            ;;
+        --nanim)
+            COMPREPLY=( $( compgen -W '5' -- "$cur" ) )
+            return 0
+            ;;
+        --above-desk|--taskbar|--noreload|--grow|--bpress|--vbar|--nofont|-h|-v|--help|--version)
+            # all other arguments are noop with these
+            return 0
+            ;;
+    esac
+
+    $split && return 0
+
+    if [[ "$cur" == * ]]; then
+        # return list of available options
+        COMPREPLY=( $( compgen -W '-h --help \
+                    -v --version \
+                    --config \
+                    --bpress \
+                    --above-desk \
+                    --vbar \
+                    --nofont \
+                    --pos \
+                    --grow \
+                    --isize \
+                    --idist \
+                    --nanim \
+                    --zoomf \
+                    --jumpf \
+                    --dblclk \
+                    --balfa \
+                    --falfa \
+                    --filter \
+                    --fc \
+                    --offset \
+                    --noreload \
+                    --taskbar \
+                    --rsize \
+                    ' \
+            -- "$cur") )
+
+    fi
+} &&
+complete -F _wbar wbar
+
+# Local variables:
+# mode: shell-script
+# sh-basic-offset: 4
+# sh-indent-comment: t
+# indent-tabs-mode: nil
+# End:
+# ex: ts=4 sw=4 et filetype=sh
