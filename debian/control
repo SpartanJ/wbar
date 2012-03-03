@@ -1,5 +1,5 @@
 Source: wbar
-Section: contrib/x11
+Section: x11
 Priority: optional
 Maintainer: Krzysztof Burghardt <krzysztof@burghardt.pl>
 Uploaders: Yadickson Soto <yadickson@gmail.com>
@@ -8,7 +8,7 @@ Standards-Version: 3.9.1
 Homepage: http://code.google.com/p/wbar/
 
 Package: wbar
-Architecture: i386
+Architecture: any
 Depends: ${shlibs:Depends}, ${misc:Depends}
 Recommends: gnome-extra-icons
 Description: light and fast launch bar
@@ -20,7 +20,7 @@ Description: light and fast launch bar
  -above-desk switch.
 
 Package: wbar-config
-Architecture: i386
+Architecture: any
 Depends: wbar (= ${binary:Version}), ${shlibs:Depends}, ${misc:Depends}
 Recommends: gnome-extra-icons
 Description: gui config wbar

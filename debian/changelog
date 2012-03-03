@@ -1,3 +1,9 @@
+wbar (2.3.0-1) unstable; urgency=low
+
+  * New release
+
+ -- Yadickson Soto <yadickson@gmail.com>  Sat, 03 Mar 2012 14:13:02 -0430
+
 wbar (2.2.2-1) lucid; urgency=low
 
   * solve problem compilation

@@ -26,12 +26,13 @@ SuperBar::SuperBar(XWin *win, string barImg, string barFont, int iSize, int iDis
 	if( !(font = LOAD_FONT(barFont.c_str())) )
         {
             std::cout << _("Problem load font file.") << " " << barFont << std::endl;
-            return;
         }
-	USE_FONT(font);
-
-	imlib_get_text_size("MMMMMMMMMMMMMMMMMMMMMMMMMMMMMM", &textW, &textH);
-	font_restore = CREATE_IMAGE(textW, 2*textH);
+	else
+	{
+            USE_FONT(font);
+            imlib_get_text_size("MMMMMMMMMMMMMMMMMMMMMMMMMMMMMM", &textW, &textH);
+            font_restore = CREATE_IMAGE(textW, 2*textH);
+	}
     }
 }
 

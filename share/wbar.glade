@@ -25,8 +25,8 @@
                 <property name="can_focus">True</property>
                 <property name="receives_default">True</property>
                 <property name="use_action_appearance">False</property>
-                <signal name="activate" handler="on_button_app_cancel_activate" swapped="no"/>
-                <signal name="released" handler="on_button_app_cancel_released" swapped="no"/>
+                <signal name="activate" handler="on_button_app_cancel_activate"/>
+                <signal name="released" handler="on_button_app_cancel_released"/>
                 <child>
                   <widget class="GtkHBox" id="hbox4">
                     <property name="visible">True</property>
@@ -71,8 +71,8 @@
                 <property name="can_focus">True</property>
                 <property name="receives_default">True</property>
                 <property name="use_action_appearance">False</property>
-                <signal name="activate" handler="on_button_app_accept_activate" swapped="no"/>
-                <signal name="released" handler="on_button_app_accept_released" swapped="no"/>
+                <signal name="activate" handler="on_button_app_accept_activate"/>
+                <signal name="released" handler="on_button_app_accept_released"/>
                 <child>
                   <widget class="GtkHBox" id="hbox6">
                     <property name="visible">True</property>
@@ -196,8 +196,8 @@
                     <property name="can_focus">True</property>
                     <property name="receives_default">True</property>
                     <property name="use_action_appearance">False</property>
-                    <signal name="activate" handler="on_button_command_activate" swapped="no"/>
-                    <signal name="released" handler="on_button_command_released" swapped="no"/>
+                    <signal name="activate" handler="on_button_command_activate"/>
+                    <signal name="released" handler="on_button_command_released"/>
                   </widget>
                   <packing>
                     <property name="expand">False</property>
@@ -253,8 +253,8 @@
                     <property name="can_focus">True</property>
                     <property name="receives_default">True</property>
                     <property name="use_action_appearance">False</property>
-                    <signal name="activate" handler="on_button_icon_activate" swapped="no"/>
-                    <signal name="released" handler="on_button_icon_released" swapped="no"/>
+                    <signal name="activate" handler="on_button_icon_activate"/>
+                    <signal name="released" handler="on_button_icon_released"/>
                   </widget>
                   <packing>
                     <property name="expand">False</property>
@@ -286,7 +286,7 @@
     <property name="resizable">False</property>
     <property name="window_position">center-always</property>
     <property name="type_hint">dialog</property>
-    <signal name="destroy" handler="on_dialog_settings_destroy" swapped="no"/>
+    <signal name="destroy" handler="on_dialog_settings_destroy"/>
     <child internal-child="vbox">
       <widget class="GtkVBox" id="dialog-vbox3">
         <property name="visible">True</property>
@@ -303,8 +303,8 @@
                 <property name="can_focus">True</property>
                 <property name="receives_default">True</property>
                 <property name="use_action_appearance">False</property>
-                <signal name="activate" handler="on_button_about_activate" swapped="no"/>
-                <signal name="released" handler="on_button_about_released" swapped="no"/>
+                <signal name="activate" handler="on_button_about_activate"/>
+                <signal name="released" handler="on_button_about_released"/>
                 <child>
                   <widget class="GtkHBox" id="hbox1">
                     <property name="visible">True</property>
@@ -349,8 +349,8 @@
                 <property name="can_focus">True</property>
                 <property name="receives_default">True</property>
                 <property name="use_action_appearance">False</property>
-                <signal name="activate" handler="on_button_close_activate" swapped="no"/>
-                <signal name="released" handler="on_button_close_released" swapped="no"/>
+                <signal name="activate" handler="on_button_close_activate"/>
+                <signal name="released" handler="on_button_close_released"/>
                 <child>
                   <widget class="GtkHBox" id="hbox2">
                     <property name="visible">True</property>
@@ -395,8 +395,8 @@
                 <property name="can_focus">True</property>
                 <property name="receives_default">True</property>
                 <property name="use_action_appearance">False</property>
-                <signal name="activate" handler="on_button_update_activate" swapped="no"/>
-                <signal name="released" handler="on_button_update_released" swapped="no"/>
+                <signal name="activate" handler="on_button_update_activate"/>
+                <signal name="released" handler="on_button_update_released"/>
                 <child>
                   <widget class="GtkHBox" id="hbox3">
                     <property name="visible">True</property>
@@ -464,7 +464,7 @@
                         <property name="label" translatable="yes">New</property>
                         <property name="use_underline">True</property>
                         <property name="stock_id">gtk-new</property>
-                        <signal name="clicked" handler="on_button_new_clicked" swapped="no"/>
+                        <signal name="clicked" handler="on_button_new_clicked"/>
                       </widget>
                       <packing>
                         <property name="expand">False</property>
@@ -481,7 +481,7 @@
                         <property name="label" translatable="yes">Edit</property>
                         <property name="use_underline">True</property>
                         <property name="stock_id">gtk-edit</property>
-                        <signal name="clicked" handler="on_button_edit_clicked" swapped="no"/>
+                        <signal name="clicked" handler="on_button_edit_clicked"/>
                       </widget>
                       <packing>
                         <property name="expand">False</property>
@@ -498,7 +498,7 @@
                         <property name="label" translatable="yes">Delete</property>
                         <property name="use_underline">True</property>
                         <property name="stock_id">gtk-delete</property>
-                        <signal name="clicked" handler="on_button_delete_clicked" swapped="no"/>
+                        <signal name="clicked" handler="on_button_delete_clicked"/>
                       </widget>
                       <packing>
                         <property name="expand">False</property>
@@ -534,7 +534,7 @@
                               <widget class="GtkTreeView" id="treeview_app">
                                 <property name="visible">True</property>
                                 <property name="can_focus">True</property>
-                                <signal name="cursor_changed" handler="on_treeview_app_cursor_changed" swapped="no"/>
+                                <signal name="cursor_changed" handler="on_treeview_app_cursor_changed"/>
                               </widget>
                             </child>
                           </widget>
@@ -598,8 +598,8 @@
                                 <property name="receives_default">True</property>
                                 <property name="tooltip" translatable="yes">Up</property>
                                 <property name="use_action_appearance">False</property>
-                                <signal name="activate" handler="on_button_up_activate" swapped="no"/>
-                                <signal name="released" handler="on_button_up_released" swapped="no"/>
+                                <signal name="activate" handler="on_button_up_activate"/>
+                                <signal name="released" handler="on_button_up_released"/>
                                 <child>
                                   <widget class="GtkImage" id="image1">
                                     <property name="visible">True</property>
@@ -617,8 +617,8 @@
                                 <property name="receives_default">True</property>
                                 <property name="tooltip" translatable="yes">Down</property>
                                 <property name="use_action_appearance">False</property>
-                                <signal name="activate" handler="on_button_down_activate" swapped="no"/>
-                                <signal name="released" handler="on_button_down_released" swapped="no"/>
+                                <signal name="activate" handler="on_button_down_activate"/>
+                                <signal name="released" handler="on_button_down_released"/>
                                 <child>
                                   <widget class="GtkImage" id="image4">
                                     <property name="visible">True</property>
@@ -691,8 +691,8 @@
                             <property name="can_focus">True</property>
                             <property name="receives_default">True</property>
                             <property name="use_action_appearance">False</property>
-                            <signal name="activate" handler="on_button_font_name_activate" swapped="no"/>
-                            <signal name="released" handler="on_button_font_name_released" swapped="no"/>
+                            <signal name="activate" handler="on_button_font_name_activate"/>
+                            <signal name="released" handler="on_button_font_name_released"/>
                           </widget>
                           <packing>
                             <property name="left_attach">4</property>
@@ -782,8 +782,8 @@
                             <property name="can_focus">True</property>
                             <property name="receives_default">True</property>
                             <property name="use_action_appearance">False</property>
-                            <signal name="activate" handler="on_button_image_name_activate" swapped="no"/>
-                            <signal name="released" handler="on_button_image_name_released" swapped="no"/>
+                            <signal name="activate" handler="on_button_image_name_activate"/>
+                            <signal name="released" handler="on_button_image_name_released"/>
                           </widget>
                           <packing>
                             <property name="left_attach">2</property>
@@ -1458,7 +1458,7 @@
         <property name="can_focus">False</property>
         <property name="use_action_appearance">False</property>
         <property name="use_stock">False</property>
-        <signal name="activate" handler="on_menu_item_edit_activate" swapped="no"/>
+        <signal name="activate" handler="on_menu_item_edit_activate"/>
         <child internal-child="image">
           <widget class="GtkImage" id="image6">
             <property name="visible">True</property>
@@ -1475,7 +1475,7 @@
         <property name="can_focus">False</property>
         <property name="use_action_appearance">False</property>
         <property name="use_stock">False</property>
-        <signal name="activate" handler="on_menu_item_delete_activate" swapped="no"/>
+        <signal name="activate" handler="on_menu_item_delete_activate"/>
         <child internal-child="image">
           <widget class="GtkImage" id="image5">
             <property name="visible">True</property>
