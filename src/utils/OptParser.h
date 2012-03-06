@@ -4,37 +4,36 @@
 #include <getopt.h>
 #include <iostream>
 
-enum Options
-{
-    CONFIG,
-    BPRESS,
-    ABOVE_DESK,
-    VBAR,
-    NOFONT,
-    POS,
-    GROW,
-    ISIZE,
-    IDIST,
-    NANIM,
-    ZOOMF,
-    JUMPF,
-    DBLCLK,
-    BALFA,
-    FALFA,
-    FILTER,
-    FC,
-    OFFSET,
-    NORELOAD,
-    TASKBAR,
-    RSIZE,
-    HELP = 'h',
-    VERS = 'v'
-};
-
 class OptParser
 {
     public:
 
+	enum Options
+	{
+	    CONFIG,
+	    BPRESS,
+	    ABOVE_DESK,
+	    VBAR,
+	    NOFONT,
+	    POS,
+	    GROW,
+	    ISIZE,
+	    IDIST,
+	    NANIM,
+	    ZOOMF,
+	    JUMPF,
+	    DBLCLK,
+	    BALFA,
+	    FALFA,
+	    FILTER,
+	    FC,
+	    OFFSET,
+	    NORELOAD,
+	    TASKBAR,
+	    RSIZE,
+	    HELP = 'h',
+	    VERS = 'v'
+	};
 	OptParser(int argc, char **argv);
         ~OptParser();
 

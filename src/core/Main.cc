@@ -60,9 +60,9 @@ int main(int argc, char **argv)
 
         OptParser tmpoptparser(argc, argv);
 
-        if ( tmpoptparser.isSet( CONFIG ) )
+        if ( tmpoptparser.isSet( OptParser::CONFIG ) )
         {
-           config.setFile( tmpoptparser.getArg( CONFIG ) );
+           config.setFile( tmpoptparser.getArg( OptParser::CONFIG ) );
         }
 
         list = config.getAppList();
@@ -84,7 +84,7 @@ int main(int argc, char **argv)
             command = PACKAGE_NAME" "DEFAULT_ARGV;
         }
 
-        if (argc <= 1 || tmpoptparser.isSet( CONFIG ))
+        if (argc <= 1 || tmpoptparser.isSet( OptParser::CONFIG ))
         {
             std::list<std::string> list;
             Utils util;
@@ -111,18 +111,18 @@ int main(int argc, char **argv)
 
         OptParser optparser(argc, argv);
 
-        if (optparser.isSet(VERS))
+        if (optparser.isSet(OptParser::VERS))
         {
             std::cout << _("Version of ") << PACKAGE_NAME << " " << VERSION << std::endl;
             return 0;
         }
-        if (optparser.isSet(HELP))
+        if (optparser.isSet(OptParser::HELP))
         {
 
             std::cout << _("Usage: wbar [option] ... [option]") << std::endl;
             std::cout << _("Options:") << std::endl;
-            std::cout << "   -h, --help         " << _("this help") << std::endl;
-            std::cout << "   -v, --version      " << _("show version") << std::endl;
+            std::cout << "   --help         " << _("this help") << std::endl;
+            std::cout << "   --version      " << _("show version") << std::endl;
             std::cout << "   --config filepath  " << _("conf-file (eg: $HOME/.wbar)") << std::endl;
             std::cout << "   --above-desk       " << _("run over a desktop app (ie: xfdesktop)") << std::endl;
             std::cout << "   --taskbar		" << _("enable taskbar") << std::endl;
@@ -152,7 +152,7 @@ int main(int argc, char **argv)
         }
 
         /* window configuration */
-        if (optparser.isSet(ABOVE_DESK))
+        if (optparser.isSet(OptParser::ABOVE_DESK))
         {
             barwin.setDockWindow();
             barwin.skipTaskNPager();
@@ -168,7 +168,7 @@ int main(int argc, char **argv)
 
 	barwin.setName(basename(argv[0]));
 	
-        taskbar = optparser.isSet(TASKBAR)?1:0;
+        taskbar = optparser.isSet(OptParser::TASKBAR)?1:0;
 
         /* tell X what events we're intrested in */
             barwin.selectInput(PointerMotionMask | ExposureMask | 
@@ -180,47 +180,47 @@ int main(int argc, char **argv)
                 barwin.getDrawable(), 2048*2048);
 
         /* check if double clicking, ms time */
-        dblclk_tm = optparser.isSet(DBLCLK)?atoi(optparser.getArg(DBLCLK).c_str()):0;
+        dblclk_tm = optparser.isSet(OptParser::DBLCLK)?atoi(optparser.getArg(OptParser::DBLCLK).c_str()):0;
 
-        butpress = optparser.isSet(BPRESS)?1:0;
+        butpress = optparser.isSet(OptParser::BPRESS)?1:0;
 
         /* check if reload is admited */
-        noreload = optparser.isSet(NORELOAD)?1:0;
+        noreload = optparser.isSet(OptParser::NORELOAD)?1:0;
 
-        vertbar = optparser.isSet(VBAR)?1:0;
-        refl_size = optparser.isSet(RSIZE)?atoi(optparser.getArg(RSIZE).c_str()):0;
+        vertbar = optparser.isSet(OptParser::VBAR)?1:0;
+        refl_size = optparser.isSet(OptParser::RSIZE)?atoi(optparser.getArg(OptParser::RSIZE).c_str()):0;
 
-        bool grow = optparser.isSet(GROW)?true:false;
+        bool grow = optparser.isSet(OptParser::GROW)?true:false;
 
-        if (optparser.isSet(BALFA) || optparser.isSet(FALFA) || optparser.isSet(FILTER) || !(p->getTitle().empty() || optparser.isSet(NOFONT)))
+        if (optparser.isSet(OptParser::BALFA) || optparser.isSet(OptParser::FALFA) || optparser.isSet(OptParser::FILTER) || !(p->getTitle().empty() || optparser.isSet(OptParser::NOFONT)))
         {
             barra = new SuperBar(&barwin, p->getIconName(), p->getTitle(),
-                    optparser.isSet(ISIZE)?atoi(optparser.getArg(ISIZE).c_str()):32,
-                    optparser.isSet(IDIST)?atoi(optparser.getArg(IDIST).c_str()):1,
-                    optparser.isSet(ZOOMF)?atof(optparser.getArg(ZOOMF).c_str()):1.8,
-                    optparser.isSet(JUMPF)?atof(optparser.getArg(JUMPF).c_str()):1,
+                    optparser.isSet(OptParser::ISIZE)?atoi(optparser.getArg(OptParser::ISIZE).c_str()):32,
+                    optparser.isSet(OptParser::IDIST)?atoi(optparser.getArg(OptParser::IDIST).c_str()):1,
+                    optparser.isSet(OptParser::ZOOMF)?atof(optparser.getArg(OptParser::ZOOMF).c_str()):1.8,
+                    optparser.isSet(OptParser::JUMPF)?atof(optparser.getArg(OptParser::JUMPF).c_str()):1,
                     vertbar,
                     4,
-                    optparser.isSet(NANIM)?atoi(optparser.getArg(NANIM).c_str()):5,
-                    optparser.isSet(BALFA)?atoi(optparser.getArg(BALFA).c_str()):-1,
-                    optparser.isSet(FALFA)?atoi(optparser.getArg(FALFA).c_str()):-1,
-                    optparser.isSet(FILTER)?atoi(optparser.getArg(FILTER).c_str()):0,
-                    strtoul((optparser.isSet(FC)?optparser.getArg(FC).c_str():"0xff00c800"), NULL, 16),
-                    optparser.isSet(NOFONT)?0:1,
-                    optparser.isSet(OFFSET)?atoi(optparser.getArg(OFFSET).c_str()):0,
+                    optparser.isSet(OptParser::NANIM)?atoi(optparser.getArg(OptParser::NANIM).c_str()):5,
+                    optparser.isSet(OptParser::BALFA)?atoi(optparser.getArg(OptParser::BALFA).c_str()):-1,
+                    optparser.isSet(OptParser::FALFA)?atoi(optparser.getArg(OptParser::FALFA).c_str()):-1,
+                    optparser.isSet(OptParser::FILTER)?atoi(optparser.getArg(OptParser::FILTER).c_str()):0,
+                    strtoul((optparser.isSet(OptParser::FC)?optparser.getArg(OptParser::OptParser::FC).c_str():"0xff00c800"), NULL, 16),
+                    optparser.isSet(OptParser::NOFONT)?0:1,
+                    optparser.isSet(OptParser::OFFSET)?atoi(optparser.getArg(OptParser::OFFSET).c_str()):0,
                     grow);
         }
         else
         {
             barra = new Bar(&barwin, p->getIconName(),
-                    optparser.isSet(ISIZE)?atoi(optparser.getArg(ISIZE).c_str()):32,
-                    optparser.isSet(IDIST)?atoi(optparser.getArg(IDIST).c_str()):1,
-                    optparser.isSet(ZOOMF)?atof(optparser.getArg(ZOOMF).c_str()):1.8,
-                    optparser.isSet(JUMPF)?atof(optparser.getArg(JUMPF).c_str()):1,
+                    optparser.isSet(OptParser::ISIZE)?atoi(optparser.getArg(OptParser::ISIZE).c_str()):32,
+                    optparser.isSet(OptParser::IDIST)?atoi(optparser.getArg(OptParser::IDIST).c_str()):1,
+                    optparser.isSet(OptParser::ZOOMF)?atof(optparser.getArg(OptParser::ZOOMF).c_str()):1.8,
+                    optparser.isSet(OptParser::JUMPF)?atof(optparser.getArg(OptParser::JUMPF).c_str()):1,
                     vertbar,
                     4,
-                    optparser.isSet(NANIM)?atoi(optparser.getArg(NANIM).c_str()):5,
-                    optparser.isSet(OFFSET)?atoi(optparser.getArg(OFFSET).c_str()):0,
+                    optparser.isSet(OptParser::NANIM)?atoi(optparser.getArg(OptParser::NANIM).c_str()):5,
+                    optparser.isSet(OptParser::OFFSET)?atoi(optparser.getArg(OptParser::OFFSET).c_str()):0,
                     grow);
         }
 
@@ -231,14 +231,14 @@ int main(int argc, char **argv)
 	while (mapIcons());
 
         /* Show the Bar */
-        if (optparser.isSet(ABOVE_DESK))
+        if (optparser.isSet(OptParser::ABOVE_DESK))
         {
             barwin.mapWindow();
-            barra->setPosition(optparser.getArg(POS));
+            barra->setPosition(optparser.getArg(OptParser::POS));
         }
         else
         {
-            barra->setPosition(optparser.getArg(POS));
+            barra->setPosition(optparser.getArg(OptParser::POS));
             barwin.mapWindow();
         }
         barwin.lowerWindow();
@@ -297,7 +297,7 @@ int main(int argc, char **argv)
                 case 3:/* Redraw Bar*/
                         if(!noreload)
                         {
-                            if ( tmpoptparser.isSet( CONFIG ) )
+                            if ( tmpoptparser.isSet( OptParser::CONFIG ) )
                             {
                                 execvp(tmpoptparser.getArgv()[0], tmpoptparser.getArgv());
                             }

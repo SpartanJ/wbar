@@ -78,8 +78,8 @@ _wbar()
 
     if [[ "$cur" == * ]]; then
         # return list of available options
-        COMPREPLY=( $( compgen -W '-h --help \
-                    -v --version \
+        COMPREPLY=( $( compgen -W '--help \
+                    --version \
                     --config \
                     --bpress \
                     --above-desk \
