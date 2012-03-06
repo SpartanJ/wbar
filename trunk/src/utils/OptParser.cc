@@ -23,8 +23,8 @@ static struct option long_options[] =
     {"noreload", 0, 0, 0 },
     {"taskbar", 0, 0, 0 },
     {"rsize", 1, 0, 0 },
-    {"help", 0, 0, HELP},
-    {"version", 0, 0, VERS},
+    {"help", 0, 0, OptParser::HELP},
+    {"version", 0, 0, OptParser::VERS},
     {0, 0, 0, 0}
 };
 
@@ -38,7 +38,7 @@ OptParser::~OptParser()
 {
 }
 
-bool OptParser::isSet(Options opt)
+bool OptParser::isSet(OptParser::Options opt)
 {
     if (argc <= 1) return false;
     int c;
@@ -50,7 +50,7 @@ bool OptParser::isSet(Options opt)
     {
         int option_index = 0;
 
-        c = getopt_long_only(argc, argv, "hcv", long_options, &option_index);
+        c = getopt_long(argc, argv, "hcv", long_options, &option_index);
         if (c == -1) break;
         if (option_index == (int)opt) return true;
         if (c == (int) HELP && opt == HELP) return true;
@@ -60,7 +60,7 @@ bool OptParser::isSet(Options opt)
     return false;
 }
 
-std::string OptParser::getArg(Options opt)
+std::string OptParser::getArg(OptParser::Options opt)
 {
     if (argc <= 1) return "";
 
@@ -73,7 +73,7 @@ std::string OptParser::getArg(Options opt)
     {
         int option_index = 0;
 
-        c = getopt_long_only(argc, argv, "hcv", long_options, &option_index);
+        c = getopt_long(argc, argv, "hcv", long_options, &option_index);
         if (c == -1) break;
         if (!optarg) continue;
         if (option_index == (int)opt) return optarg;
