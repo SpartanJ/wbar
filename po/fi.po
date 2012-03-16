@@ -16,12 +16,6 @@ msgstr ""
 "Content-Transfer-Encoding: 8-bit\n"
 "Generated-By: pygettext.py 1.5\n"
 
-msgid "A light and fast launch bar."
-msgstr ""
-
-msgid "Warlock Bar"
-msgstr ""
-
 msgid "<b>Command</b>"
 msgstr ""
 
@@ -142,6 +136,99 @@ msgstr ""
 msgid "_Reload"
 msgstr ""
 
+msgid "Icon"
+msgstr ""
+
+msgid "Title"
+msgstr "Otsikko"
+
+msgid "Command"
+msgstr ""
+
+msgid "top"
+msgstr "ylhäällä"
+
+msgid "bottom"
+msgstr "alhaalla"
+
+msgid "left"
+msgstr ""
+
+msgid "right"
+msgstr "oikealla"
+
+msgid "center"
+msgstr ""
+
+msgid "bot-left"
+msgstr ""
+
+msgid "bot-right"
+msgstr ""
+
+msgid "top-left"
+msgstr "ylhäällä vasemmalla"
+
+msgid "top-right"
+msgstr "ylhäällä oikealla"
+
+msgid "none"
+msgstr "ei mikään"
+
+msgid "hovered"
+msgstr "leijaileva"
+
+msgid "others"
+msgstr "muut"
+
+msgid "all"
+msgstr "kaikki"
+
+msgid "Configuration empty."
+msgstr ""
+
+msgid "Error save config in "
+msgstr ""
+
+msgid "Fields must not be empty"
+msgstr ""
+
+msgid "Open exec file"
+msgstr ""
+
+msgid "Open image file"
+msgstr ""
+
+msgid "Images"
+msgstr "Kuvat"
+
+msgid "Open font file"
+msgstr ""
+
+msgid "Fonts"
+msgstr ""
+
+msgid "About"
+msgstr "Tietoa"
+
+msgid "wbar config"
+msgstr ""
+
+msgid "Licence GPL - 2010"
+msgstr ""
+
+msgid "A light and fast launch bar."
+msgstr ""
+
+msgid "wbar project website"
+msgstr ""
+
+msgid "Error run program: "
+msgstr ""
+
+msgid "Error kill program: "
+msgstr ""
+
 msgid " Image not found. Maybe using a relative path?"
 msgstr ""
 
@@ -152,9 +239,6 @@ msgid "Set default bar position."
 msgstr ""
 
 msgid " Couldn't load icon image."
-msgstr ""
-
-msgid "Configuration empty."
 msgstr ""
 
 msgid "Version of "
@@ -238,7 +322,7 @@ msgstr ""
 msgid "View man(1)."
 msgstr ""
 
-msgid "Error run program: "
+msgid "Problem load font file."
 msgstr ""
 
 msgid "Couldn't open display"
@@ -257,93 +341,6 @@ msgid "Couldn't create window"
 msgstr ""
 
 msgid "windowIcon() -- XGetWindowProperty"
-msgstr ""
-
-msgid "Icon"
-msgstr ""
-
-msgid "Title"
-msgstr "Otsikko"
-
-msgid "Command"
-msgstr ""
-
-msgid "top"
-msgstr "ylhäällä"
-
-msgid "bottom"
-msgstr "alhaalla"
-
-msgid "left"
-msgstr ""
-
-msgid "right"
-msgstr "oikealla"
-
-msgid "center"
-msgstr ""
-
-msgid "bot-left"
-msgstr ""
-
-msgid "bot-right"
-msgstr ""
-
-msgid "top-left"
-msgstr "ylhäällä vasemmalla"
-
-msgid "top-right"
-msgstr "ylhäällä oikealla"
-
-msgid "none"
-msgstr "ei mikään"
-
-msgid "hovered"
-msgstr "leijaileva"
-
-msgid "others"
-msgstr "muut"
-
-msgid "all"
-msgstr "kaikki"
-
-msgid "Error save config in "
-msgstr ""
-
-msgid "Fields must not be empty"
-msgstr ""
-
-msgid "Open exec file"
-msgstr ""
-
-msgid "Open image file"
-msgstr ""
-
-msgid "Images"
-msgstr "Kuvat"
-
-msgid "Open font file"
-msgstr ""
-
-msgid "Fonts"
-msgstr ""
-
-msgid "About"
-msgstr "Tietoa"
-
-msgid "wbar config"
-msgstr ""
-
-msgid "Licence GPL - 2010"
-msgstr ""
-
-msgid "wbar project website"
-msgstr ""
-
-msgid "Problem load font file."
-msgstr ""
-
-msgid "Error kill program: "
 msgstr ""
 
 msgid "Error copy file: "

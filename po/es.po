@@ -16,12 +16,6 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-msgid "A light and fast launch bar."
-msgstr "Una ligera y rápida barra de inicio."
-
-msgid "Warlock Bar"
-msgstr "Barra Warlock"
-
 msgid "<b>Command</b>"
 msgstr "<b>Comando</b>"
 
@@ -142,6 +136,99 @@ msgstr "_Cerrar"
 msgid "_Reload"
 msgstr "_Recargar"
 
+msgid "Icon"
+msgstr "Icono"
+
+msgid "Title"
+msgstr "Título"
+
+msgid "Command"
+msgstr "Comando"
+
+msgid "top"
+msgstr "arriba"
+
+msgid "bottom"
+msgstr "abajo"
+
+msgid "left"
+msgstr "izquierda"
+
+msgid "right"
+msgstr "derecha"
+
+msgid "center"
+msgstr "centrar"
+
+msgid "bot-left"
+msgstr "izquierda-abajo"
+
+msgid "bot-right"
+msgstr "derecha-abajo"
+
+msgid "top-left"
+msgstr "izquierda-arriba"
+
+msgid "top-right"
+msgstr "derecha-arriba"
+
+msgid "none"
+msgstr "ninguno"
+
+msgid "hovered"
+msgstr "inmóvil"
+
+msgid "others"
+msgstr "otros"
+
+msgid "all"
+msgstr "todos"
+
+msgid "Configuration empty."
+msgstr "Configuración vacía."
+
+msgid "Error save config in "
+msgstr "Error al guardar la configuración en "
+
+msgid "Fields must not be empty"
+msgstr "Los campos no deben estar vacíos"
+
+msgid "Open exec file"
+msgstr "Abrir archivo ejecutable"
+
+msgid "Open image file"
+msgstr "Abrir archivo de imagen"
+
+msgid "Images"
+msgstr "Imagenes"
+
+msgid "Open font file"
+msgstr "Abrir archivo de fuente"
+
+msgid "Fonts"
+msgstr "Fuentes"
+
+msgid "About"
+msgstr "Acerca de"
+
+msgid "wbar config"
+msgstr "configuración wbar"
+
+msgid "Licence GPL - 2010"
+msgstr "Licencia GPL - 2010"
+
+msgid "A light and fast launch bar."
+msgstr "Una ligera y rápida barra de inicio."
+
+msgid "wbar project website"
+msgstr "sitio web del proyecto wbar"
+
+msgid "Error run program: "
+msgstr "Error ejecutando programa: "
+
+msgid "Error kill program: "
+msgstr "Error terminando programa: "
+
 msgid " Image not found. Maybe using a relative path?"
 msgstr " Imagen no encontrada. ¿Tal vez estas utilizando una ruta relativa?"
 
@@ -153,9 +240,6 @@ msgstr "Establecer posición de la barra por defecto."
 
 msgid " Couldn't load icon image."
 msgstr " No se puede cargar la imagen del icono"
-
-msgid "Configuration empty."
-msgstr "Configuración vacía."
 
 msgid "Version of "
 msgstr "Versión de "
@@ -238,8 +322,8 @@ msgstr "deshabilitar texto"
 msgid "View man(1)."
 msgstr "Ver manual (1)."
 
-msgid "Error run program: "
-msgstr "Error ejecutando programa: "
+msgid "Problem load font file."
+msgstr "Problema al cargar el archivo de fuente."
 
 msgid "Couldn't open display"
 msgstr "No se puede acceder a la pantalla"
@@ -257,97 +341,13 @@ msgid "Couldn't create window"
 msgstr "No se puede crear la ventana"
 
 msgid "windowIcon() -- XGetWindowProperty"
-msgstr ""
-
-msgid "Icon"
-msgstr "Icono"
-
-msgid "Title"
-msgstr "Título"
-
-msgid "Command"
-msgstr "Comando"
-
-msgid "top"
-msgstr "arriba"
-
-msgid "bottom"
-msgstr "abajo"
-
-msgid "left"
-msgstr "izquierda"
-
-msgid "right"
-msgstr "derecha"
-
-msgid "center"
-msgstr "centrar"
-
-msgid "bot-left"
-msgstr "izquierda-abajo"
-
-msgid "bot-right"
-msgstr "derecha-abajo"
-
-msgid "top-left"
-msgstr "izquierda-arriba"
-
-msgid "top-right"
-msgstr "derecha-arriba"
-
-msgid "none"
-msgstr "ninguno"
-
-msgid "hovered"
-msgstr "inmóvil"
-
-msgid "others"
-msgstr "otros"
-
-msgid "all"
-msgstr "todos"
-
-msgid "Error save config in "
-msgstr "Error al guardar la configuración en "
-
-msgid "Fields must not be empty"
-msgstr "Los campos no deben estar vacíos"
-
-msgid "Open exec file"
-msgstr "Abrir archivo ejecutable"
-
-msgid "Open image file"
-msgstr "Abrir archivo de imagen"
-
-msgid "Images"
-msgstr "Imagenes"
-
-msgid "Open font file"
-msgstr "Abrir archivo de fuente"
-
-msgid "Fonts"
-msgstr "Fuentes"
-
-msgid "About"
-msgstr "Acerca de"
-
-msgid "wbar config"
-msgstr "configuración wbar"
-
-msgid "Licence GPL - 2010"
-msgstr "Licencia GPL - 2010"
-
-msgid "wbar project website"
-msgstr "sitio web del proyecto wbar"
-
-msgid "Problem load font file."
-msgstr "Problema al cargar el archivo de fuente."
-
-msgid "Error kill program: "
-msgstr "Error terminando programa: "
+msgstr "windowIcon() -- XGetWindowProperty"
 
 msgid "Error copy file: "
 msgstr "Error copiando archivo: "
+
+#~ msgid "Warlock Bar"
+#~ msgstr "Barra Warlock"
 
 #~ msgid "Invalid icon grow bar."
 #~ msgstr "Crecimiento de iconos en la barra no valida."

@@ -27,7 +27,7 @@ static const gchar *documenters[] =
     NULL
 };
 
-static const gchar * translater = "Yadickson Soto <yadickson@gmail.com>";
+static const gchar * translater = "Español - Yadickson Soto <yadickson@gmail.com>\nDeutsch - Daniel MeissWilhelm <meisssw01@googlemail.com>";
 
 static GladeXML * xml = NULL;
 static bool edit = false;
