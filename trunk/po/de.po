@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: wbar 2.0.0\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2011-11-03 18:08+0100\n"
+"PO-Revision-Date: 2012-03-16 18:08+0100\n"
 "Last-Translator: D.M-Wilhelm (Leiche) <meisssw01@gmail.com>\n"
 "Language-Team: Deutsch <yadickson@gmail.com>\n"
 "Language: \n"
@@ -55,7 +55,7 @@ msgid "Effects"
 msgstr "Effekte"
 
 msgid "Enable taskbar"
-msgstr ""
+msgstr "Taskbar (Fensterliste) aktivieren"
 
 msgid "Filter color"
 msgstr "Filterfarbe"
@@ -76,7 +76,7 @@ msgid "Icons"
 msgstr "Symbols"
 
 msgid "Investing icons growth"
-msgstr ""
+msgstr "Umgekehrte Symbolanimation"
 
 msgid "Jump factor"
 msgstr "Jump-Faktor"
@@ -97,7 +97,7 @@ msgid "Preferences"
 msgstr "Einstellungen"
 
 msgid "Reflection percentage"
-msgstr ""
+msgstr "Symbol (Icon) spiegeln"
 
 msgid "Run over the desktop"
 msgstr "Wbar oberhalb eines Desktopmanagers"
@@ -193,16 +193,16 @@ msgid "Fields must not be empty"
 msgstr "Felder müssen ausgefüllt sein"
 
 msgid "Open exec file"
-msgstr "Öffnen der ausführbare Datei"
+msgstr "Öffnen einer ausführbare Datei"
 
 msgid "Open image file"
-msgstr "Öffnen der Bilddatei"
+msgstr "Öffnen einer Bilddatei"
 
 msgid "Images"
 msgstr "Bilddateien"
 
 msgid "Open font file"
-msgstr "Öffnen der Schriftdatei"
+msgstr "Öffnen einer Schriftdatei"
 
 msgid "Fonts"
 msgstr "Schriften"
@@ -238,7 +238,7 @@ msgid "Set default bar position."
 msgstr "Setze Leiste auf Standard Position."
 
 msgid " Couldn't load icon image."
-msgstr "Konnte Symbol nicht laden."
+msgstr "Symbol konnte nicht geladen werden."
 
 msgid "Version of "
 msgstr "Version"
@@ -262,7 +262,7 @@ msgid "run over a desktop app (ie: xfdesktop)"
 msgstr "Wbar oberhalb eines Desktopmanagers (zB: XFDesktop)"
 
 msgid "enable taskbar"
-msgstr ""
+msgstr "Taskbar (Fensterliste) aktivieren"
 
 msgid "right click does not force reload anymore"
 msgstr "Rechtsklick zum erneuten starten der Leiste abgestellt"
@@ -286,7 +286,7 @@ msgid "position:"
 msgstr "Position:"
 
 msgid "investing icons growth"
-msgstr ""
+msgstr "Umgekehrte Symbolanimation"
 
 msgid "ms for double click (0: single click)"
 msgstr "Doppelklickintervall in Millisekunden (0: Einfach Klick)"
@@ -301,7 +301,7 @@ msgid "bar alfa (0-100)"
 msgstr "Bar Alfa (0-100)"
 
 msgid "Reflection size in percents (0-100)"
-msgstr ""
+msgstr "Spiegelgröße in Prozent (0-100)"
 
 msgid "unfocused bar alfa (0-100)"
 msgstr "Transparenz der inaktiven Leiste (0-100)"
@@ -328,10 +328,10 @@ msgid "Couldn't open display"
 msgstr "Anzeige konnte nicht geöffnet werden"
 
 msgid "Couldn't get visual"
-msgstr ""
+msgstr "Konnte optisch nicht angezeigt werden"
 
 msgid "Couln't get colormap"
-msgstr ""
+msgstr "Farbtabelle konnte nicht geöffnet werden"
 
 msgid "Couldn't get depth"
 msgstr ""
@@ -343,7 +343,7 @@ msgid "windowIcon() -- XGetWindowProperty"
 msgstr ""
 
 msgid "Error copy file: "
-msgstr ""
+msgstr "Fehlerprotokoll speichern: "
 
 #~ msgid "Warlock Bar"
 #~ msgstr "Warlock Bar"
