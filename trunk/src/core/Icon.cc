@@ -41,10 +41,21 @@ Icon::Icon(string iconImg, string cmd, int xx, int yy,
     	icontmp = imlib_create_image(iw, ih);
     	USE_IMAGE(icontmp);
     	IMAGE_ENABLE_ALPHA(1);
+    	/* initially, an image created would contain garbage,
+    	* so initialize it with blank color modifier */
+    	DATA8 blank_data[256];
+        memset(blank_data, 0, sizeof(blank_data));
+        Imlib_Color_Modifier blank_color_modifier = 
+    					imlib_create_color_modifier();
+        imlib_context_set_color_modifier(blank_color_modifier);
+        imlib_set_color_modifier_tables(NULL, NULL, NULL, blank_data);
+        imlib_apply_color_modifier();
+        /*once initialized, reset the color modifier for future usage */
+        imlib_context_set_color_modifier(NULL);
     	imlib_blend_image_onto_image(icon, 1, 0, 0, iw, ih, 0, 0, iw, 
-    									ih-refl_h);
+    								ih-refl_h);
     	imlib_blend_image_onto_image_skewed(icon, 1, 0, 0, iw, ih, 0, ih, iw , 
-    										0, 0, -refl_h);
+    								0, 0, -refl_h);
     	icon=imlib_clone_image();
     }
     USE_IMAGE(icon);
