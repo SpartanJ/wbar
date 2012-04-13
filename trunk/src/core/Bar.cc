@@ -149,10 +149,6 @@ void Bar::scale(bool updateBG)
 void Bar::acquireBack()
 {
     int t_w, t_h;
-    Atom rootid, actual_type;
-    int actual_format;
-    unsigned long n_items, bytes_after;
-    unsigned char *prop;
 
     t_w = (orientation == 0)? window->w : window->h;
     t_h = (orientation == 0)? window->h : window->w;
@@ -213,16 +209,13 @@ void Bar::acquireBack()
     // with KDM->IceWM and the like, root windown may be readable by root only
     // if no wallpaper is set. Just proceed with no background then
     oldXHandler = XSetErrorHandler(rootErrorHandler);
+    Pixmap rootmap = GetRootPixmap(window->display);
     // for DEs using an FM-based desktop, set it as bg source
     if (bg_window) {
 	USE_DRAWABLE((Window)bg_window);
     // otherwise, snapshot a backgroung pixmap set at the root window
-    } else if ((rootid = XInternAtom(window->display, "_XROOTPMAP_ID", True)) &&
-       XGetWindowProperty(window->display, DefaultRootWindow (window->display),
-	rootid, 0, 1, False, XA_PIXMAP, &actual_type, &actual_format, &n_items, 
-	&bytes_after, &prop) == Success && prop) {
-	    USE_DRAWABLE(*((Drawable *)prop));
-	    XFree(prop);
+    } else if (rootmap != None) {
+	USE_DRAWABLE(rootmap);
     } else {
 	// last resort: snaphsot the whole display, potentially resulting in 
 	// some artifacts from the windows above the bar

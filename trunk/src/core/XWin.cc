@@ -462,3 +462,42 @@ unsigned char *repack64 (unsigned char* repack_data, long repack_sz) {
     }
     return repack;
 }
+
+Pixmap GetRootPixmap (Display *display) {
+	Pixmap currentRootPixmap = None;
+	Atom act_type;
+	Atom _XROOTPMAP_ID = XInternAtom(display, "_XROOTPMAP_ID", False);
+	Atom _XSETROOT_ID = XInternAtom(display, "_XSETROOT_ID", False);
+	int act_format;
+	unsigned long nitems, bytes_after;
+	unsigned char *prop = NULL;
+
+	if (XGetWindowProperty ( display,
+	DefaultRootWindow(display), _XROOTPMAP_ID, 0, 1,
+	False, XA_PIXMAP, &act_type, &act_format, &nitems, &bytes_after,
+        &prop) == Success)
+        {
+//        puts("GetProp succeeded");
+                if (prop)
+                {
+//                puts("prop exists");
+                currentRootPixmap = *((Pixmap *) prop);
+                XFree (prop);
+                }
+	}
+
+	if (currentRootPixmap==None && XGetWindowProperty ( display,
+	DefaultRootWindow(display), _XSETROOT_ID, 0, 1,
+	False, XA_PIXMAP, &act_type, &act_format, &nitems, &bytes_after,
+        &prop) == Success)
+        {
+//        puts("GetProp2 succeeded");
+                if (prop)
+                {
+//                puts("prop2 exists");
+                currentRootPixmap = *((Pixmap *) prop);
+                XFree (prop);
+                }
+	}
+	return currentRootPixmap;
+}
