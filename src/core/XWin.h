@@ -69,4 +69,6 @@ public:
     void flushAll();
 };
 
+Pixmap GetRootPixmap (Display *display);
+
 #endif /* _XWIN_H_ */
