@@ -192,7 +192,7 @@ int main(int argc, char **argv)
 
         bool grow = optparser.isSet(OptParser::GROW)?true:false;
 
-        if (optparser.isSet(OptParser::BALFA) || optparser.isSet(OptParser::FALFA) || optparser.isSet(OptParser::FILTER) || !(p->getTitle().empty() || optparser.isSet(OptParser::NOFONT)))
+        if (optparser.isSet(OptParser::BALFA) || optparser.isSet(OptParser::FALFA) || optparser.isSet(OptParser::FILTER) || !(p->getTitle().empty()) || optparser.isSet(OptParser::NOFONT))
         {
             barra = new SuperBar(&barwin, p->getIconName(), p->getTitle(),
                     optparser.isSet(OptParser::ISIZE)?atoi(optparser.getArg(OptParser::ISIZE).c_str()):32,
