@@ -1,5 +1,4 @@
 [Desktop Entry]
-Encoding=UTF-8
 _Name=Warlock Bar
 Type=Application
 Exec=@BINDIR@/@PACKAGE_NAME@
@@ -7,7 +6,6 @@ Terminal=false
 Icon=@PIXMAPDIR@/@PACKAGE_NAME@.png
 _Comment=A light and fast launch bar.
 Categories=Utility;
-OnlyShowIn=GNOME;XFCE;
 X-GNOME-Bugzilla-Bugzilla=GNOME
 X-GNOME-Bugzilla-Product=@PACKAGE_NAME@
 X-GNOME-Bugzilla-Component=general

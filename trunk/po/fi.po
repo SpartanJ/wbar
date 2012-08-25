@@ -76,7 +76,7 @@ msgstr "Kuvakkeen koko"
 msgid "Icons"
 msgstr "Kuvakes"
 
-msgid "Investing icons growth"
+msgid "Inverting icons growth"
 msgstr ""
 
 msgid "Jump factor"
@@ -100,7 +100,7 @@ msgstr ""
 msgid "Reflection percentage"
 msgstr ""
 
-msgid "Run over the desktop"
+msgid "Run above the desktop"
 msgstr "Suorita työpöytäsovellusten yllä"
 
 msgid "Settings"
