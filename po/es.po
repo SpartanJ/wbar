@@ -76,7 +76,7 @@ msgstr "Tamaño de icono"
 msgid "Icons"
 msgstr "Iconos"
 
-msgid "Investing icons growth"
+msgid "Inverting icons growth"
 msgstr "Invertir crecimineto de iconos"
 
 msgid "Jump factor"
@@ -100,7 +100,7 @@ msgstr "Preferencias"
 msgid "Reflection percentage"
 msgstr "Porcentaje de reflexión"
 
-msgid "Run over the desktop"
+msgid "Run above the desktop"
 msgstr "Ejecutar sobre el escritorio"
 
 msgid "Settings"

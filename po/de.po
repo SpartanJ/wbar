@@ -22,7 +22,7 @@ msgid "<b>Icon</b>"
 msgstr "<b>Symbol</b>"
 
 msgid "<b>Title</b>"
-msgstr "<b>Title</b>"
+msgstr "<b>Titel</b>"
 
 msgid "Bar alfa level"
 msgstr "Transparenz der Leiste"
@@ -73,9 +73,9 @@ msgid "Icon size"
 msgstr "Symbolgröße"
 
 msgid "Icons"
-msgstr "Symbols"
+msgstr "Symbole"
 
-msgid "Investing icons growth"
+msgid "Inverting icons growth"
 msgstr "Umgekehrte Symbolanimation"
 
 msgid "Jump factor"
@@ -99,7 +99,7 @@ msgstr "Einstellungen"
 msgid "Reflection percentage"
 msgstr "Symbol (Icon) spiegeln"
 
-msgid "Run over the desktop"
+msgid "Run above the desktop"
 msgstr "Wbar oberhalb eines Desktopmanagers"
 
 msgid "Settings"
@@ -151,7 +151,7 @@ msgid "bottom"
 msgstr "Unten"
 
 msgid "left"
-msgstr "links"
+msgstr "Links"
 
 msgid "right"
 msgstr "Rechts"
@@ -193,7 +193,7 @@ msgid "Fields must not be empty"
 msgstr "Felder müssen ausgefüllt sein"
 
 msgid "Open exec file"
-msgstr "Öffnen einer ausführbare Datei"
+msgstr "Öffnen einer ausführbaren Datei"
 
 msgid "Open image file"
 msgstr "Öffnen einer Bilddatei"

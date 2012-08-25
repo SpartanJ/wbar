@@ -55,7 +55,7 @@ AC_DEFINE_UNQUOTED(GLADE_PACKAGE_DIR, "$GLADE_PACKAGE_DIR" , [ The glade package
 AC_SUBST(GLADE_PACKAGE_NAME, "$GLADE_PACKAGE_DIR/AC_PACKAGE_NAME.glade")
 AC_DEFINE_UNQUOTED(GLADE_PACKAGE_NAME, "$GLADE_PACKAGE_NAME" , [ The glade package name ])
 
-AC_SUBST(DEFAULT_ARGV, "--bpress --above-desk --vbar --pos right --isize 32 --idist 5 --nanim 4 --falfa 65")
+AC_SUBST(DEFAULT_ARGV, "--bpress --above-desk --vbar --pos right --isize 64 --idist 5 --nanim 4 --falfa 65")
 AC_DEFINE_UNQUOTED(DEFAULT_ARGV, "$DEFAULT_ARGV" , [ The default argv ])
 
 AC_PROG_INTLTOOL()

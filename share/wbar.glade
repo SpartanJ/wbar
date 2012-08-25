@@ -861,7 +861,7 @@
                     </child>
                     <child>
                       <widget class="GtkCheckButton" id="checkbutton_above_desk">
-                        <property name="label" translatable="yes">Run over the desktop</property>
+                        <property name="label" translatable="yes">Run above the desktop</property>
                         <property name="visible">True</property>
                         <property name="can_focus">True</property>
                         <property name="receives_default">False</property>
@@ -994,7 +994,7 @@
                     </child>
                     <child>
                       <widget class="GtkCheckButton" id="checkbutton_grow">
-                        <property name="label" translatable="yes">Investing icons growth</property>
+                        <property name="label" translatable="yes">Inverting icons growth</property>
                         <property name="visible">True</property>
                         <property name="can_focus">True</property>
                         <property name="receives_default">False</property>

@@ -124,7 +124,7 @@ int main(int argc, char **argv)
             std::cout << "   --help         " << _("this help") << std::endl;
             std::cout << "   --version      " << _("show version") << std::endl;
             std::cout << "   --config filepath  " << _("conf-file (eg: $HOME/.wbar)") << std::endl;
-            std::cout << "   --above-desk       " << _("run over a desktop app (ie: xfdesktop)") << std::endl;
+            std::cout << "   --above-desk       " << _("run above a desktop app (ie: xfdesktop)") << std::endl;
             std::cout << "   --taskbar		" << _("enable taskbar") << std::endl;
             std::cout << "   --noreload         " << _("right click does not force reload anymore") << std::endl;
             std::cout << "   --offset i         " << _("offset bar (eg: 20)") << std::endl;
@@ -135,12 +135,12 @@ int main(int argc, char **argv)
             std::cout << "   --pos    p         " << _("position:") << std::endl;
             std::cout << "                        " << "top | bottom | left | right | " << std::endl;
             std::cout << "                        " << "center | <bot|top>-<right|left>" << std::endl;
-            std::cout << "   --grow             " << _("investing icons growth") << std::endl;
-            std::cout << "   --dblclk ms        " << _("ms for double click (0: single click)") << std::endl;
+            std::cout << "   --grow             " << _("inverting icons growth") << std::endl;
+            std::cout << "   --dblclk ms        " << _("time in ms for double click (0: single click)") << std::endl;
             std::cout << "   --bpress           " << _("icon gets pressed") << std::endl;
             std::cout << "   --vbar             " << _("vertical bar") << std::endl;
             std::cout << "   --balfa  i         " << _("bar alfa (0-100)") << std::endl;
-            std::cout << "   --rsize  i         " << _("Reflection size in percents (0-100)") << std::endl;
+            std::cout << "   --rsize  i         " << _("reflection size in percents (0-100)") << std::endl;
             std::cout << "   --falfa  i         " << _("unfocused bar alfa (0-100)") << std::endl;
             std::cout << "   --filter i         " << _("color filter (0: none 1: hovered 2: others, 3: all)") << std::endl;
             std::cout << "   --fc  0xAARRGGBB   " << _("filter color (default green 0xff00c800)") << std::endl;
