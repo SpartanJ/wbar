@@ -1,11 +1,11 @@
 #!/usr/bin/env bash
 
 CFGDIR=/tmp
-APPDIR=/usr/share/applications
-ICONDIR=/usr/share/icons/hicolor
+APPDIRS=(/usr/share/applications)
+ICONDIRS=(/usr/share/icons/hicolor /usr/share/pixmaps)
 MAXICONS=10
 
-apps=$(find $APPDIR -name '*.desktop' 2>/dev/null |
+apps=$(find "${APPDIRS[@]}" -name '*.desktop' 2>/dev/null |
         xargs grep -l ^Name |
         xargs grep -l ^Icon |
         xargs grep -l ^Exec |
@@ -25,7 +25,7 @@ for app in $apps; do
   _name=$(grep ^Name= $app | sed 's/^.*=//')
   _exec=$(grep ^Exec= $app | sed 's/^.*=//')
   _icon=$(grep ^Icon= $app | sed 's/^.*=//')
-  icons=$(find $ICONDIR | grep -i "${_icon}")
+  icons=$(find "${ICONDIRS[@]}" | grep -i "${_icon}")
 
   # get the biggest resolution icon
   for size in 128 64 48; do
