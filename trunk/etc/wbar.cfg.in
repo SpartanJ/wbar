@@ -1,4 +1,4 @@
-i: @PIXMAPDIR@/@PACKAGE_NAME@/osxbarback.png
+i: @PIXMAPDIR@/@PACKAGE_NAME@/dock.png
 c: @PACKAGE_NAME@ @DEFAULT_ARGV@
 t: none
 
@@ -6,31 +6,4 @@ i: @PIXMAPDIR@/@PACKAGE_NAME@/wbar.png
 c: wbar-config
 t: Config
 
-i: @PIXMAPDIR@/@PACKAGE_NAME@/pidgin.png
-c: pidgin
-t: Pidgin
-
-i: @PIXMAPDIR@/@PACKAGE_NAME@/anjuta.png
-c: anjuta
-t: Anjuta
-
-i: @PIXMAPDIR@/@PACKAGE_NAME@/bluefish.png
-c: bluefish
-t: Bluefish
-
-i: @PIXMAPDIR@/@PACKAGE_NAME@/gimp.png
-c: gimp
-t: Gimp
-
-i: @PIXMAPDIR@/@PACKAGE_NAME@/ooffice.png
-c: ooffice
-t: OOffice
-
-i: @PIXMAPDIR@/@PACKAGE_NAME@/synaptic.png
-c: su-to-root -X -c /usr/sbin/synaptic
-t: Synaptic
-
-i: @PIXMAPDIR@/@PACKAGE_NAME@/terminal.png
-c: gnome-terminal
-t: Terminal
 
