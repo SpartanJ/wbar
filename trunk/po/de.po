@@ -2,7 +2,6 @@
 # Copyright (C) YEAR ORGANIZATION
 # Yadickson Soto <yadickson@gmail.com>, 2009.
 #
-#, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: wbar 2.0.0\n"
@@ -213,7 +212,7 @@ msgstr "Über"
 msgid "wbar config"
 msgstr "Wbar config"
 
-msgid "Licence GPL - 2010"
+msgid "License GPL - 2010"
 msgstr "Lizenz GPL - 2010"
 
 msgid "A light and fast launch bar."
@@ -258,7 +257,7 @@ msgstr "Version zeigen"
 msgid "conf-file (eg: $HOME/.wbar)"
 msgstr "conf-Datei (zB: $HOME/.wbar)"
 
-msgid "run over a desktop app (ie: xfdesktop)"
+msgid "run above a desktop app (ie: xfdesktop)"
 msgstr "Wbar oberhalb eines Desktopmanagers (zB: XFDesktop)"
 
 msgid "enable taskbar"
@@ -285,10 +284,10 @@ msgstr "Spring Faktor (zB: 1.0 oder 0.0)"
 msgid "position:"
 msgstr "Position:"
 
-msgid "investing icons growth"
+msgid "inverting icons growth"
 msgstr "Umgekehrte Symbolanimation"
 
-msgid "ms for double click (0: single click)"
+msgid "time in ms for double click (0: single click)"
 msgstr "Doppelklickintervall in Millisekunden (0: Einfach Klick)"
 
 msgid "icon gets pressed"
@@ -300,7 +299,7 @@ msgstr "Vertikale Leiste"
 msgid "bar alfa (0-100)"
 msgstr "Bar Alfa (0-100)"
 
-msgid "Reflection size in percents (0-100)"
+msgid "reflection size in percents (0-100)"
 msgstr "Spiegelgröße in Prozent (0-100)"
 
 msgid "unfocused bar alfa (0-100)"
@@ -348,14 +347,15 @@ msgstr "Fehlerprotokoll speichern: "
 #~ msgid "Warlock Bar"
 #~ msgstr "Warlock Bar"
 
-#, fuzzy
+#~ msgid "investing icons growth"
+#~ msgstr "Umgekehrte Symbolanimation"
+
 #~ msgid "Icon name:"
 #~ msgstr "Symbol:"
 
 #~ msgid "_Settings"
 #~ msgstr "_Einstellungen"
 
-#, fuzzy
 #~ msgid "Font size:"
 #~ msgstr "Symbolgröße"
 

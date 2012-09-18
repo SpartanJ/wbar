@@ -2,43 +2,61 @@
       wbar
 ===================
 
+SUMMARY
+
+1. License
+2. Dependencies
+3. General
+4. Installation
+5. Configuration
+   5.1. Wbar-config (recommended)
+   5.2. make-conf.sh
+   5.3. Manual method
+6. Bugs
+
+--------------------
+
+1. LICENSE
+----------
+
 Wbar by Rodolfo Granata Copyright (C) 2012
 warlock.cc@gmail.com
 
-Wbar and wbar-config by Yadickson Soto Copyright (C) 2010 
+Wbar and wbar-config by Yadickson Soto Copyright (C) 2010
 yadickson@gmail.com
 
-LICENSE
+Wbar is under GNU GPL license. Please, read the 'COPYING' to know what this
+means.
 
-Wbar is under GNU GPL license. Please, read the 'COPYING' to know what this means.
-
-It'll be greatly appreciated if you mail the author (warlock) telling about any changes,
-patches, recomendations, etc.
+It'll be greatly appreciated if you mail the author (warlock) telling about
+any changes, patches, recommendations, etc.
 
 Thanks
 
 
-Dependencies:
--------------
+2. DEPENDENCIES
+---------------
+
 libimlib2-dev, intltool, pkg-config, libglade2-dev, libgtk2.0-dev, libx11-dev
 
-General:
---------
-wbar is a quick launch bar. Its fast, light and cool eye-candy.
+3. GENERAL
+----------
 
-Its hacked in c++ trying to keep code as readable as possible
-with out sacrificing speed. It works directly on top of X to avoid
-going throug a lot of layers.
+Wbar is a quick launch bar. It's fast, light and cool eye-candy.
 
-Initially developed for Fluxbox, then tested on WindowMaker, Xfce, 
-Gnome, etc.
+It's hacked in c++ trying to keep code as readable as possible
+without sacrificing speed. It works directly on top of X to avoid
+going through a lot of layers.
 
-Since version 1.0 can run on top of desktops such as xfdesktop 
-or nautilus with the -above-desk switch.
+Initially it was developed for Fluxbox, then tested on WindowMaker, Xfce,
+and Gnome 2 and it works very well with other window managers, too.
+
+Since version 1.0 Wbar can run on top of desktops such as xfdesktop
+or Nautilus with the -above-desk switch.
 
 
-Installing: (for the impacient)
------------
+4. INSTALLATION (for the impatient)
+---------------
 
 $ ./configure --prefix=/usr --exec_prefix=/usr --sysconfdir=/etc
 
@@ -51,38 +69,40 @@ $ make
 As root
 # make install
 
-$ wbar -help (this gives you important options)
-
-Now wbar should work out of the box(, but again ... may be not).
-
-Notes:
-------
-* If you're getting window decorations (you shouldn't) when you start
-  your window manager because you're using the -above-desk switch, 
-  try to give the WM some time to start up before wbar does. 
-
-  Example (in your startup script): (sleep 5s && wbar) &
-  Note that the parenthesis surrounding the command are important.
-
-Fonts:
-------
-Font support is new. Its used to display text below the icons.
-To change font color / shadow / position you'll have
-to hack into the code which shouldn't be dificult at all.
-TODO: Fix wide labels, chopped when rendering as vertical bar.
+$ wbar --help (this gives you important options)
 
 
-Configuration file:
--------------------
-If not supplied $HOME/.wbar will be tried, 
-else /etc/default/wbar/wbar.cfg
+5. CONFIGURATION
+----------------
+
+5.1. Wbar-config
+
+Wbar-config is the recommended tool to customize Wbar. It is completely
+optional but very easy to use. You can tweak the icon size and distance, adjust Wbar's
+position on the screen and also change effects like transparency, color filter and
+jump factor. See also wbar(1) and wbar-config(1).
+
+5.2. make-conf.sh
+
+If you don't want to install a GUI application to configure Wbar, the
+next best solution to create an initial wbar.cfg would be the make-conf.sh script.
+
+The script searches for installed desktop files in /usr/share/applications and
+creates an initial config in /tmp with the corresponding icons in your pixmaps
+and hicolor directories in /usr/share. Just copy the config file to ~/.wbar and
+you're set.
+
+5.3. Manual method
+
+Wbar will look for your configuration in $HOME/.wbar first or will use the global
+configuration file in /etc/wbar.d/wbar.cfg.
 
 .wbar format:
 ---------------
 Commented lines start whith #.
 Blank lines are ignored.
 
-Example: 
+Example:
 
 Each icon has the following format:
 
@@ -95,35 +115,36 @@ appear. If you aren't gonna display text nor have a command associated
 for a certain icon you should do the following:
 
 i: <icon-file-path>
-c: 
-t: 
+c:
+t:
 
 
 The first icon definition has a special meaning:
 ------------------------------------------------
 i: <path-to-the-bar-background-image>
-c: wbar --bpress --above-desk --vbar --pos right --isize 32 --idist 5 --nanim 4 --falfa 65
+c: wbar --bpress --above-desk --vbar --pos right --isize 64 --idist 5 --nanim 4 --falfa 65
 t: <path-to-font-to-display-text-with/size>
 
 IF A FONT ISN'T SUPPLIED THEN NO TEXT RENDERING IS DONE.
 
 *******************
 
-Filters:
---------
--fc set the filter color which is applied to icons.
-The format is 0xAARRGGBB
+Notes:
+------
+If you're getting window decorations (you shouldn't) when you start
+your window manager because you're using the -above-desk switch,
+try to give the WM some time to start up before wbar does.
 
--filter controls where to apply filter 
-0: dont apply 
-1: apply to hovered icon 
-2: apply to all but hovered 
-3: all
+Example (in your startup script): (sleep 5s && wbar) &
+Note that the parenthesis surrounding the command are important.
 
-experiment with other options.
 
-BUGS:
+BUGS
 ----
-Use the issue tracker :-)
+
+Use the issue tracker. :-)
 
 Fix them man! I need a hand to keep this alive.
+
+
+
