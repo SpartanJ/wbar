@@ -2,7 +2,6 @@
 # Copyright (C) YEAR ORGANIZATION
 # Yadickson Soto <yadickson@gmail.com>, 2009.
 #
-#, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: wbar 2.0.0\n"
@@ -214,7 +213,7 @@ msgstr "Tietoa"
 msgid "wbar config"
 msgstr ""
 
-msgid "Licence GPL - 2010"
+msgid "License GPL - 2010"
 msgstr ""
 
 msgid "A light and fast launch bar."
@@ -259,8 +258,9 @@ msgstr ""
 msgid "conf-file (eg: $HOME/.wbar)"
 msgstr ""
 
-msgid "run over a desktop app (ie: xfdesktop)"
-msgstr ""
+#, fuzzy
+msgid "run above a desktop app (ie: xfdesktop)"
+msgstr "Suorita työpöytäsovellusten yllä"
 
 msgid "enable taskbar"
 msgstr ""
@@ -286,11 +286,12 @@ msgstr ""
 msgid "position:"
 msgstr ""
 
-msgid "investing icons growth"
+msgid "inverting icons growth"
 msgstr ""
 
-msgid "ms for double click (0: single click)"
-msgstr ""
+#, fuzzy
+msgid "time in ms for double click (0: single click)"
+msgstr "Tuplaklikkausviive millisekunteina"
 
 msgid "icon gets pressed"
 msgstr ""
@@ -301,7 +302,7 @@ msgstr ""
 msgid "bar alfa (0-100)"
 msgstr ""
 
-msgid "Reflection size in percents (0-100)"
+msgid "reflection size in percents (0-100)"
 msgstr ""
 
 msgid "unfocused bar alfa (0-100)"
@@ -346,14 +347,12 @@ msgstr ""
 msgid "Error copy file: "
 msgstr ""
 
-#, fuzzy
 #~ msgid "Icon name:"
 #~ msgstr "Kuvake:"
 
 #~ msgid "_Settings"
 #~ msgstr "_Asetukset"
 
-#, fuzzy
 #~ msgid "Font size:"
 #~ msgstr "Kuvakkeen koko"
 

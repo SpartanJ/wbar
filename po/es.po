@@ -3,7 +3,6 @@
 # This file is distributed under the same license as the wbar package.
 # Yadickson Soto <yadickson@gmail.com>, 2010, 2011.
 #
-#, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: wbar es\n"
@@ -56,7 +55,7 @@ msgid "Effects"
 msgstr "Efectos"
 
 msgid "Enable taskbar"
-msgstr "Habilitar en barra de tarea"
+msgstr "Habilitar la barra de tarea"
 
 msgid "Filter color"
 msgstr "Filtro de color"
@@ -214,7 +213,7 @@ msgstr "Acerca de"
 msgid "wbar config"
 msgstr "configuración wbar"
 
-msgid "Licence GPL - 2010"
+msgid "License GPL - 2010"
 msgstr "Licencia GPL - 2010"
 
 msgid "A light and fast launch bar."
@@ -259,7 +258,7 @@ msgstr "mostrar versión"
 msgid "conf-file (eg: $HOME/.wbar)"
 msgstr "conf-file (ejemplo: $HOME/.wbar)"
 
-msgid "run over a desktop app (ie: xfdesktop)"
+msgid "run above a desktop app (ie: xfdesktop)"
 msgstr "Ejecutar sobre el escritorio (ejemplo: xfdesktop)"
 
 msgid "enable taskbar"
@@ -286,10 +285,10 @@ msgstr "factor de salto (ejemplo: 1.0 o 0.0)"
 msgid "position:"
 msgstr "posición:"
 
-msgid "investing icons growth"
-msgstr "invertir crecimineto de iconos"
+msgid "inverting icons growth"
+msgstr "Invertir crecimineto de iconos"
 
-msgid "ms for double click (0: single click)"
+msgid "time in ms for double click (0: single click)"
 msgstr "tiempo para doble click [ms] (0: simple click)"
 
 msgid "icon gets pressed"
@@ -301,7 +300,7 @@ msgstr "barra vertical"
 msgid "bar alfa (0-100)"
 msgstr "alfa de barra (0-100)"
 
-msgid "Reflection size in percents (0-100)"
+msgid "reflection size in percents (0-100)"
 msgstr "Tamaño de reflexión en porcentaje (0-100)"
 
 msgid "unfocused bar alfa (0-100)"
@@ -348,6 +347,9 @@ msgstr "Error copiando archivo: "
 
 #~ msgid "Warlock Bar"
 #~ msgstr "Barra Warlock"
+
+#~ msgid "investing icons growth"
+#~ msgstr "invertir crecimineto de iconos"
 
 #~ msgid "Invalid icon grow bar."
 #~ msgstr "Crecimiento de iconos en la barra no valida."

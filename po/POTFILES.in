@@ -1,4 +1,3 @@
-etc/wbar.desktop.in
 share/wbar.glade
 src/config/Functions.cc
 src/config/Functions.h

@@ -1393,7 +1393,7 @@ void show_about()
         "icon", pixbuf,
         "program-name", _("wbar config"),
         "version", VERSION,
-        "copyright", _("Licence GPL - 2010"),
+        "copyright", _("License GPL - 2010"),
         "comments", _("A light and fast launch bar."),
         "website", "http://code.google.com/p/wbar/",
         "website-label", _("wbar project website"),
