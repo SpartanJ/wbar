@@ -479,18 +479,16 @@ void set_config_states(std::string command)
         gtk_toggle_button_set_active (GTK_TOGGLE_BUTTON (checkbutton), true);
 
         std::string scolor = opt.getArg(OptParser::FC);
-
-        Utils util;
-        scolor = util.replace(scolor, "0x", "#");
-
-        if (scolor.length() > 7)
-            scolor = scolor.substr (0, 7);
+        std::string salpha = scolor.substr (2, 2);
+        scolor = "#" + scolor.substr (4, 6);
 
         GdkColor rgb;
         GtkWidget * color = glade_xml_get_widget (xml, "colorbutton_fc");
 
         gdk_color_parse (scolor.c_str(), &rgb);
         gtk_color_button_set_color (GTK_COLOR_BUTTON (color), &rgb);
+        gtk_color_button_set_use_alpha (GTK_COLOR_BUTTON (color), TRUE);
+        gtk_color_button_set_alpha (GTK_COLOR_BUTTON (color), 256*(strtol ( salpha.c_str(), NULL, 16 ) + 0.5));
     }
 
     if (argc > 0) delete[] argv;
@@ -1054,7 +1052,8 @@ std::string getCommand()
         gchar text[16];
         
         gtk_color_button_get_color (GTK_COLOR_BUTTON (color), &rgb);
-		g_snprintf (text, sizeof (text), "0x%02x%02x%02x00", rgb.red >> 8, rgb.green >> 8, rgb.blue >> 8);
+        int alpha = gtk_color_button_get_alpha (GTK_COLOR_BUTTON (color));
+        g_snprintf (text, sizeof (text), "0x%02x%02x%02x%02x", alpha >> 8, rgb.red >> 8, rgb.green >> 8, rgb.blue >> 8);
         
         command += " --fc ";
         command += text;
