@@ -1,6 +1,6 @@
 dnl make yadickson soto
 
-AC_INIT([wbar], [2.3.3])
+AC_INIT([wbar], [2.3.4])
 AM_INIT_AUTOMAKE([ filename-length-max=256 tar-ustar ])
 
 AM_CONFIG_HEADER(config.h)
