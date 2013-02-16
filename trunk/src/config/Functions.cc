@@ -120,15 +120,15 @@ void set_treeview()
     GtkCellRenderer *renderer;
 
     renderer = gtk_cell_renderer_pixbuf_new ();
-    column = gtk_tree_view_column_new_with_attributes (_("Icon"), renderer, "pixbuf", TREE_COLUMN_ICON, NULL);
+    column = gtk_tree_view_column_new_with_attributes (_("Icon"), renderer, "pixbuf", TREE_COLUMN_ICON, (char *) NULL);
     gtk_tree_view_append_column (GTK_TREE_VIEW (treeview), column);
 
     renderer = gtk_cell_renderer_text_new ();
-    column = gtk_tree_view_column_new_with_attributes (_("Title"), renderer, "markup", TREE_COLUMN_TITLE, NULL);
+    column = gtk_tree_view_column_new_with_attributes (_("Title"), renderer, "markup", TREE_COLUMN_TITLE, (char *) NULL);
     gtk_tree_view_append_column (GTK_TREE_VIEW (treeview), column);
 
     renderer = gtk_cell_renderer_text_new ();
-    column = gtk_tree_view_column_new_with_attributes (_("Command"), renderer, "markup", TREE_COLUMN_COMMAND, NULL);
+    column = gtk_tree_view_column_new_with_attributes (_("Command"), renderer, "markup", TREE_COLUMN_COMMAND, (char *) NULL);
     gtk_tree_view_append_column (GTK_TREE_VIEW (treeview), column);
 }
 
@@ -145,7 +145,7 @@ void set_comboboxs()
 
     cell = gtk_cell_renderer_text_new();
     gtk_cell_layout_pack_start(GTK_CELL_LAYOUT(combo), cell, TRUE);
-    gtk_cell_layout_set_attributes(GTK_CELL_LAYOUT(combo), cell, "text", 0, NULL); 
+    gtk_cell_layout_set_attributes(GTK_CELL_LAYOUT(combo), cell, "text", 0, (char *) NULL); 
 
     gtk_list_store_append(list_store, &iter);
     gtk_list_store_set (list_store, &iter, COMBO_COLUMN_TEXT, _("top"), COMBO_COLUMN_ID, POS_TOP, -1);
@@ -182,7 +182,7 @@ void set_comboboxs()
 
     cell = gtk_cell_renderer_text_new();
     gtk_cell_layout_pack_start(GTK_CELL_LAYOUT(combo), cell, TRUE);
-    gtk_cell_layout_set_attributes(GTK_CELL_LAYOUT(combo), cell, "text", 0, NULL); 
+    gtk_cell_layout_set_attributes(GTK_CELL_LAYOUT(combo), cell, "text", 0, (char *) NULL); 
 
     gtk_list_store_append(list_store, &iter);
     gtk_list_store_set (list_store, &iter, COMBO_COLUMN_TEXT, _("none"), COMBO_COLUMN_ID, FILTER_NONE, -1);
@@ -205,7 +205,7 @@ void set_config()
     Config config;    
     std::list <App *> list = config.getAppList();
 
-    if (list.size() == 0) return;
+    if (list.empty()) return;
 
     std::list <App *>::iterator it;
     it = list.begin();
@@ -289,7 +289,7 @@ void set_config_states(std::string command)
         std::list<App *>::iterator it;
         App *p;
 
-        if (list.size() != 0)
+        if (!list.empty())
         {
             it = list.begin();
             p = (*it);
@@ -885,6 +885,7 @@ std::string getCommand()
         switch((int)gtk_combo_box_get_active (GTK_COMBO_BOX (combo)))
         {
             case POS_TOP: command += " top"; break;
+	    default:
             case POS_BOTTOM: command += " bottom"; break;
             case POS_LEFT: command += " left"; break;
             case POS_RIGHT: command += " right"; break;
@@ -1036,6 +1037,7 @@ std::string getCommand()
 
         switch((int)gtk_combo_box_get_active (GTK_COMBO_BOX (combo)))
         {
+	    default:
             case FILTER_NONE:    command += " 0"; break;
             case FILTER_HOVERED: command += " 1"; break;
             case FILTER_OTHERS:  command += " 2"; break;
@@ -1261,7 +1263,7 @@ void on_select_command()
      				      GTK_FILE_CHOOSER_ACTION_OPEN,
      				      GTK_STOCK_CANCEL, GTK_RESPONSE_CANCEL,
      				      GTK_STOCK_OPEN, GTK_RESPONSE_ACCEPT,
-     				      NULL);
+     				      (char *)NULL);
 
     GtkWidget * command = glade_xml_get_widget (xml, "entry_command");
     std::string filename = gtk_entry_get_text (GTK_ENTRY(command));
@@ -1285,7 +1287,7 @@ void on_select_icon()
      				      GTK_FILE_CHOOSER_ACTION_OPEN,
      				      GTK_STOCK_CANCEL, GTK_RESPONSE_CANCEL,
      				      GTK_STOCK_OPEN, GTK_RESPONSE_ACCEPT,
-     				      NULL);
+     				      (char *)NULL);
 
     GtkWidget * icon = glade_xml_get_widget (xml, "entry_icon");
     GtkFileFilter *filter = gtk_file_filter_new();
@@ -1315,7 +1317,7 @@ void on_select_fontname()
      				      GTK_FILE_CHOOSER_ACTION_OPEN,
      				      GTK_STOCK_CANCEL, GTK_RESPONSE_CANCEL,
      				      GTK_STOCK_OPEN, GTK_RESPONSE_ACCEPT,
-     				      NULL);
+     				      (char *)NULL);
 
     GtkWidget * font = glade_xml_get_widget (xml, "entry_font_name");
     GtkFileFilter *filter = gtk_file_filter_new();
@@ -1347,7 +1349,7 @@ void on_select_imagename()
      				      GTK_FILE_CHOOSER_ACTION_OPEN,
      				      GTK_STOCK_CANCEL, GTK_RESPONSE_CANCEL,
      				      GTK_STOCK_OPEN, GTK_RESPONSE_ACCEPT,
-     				      NULL);
+     				      (char *)NULL);
 
     GtkWidget * icon = glade_xml_get_widget (xml, "entry_image_name");
     GtkFileFilter *filter = gtk_file_filter_new();
@@ -1400,6 +1402,6 @@ void show_about()
         "documenters", documenters,
         "translator-credits", translater,
         "logo", pixbuf,
-        NULL);
+        (char *)NULL);
 }
 

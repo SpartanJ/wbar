@@ -260,6 +260,7 @@ void SuperBar::render(){
 		    case 0: case 2:
 			cur_im = cur_ic->icon;
 			break;
+		    default:
 		    case 1: case 3:
 			cur_im = cur_ic->icon_color;
 			break;
@@ -270,6 +271,7 @@ void SuperBar::render(){
 		    case 0: case 1:
 			cur_im = cur_ic->icon;
 			break;
+		    default:
 		    case 2: case 3:
 			cur_im = cur_ic->icon_color;
 			break;
