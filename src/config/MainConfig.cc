@@ -7,10 +7,7 @@
 #include "Functions.h"
 #include "i18n.h"
 
-void signals(int sig)
-{
-    while(waitpid(-1 ,NULL, WNOHANG)>0);
-}
+void signals(int sig);
 
 int main(int argc, char **argv)
 {
@@ -34,5 +31,10 @@ int main(int argc, char **argv)
     gtk_main ();
 
     return 0;
+}
+
+void signals(int sig)
+{
+    while(waitpid(-1 ,NULL, WNOHANG)>0);
 }
 

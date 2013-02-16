@@ -171,6 +171,7 @@ void Bar::acquireBack()
     case 4: // rigth
     case 6: // bot-rigth
     case 8: // top-rigth
+    default:
         window->x = window->screenWidth() - t_w - bOffset;
         break;
     }
@@ -192,6 +193,7 @@ void Bar::acquireBack()
     case 2: // top
     case 8: // top-right
     case 9: // top-left
+    default:
         window->y = bOffset;
         break;
     }

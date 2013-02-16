@@ -108,7 +108,7 @@ bool Run::restart(std::string command)
 
 bool Run::start(std::list<std::string> list)
 {
-    if (list.size() == 0) return false;
+    if (list.empty()) return false;
 
     std::string args;
 

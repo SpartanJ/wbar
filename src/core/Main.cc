@@ -67,7 +67,7 @@ int main(int argc, char **argv)
 
         list = config.getAppList();
 
-        if (list.size() != 0)
+        if (!list.empty())
         {
             it = list.begin();
             p = (*it);
@@ -284,6 +284,8 @@ int main(int argc, char **argv)
                     //barra->setZoom(barra->getZoom()-0.1);
                     //barra->scaleIcons(ev.xbutton.x);
                     break;
+		default:
+		    break;
                 }
                 break;
 
@@ -326,7 +328,7 @@ int main(int argc, char **argv)
                 	{
                     	    if (fork()==0)
                     	    {
-                        	if (execlp("sh", "sh", "-c", barra->iconCommand(inum).c_str(), NULL) != 0)
+                        	if (execlp("sh", "sh", "-c", barra->iconCommand(inum).c_str(), (char *) NULL) != 0)
                         	{
                             	    std::cout << _("Error run program: ") << barra->iconCommand(inum) << std::endl;
                         	}
@@ -343,6 +345,8 @@ int main(int argc, char **argv)
                         inum = barra->iconIndex(ev.xbutton.y);
 		    if (barra->iconWinId(inum))
 			barwin.windowIconify(barra->iconWinId(inum));
+		    break;
+		default:
 		    break;
                 }
                 (void) XSetErrorHandler(oldXHandler);

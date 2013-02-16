@@ -7,10 +7,10 @@ msgid ""
 msgstr ""
 "Project-Id-Version: wbar 2.3.4\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-11-05 09:58+0800\n"
 "PO-Revision-Date: 2012-11-05 10:07+0800\n"
 "Last-Translator: Wei-Lun Chao <william.chao@ossii.com.tw>\n"
 "Language-Team: Chinese (traditional) <zh-l10n@linux.org.tw>\n"
+"Language: zh_TW\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -248,51 +248,51 @@ msgstr "組態為空。"
 msgid "Error save config in "
 msgstr "發生錯誤於儲存組配在 "
 
-#: ../src/config/Functions.cc:1085
+#: ../src/config/Functions.cc:1087
 msgid "Fields must not be empty"
 msgstr "欄位必須不為空"
 
-#: ../src/config/Functions.cc:1259
+#: ../src/config/Functions.cc:1261
 msgid "Open exec file"
 msgstr "開啟可執行檔案"
 
-#: ../src/config/Functions.cc:1283 ../src/config/Functions.cc:1345
+#: ../src/config/Functions.cc:1285 ../src/config/Functions.cc:1347
 msgid "Open image file"
 msgstr "開啟圖像檔案"
 
-#: ../src/config/Functions.cc:1293 ../src/config/Functions.cc:1355
+#: ../src/config/Functions.cc:1295 ../src/config/Functions.cc:1357
 msgid "Images"
 msgstr "圖像"
 
-#: ../src/config/Functions.cc:1313
+#: ../src/config/Functions.cc:1315
 msgid "Open font file"
 msgstr "開啟字型檔案"
 
-#: ../src/config/Functions.cc:1322
+#: ../src/config/Functions.cc:1324
 msgid "Fonts"
 msgstr "字型"
 
-#: ../src/config/Functions.cc:1391
+#: ../src/config/Functions.cc:1393
 msgid "About"
 msgstr "關於"
 
-#: ../src/config/Functions.cc:1393
+#: ../src/config/Functions.cc:1395
 msgid "wbar config"
 msgstr "wbar 組配"
 
-#: ../src/config/Functions.cc:1395
+#: ../src/config/Functions.cc:1397
 msgid "License GPL - 2010"
 msgstr "使用授權 GPL - 2010"
 
-#: ../src/config/Functions.cc:1396
+#: ../src/config/Functions.cc:1398
 msgid "A light and fast launch bar."
 msgstr "輕量又快速的啟動列。"
 
-#: ../src/config/Functions.cc:1398
+#: ../src/config/Functions.cc:1400
 msgid "wbar project website"
 msgstr "wbar 專案網站"
 
-#: ../src/config/Run.cc:130 ../src/core/Main.cc:331
+#: ../src/config/Run.cc:130 ../src/core/Main.cc:333
 msgid "Error run program: "
 msgstr "運行程式時發生錯誤："
 
@@ -304,11 +304,11 @@ msgstr "砍除程式時發生錯誤："
 msgid " Image not found. Maybe using a relative path?"
 msgstr " 找不到圖像。也許是使用相對路徑？"
 
-#: ../src/core/Bar.cc:617
+#: ../src/core/Bar.cc:619
 msgid "Invalid bar position."
 msgstr "無效的啟動列位置。"
 
-#: ../src/core/Bar.cc:618
+#: ../src/core/Bar.cc:620
 msgid "Set default bar position."
 msgstr "設定預設啟動列位置。"
 
