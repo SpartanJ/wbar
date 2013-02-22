@@ -502,8 +502,9 @@ int mapIcons()
             		NULL, 0, 0, refl_size);
                 else {
             	    int iw, ih;
-        			barwin.selectWindowInput(p->getWinid()); 
-            	    unsigned char *icondata = barwin.windowIcon((Window) p->getWinid(), &iw, &ih);
+            	    unsigned char *icondata;
+        	    barwin.selectWindowInput(p->getWinid()); 
+            	    icondata = barwin.windowIcon((Window) p->getWinid(), &iw, &ih);
             	    if (icondata) {
             		((SuperBar *)barra)->addIcon(p->getIconName(), 
             		    p->getCommand(), p->getTitle(), p->getWinid(), 
