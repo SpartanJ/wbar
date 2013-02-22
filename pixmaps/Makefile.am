@@ -6,5 +6,7 @@ pixmaps_DATA = $(IMAGES)
 
 IMAGES = \
 dock.png \
-wbar.png
+wbar.png \
+questionmark.png
+
 
