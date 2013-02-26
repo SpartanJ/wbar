@@ -1,7 +1,7 @@
 #include "App.h"
 
-App::App(std::string icon, std::string command, std::string title, 
-    unsigned long winid)
+App::App ( std::string icon, std::string command, std::string title,
+           unsigned long winid )
 {
     this->icon = icon;
     this->command = command;

@@ -8,13 +8,13 @@
 class Config
 {
     public:
-    Config();
-    ~Config();
-    std::string getFile();
-    void setFile( std::string configFile );
-    std::list < App * > getAppList();
+        Config();
+        ~Config();
+        std::string getFile();
+        void setFile ( std::string configFile );
+        std::list < App * > getAppList();
     private:
-    std::string configFile;
+        std::string configFile;
 };
 
 #endif

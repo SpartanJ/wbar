@@ -28,7 +28,7 @@ static struct option long_options[] =
     {0, 0, 0, 0}
 };
 
-OptParser::OptParser(int argc, char **argv)
+OptParser::OptParser ( int argc, char ** argv )
 {
     this->argc = argc;
     this->argv = argv;
@@ -38,45 +38,80 @@ OptParser::~OptParser()
 {
 }
 
-bool OptParser::isSet(OptParser::Options opt)
+bool OptParser::isSet ( OptParser::Options opt )
 {
-    if (argc <= 1) return false;
+    if ( argc <= 1 )
+    {
+        return false;
+    }
+
     int c;
 
     optarg = NULL;
     optind = opterr = optopt = 0;
 
-    while (1)
+    while ( 1 )
     {
         int option_index = 0;
 
-        c = getopt_long(argc, argv, "hcv", long_options, &option_index);
-        if (c == -1) break;
-        if (option_index == (int)opt) return true;
-        if (c == (int) HELP && opt == HELP) return true;
-        if (c == (int) VERS && opt == VERS) return true;
+        c = getopt_long ( argc, argv, "hcv", long_options, &option_index );
+
+        if ( c == -1 )
+        {
+            break;
+        }
+
+        if ( option_index == ( int ) opt )
+        {
+            return true;
+        }
+
+        if ( c == ( int ) HELP && opt == HELP )
+        {
+            return true;
+        }
+
+        if ( c == ( int ) VERS && opt == VERS )
+        {
+            return true;
+        }
     }
 
     return false;
 }
 
-std::string OptParser::getArg(OptParser::Options opt)
+std::string OptParser::getArg ( OptParser::Options opt )
 {
-    if (argc <= 1) return "";
+    if ( argc <= 1 )
+    {
+        return "";
+    }
 
     int c;
 
     optarg = NULL;
     optind = opterr = optopt = 0;
 
-    while (1)
+    while ( 1 )
     {
         int option_index = 0;
 
-        c = getopt_long(argc, argv, "hcv", long_options, &option_index);
-        if (c == -1) break;
-        if (!optarg) continue;
-        if (option_index == (int)opt) return optarg;
+        c = getopt_long ( argc, argv, "hcv", long_options, &option_index );
+
+        if ( c == -1 )
+        {
+            break;
+        }
+
+        if ( !optarg )
+        {
+            continue;
+        }
+
+        if ( option_index == ( int ) opt )
+        {
+            return optarg;
+        }
     }
 
     return "";

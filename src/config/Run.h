@@ -12,10 +12,10 @@ class Run
         ~Run();
 
         int getPID();
-        char ** getArg(int &argc);
-        bool restart(std::string command);
-        bool start(std::list<std::string> list);
-        bool start(std::string command);
+        char ** getArg ( int & argc );
+        bool restart ( std::string command );
+        bool start ( std::list<std::string> list );
+        bool start ( std::string command );
         void stop();
 };
 
