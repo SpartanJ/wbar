@@ -7,8 +7,8 @@ class App
 {
     public:
 
-        App(std::string icon, std::string command, std::string title,
-    	    unsigned long winid);
+        App ( std::string icon, std::string command, std::string title,
+              unsigned long winid );
         ~App();
 
         std::string getIconName();

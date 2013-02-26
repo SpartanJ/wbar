@@ -11,9 +11,9 @@ class Utils
         Utils();
         ~Utils();
 
-        std::string replace(std::string orig, std::string find, std::string replace);
-        std::list<std::string> split(std::string text, std::string sep);
-        std::string join(std::list<std::string> list, std::string sep);
+        std::string replace ( std::string orig, std::string find, std::string replace );
+        std::list<std::string> split ( std::string text, std::string sep );
+        std::string join ( std::list<std::string> list, std::string sep );
 };
 
 #endif

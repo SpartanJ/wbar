@@ -7,34 +7,37 @@
 #include "Functions.h"
 #include "i18n.h"
 
-void signals(int sig);
+void signals ( int sig );
 
-int main(int argc, char **argv)
+int main ( int argc, char ** argv )
 {
-    #ifdef ENABLE_NLS
-    setlocale( LC_ALL, "" );
-    bindtextdomain(GETTEXT_PACKAGE, GNOMELOCALEDIR);
-    bind_textdomain_codeset(GETTEXT_PACKAGE, "UTF-8");
-    textdomain(GETTEXT_PACKAGE);
-    #endif
+#ifdef ENABLE_NLS
+    setlocale ( LC_ALL, "" );
+    bindtextdomain ( GETTEXT_PACKAGE, GNOMELOCALEDIR );
+    bind_textdomain_codeset ( GETTEXT_PACKAGE, "UTF-8" );
+    textdomain ( GETTEXT_PACKAGE );
+#endif
 
     struct sigaction sigh;
 
     sigh.sa_handler = signals;
     sigh.sa_flags = 0;
-    sigemptyset(&sigh.sa_mask);
-    sigaction(SIGCHLD, &sigh, NULL);
+    sigemptyset ( &sigh.sa_mask );
+    sigaction ( SIGCHLD, &sigh, NULL );
 
-    gtk_init (&argc, &argv);
+    gtk_init ( &argc, &argv );
 
-    view_settings();    
+    view_settings();
     gtk_main ();
 
     return 0;
 }
 
-void signals(int sig)
+void signals ( int sig )
 {
-    while(waitpid(-1 ,NULL, WNOHANG)>0);
+    while ( waitpid ( -1 , NULL, WNOHANG ) > 0 )
+    {
+
+    }
 }
 

@@ -9,37 +9,37 @@ class SuperBar;
 
 class Icon
 {
-protected:
-    _image icon;
+    protected:
+        _image icon;
 
-    /* normal state */
-    int ox, oy;
-    int osize;
-    /* current state */
-    int x, y;
-    int size;
+        /* normal state */
+        int ox, oy;
+        int osize;
+        /* current state */
+        int x, y;
+        int size;
 
-    int bs, bx, by;
-    float vx, vs, vy;
+        int bs, bx, by;
+        float vx, vs, vy;
 
-    /* redraw ? */
-    int need_update;
-    /* clean coords */
-    int cx, csize;
+        /* redraw ? */
+        int need_update;
+        /* clean coords */
+        int cx, csize;
 
-    std::string command;
-    unsigned long wid;
+        std::string command;
+        unsigned long wid;
 
-    /* extend friendship? */
-    friend class Bar;
-    friend class SuperBar;
+        /* extend friendship? */
+        friend class Bar;
+        friend class SuperBar;
 
-public:
+    public:
 
-    Icon(std::string iconImg, std::string cmd, int x, int y,
-	unsigned long winid, unsigned char *icondata, int iw, int ih,
-	int refl_size);
-    ~Icon();
+        Icon ( std::string iconImg, std::string cmd, int x, int y,
+               unsigned long winid, unsigned char * icondata, int iw, int ih,
+               int refl_size );
+        ~Icon();
 };
 
 #endif /* _ICON_H_ */
