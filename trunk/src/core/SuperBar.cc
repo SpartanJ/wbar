@@ -154,12 +154,20 @@ void SuperBar::initFilters()
 }
 /*}}}*/
 
-/* Add Icon to the bar *//*{{{*/
-void SuperBar::addIcon ( string path, string comm, string txt, unsigned long winid,
+/* Add or remove an Icon to/from the bar if there are any changes *//*{{{*/
+void SuperBar::addIcon ( unsigned int iconpos, string path, string comm, string txt, unsigned long winid,
                          unsigned char * icondata, int iw, int ih, int refl_size )
 {
     SuperIcon * ic;
     int textW, textH;
+    while ( iconpos < icons.size() ) {
+
+	if ( ( icons[iconpos]->wid == winid ) &&
+	        ( ( (SuperIcon *) icons[iconpos] )->text == txt ) )
+	    return;
+	else
+	    icons.erase ( icons.begin() + iconpos );
+    }
 
     if ( font )
     {
@@ -179,15 +187,14 @@ void SuperBar::addIcon ( string path, string comm, string txt, unsigned long win
     {
         USE_IMAGE ( ic->icon_color );
         imlib_context_set_filter ( colorFilter );
-        imlib_image_filter();
+	imlib_image_filter();
     }
 
 }
 /*}}}*/
 
-void SuperBar::removeIcon()
-{
-    icons.pop_back();
+void SuperBar::updateLength ( int newSize ) {
+    icons.resize ( newSize );
 }
 
 /* Unfocus *//*{{{*/
