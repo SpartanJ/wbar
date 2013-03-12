@@ -523,19 +523,21 @@ int mapIcons()
     std::string packagename = PACKAGE_NAME;
     std::string icon, cmnd;
     unsigned char * titl;
+    int iconpos;
     int firstrun = 0;
 
+    iconpos = ( configitems - 1 );
     // on the first run, there will be no icons displayed
     if ( !barra->iconsShown() )
     {
         firstrun = 1;
+        iconpos = 0;
     }
 
     //roll back the list to contain only the icons from config
     while ( ( size_t ) list.size() > configitems )
     {
         list.pop_back();
-        ( ( SuperBar * ) barra )->removeIcon();
         it--;
     }
 
@@ -617,7 +619,7 @@ int mapIcons()
         try
         {
             if ( p->getIconName() != "" )
-                ( ( SuperBar * ) barra )->addIcon ( p->getIconName(),
+                ( ( SuperBar * ) barra )->addIcon ( iconpos, p->getIconName(),
                                                     p->getCommand(), p->getTitle(), p->getWinid(),
                                                     NULL, 0, 0, refl_size );
             else
@@ -629,7 +631,7 @@ int mapIcons()
 
                 if ( icondata )
                 {
-                    ( ( SuperBar * ) barra )->addIcon ( p->getIconName(),
+                    ( ( SuperBar * ) barra )->addIcon ( iconpos, p->getIconName(),
                                                         p->getCommand(), p->getTitle(), p->getWinid(),
                                                         icondata, iw, ih, refl_size );
                 }
@@ -639,6 +641,7 @@ int mapIcons()
                     return -1;
                 }
             }
+            iconpos++;
         }
         catch ( const char * m )
         {
@@ -650,6 +653,9 @@ int mapIcons()
             delete p;
         }
     }
+    // The new taskbar may contain less icons than before, so next elements
+    // are dropped as the ones being obsolete garbage.
+    ( ( SuperBar * ) barra )->updateLength(iconpos);
 
     ( void ) XSetErrorHandler ( oldXHandler );
     barra->scale();
