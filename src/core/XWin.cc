@@ -535,11 +535,6 @@ void XWin::selectWindowInput ( unsigned long winid )
     XSelectInput ( display, ( Window ) winid, PropertyChangeMask );
 }
 
-void XWin::flushAll()
-{
-    XSync ( display, True );
-}
-
 unsigned char * repack64 ( unsigned char * repack_data, long repack_sz )
 {
     unsigned char * repack;

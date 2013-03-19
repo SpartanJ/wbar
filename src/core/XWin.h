@@ -56,7 +56,6 @@ class XWin
         void setSticky();
         void skipTaskNPager();
         void bottomLayer();
-        void doFlush();
         char * atomName ( Atom atomname );
         unsigned char * windowProp ( Window * targetWin, const char * reqProp, unsigned long * len );
         Atom issetHint ( Window targetWin, const char * reqProp, const char * reqHint );
@@ -66,7 +65,6 @@ class XWin
         void windowIconify ( unsigned long winid );
         int windowFocused();
         void selectWindowInput ( unsigned long winid );
-        void flushAll();
 };
 
 Pixmap GetRootPixmap ( Display * display );
