@@ -423,8 +423,6 @@ int main ( int argc, char ** argv )
                         barra->refresh();
                     }
 
-                    //hack for kde multiple notifications in grab mode
-                    barwin.flushAll();
                     break;
 
                 case EnterNotify:
@@ -464,7 +462,9 @@ int main ( int argc, char ** argv )
                     }
 
                     if ( ( std::string ) barwin.atomName ( ev.xproperty.atom )
-                            == "_NET_CLIENT_LIST" )
+                            == "_NET_CLIENT_LIST" ||
+                            ( std::string ) barwin.atomName ( ev.xproperty.atom )
+                            == "_NET_CLIENT_LIST_STACKING" )
                     {
                         //loop until actual window data is obtained
                         while ( mapIcons() )
