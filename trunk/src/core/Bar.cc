@@ -12,6 +12,9 @@ extern unsigned long bg_window;
 
 using namespace std;
 
+/* storage for a screenshot when there is no background */
+_image screenBack;
+
 static XErrorHandler oldXHandler = ( XErrorHandler ) 0 ;
 static int rootErrorHandler ( Display * display, XErrorEvent * theEvent );
 
@@ -48,6 +51,9 @@ Bar::Bar ( XWin * win, string barImg, int iSize, int iDist, float zFactor,
 
     /* Enable Bar's alpha channel */
     IMAGE_ENABLE_ALPHA ( 1 );
+    
+    /* Imlib_Image _may_ contain garbage by design, so clean up */
+    screenBack = NULL;
 
     /* set bar initial values */
     scale();
@@ -63,6 +69,11 @@ Bar::~Bar()
     if ( barback )
     {
         FREE_IMAGE ( barback );
+    }
+
+    if ( screenBack )
+    {
+        FREE_IMAGE ( screenBack );
     }
 
     if ( bar )
@@ -256,9 +267,21 @@ void Bar::acquireBack()
     }
     else
     {
-        // last resort: snaphsot the whole display, potentially resulting in
-        // some artifacts from the windows above the bar
-        USE_DRAWABLE ( DefaultRootWindow ( window->display ) );
+        // last resort: remember a snapshop of the whole display, potentially 
+        // resulting in some artifacts from the windows above the bar
+        if (!screenBack) {
+            USE_DRAWABLE ( DefaultRootWindow ( window->display ) );
+	    screenBack = IMAGE_FROM_DRAWABLE ( 0, 0, 
+						window->screenWidth(), 
+						window->screenHeight() );
+        }
+        // stand alone complex :) Someone has to fix it to act as two ifs above
+        // We don't proceed with normal snapshotting but snap and modify image
+        USE_IMAGE(screenBack);
+        barback = imlib_create_cropped_image (window->x, window->y, t_w, t_h);
+        USE_DRAWABLE ( window->window );
+        ( void ) XSetErrorHandler ( oldXHandler );
+        return;
     }
 
     barback = IMAGE_FROM_DRAWABLE ( window->x, window->y, t_w, t_h );
