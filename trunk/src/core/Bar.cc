@@ -50,7 +50,7 @@ Bar::Bar(XWin *win, string barImg, int iSize, int iDist, float zFactor,
 
     /* Enable Bar's alpha channel */
     IMAGE_ENABLE_ALPHA(1);
-    
+
     /* Imlib_Image _may_ contain garbage by design, so clean up */
     screenBack = NULL;
 
@@ -248,7 +248,7 @@ void Bar::acquireBack() {
     } else if (rootmap != None) {
         USE_DRAWABLE(rootmap);
     } else {
-        // last resort: remember a snapshop of the whole display, potentially 
+        // last resort: remember a snapshop of the whole display, potentially
         // resulting in some artifacts from the windows above the bar
         if (!screenBack) {
             USE_DRAWABLE(DefaultRootWindow(window->display));

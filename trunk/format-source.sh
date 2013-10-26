@@ -7,7 +7,7 @@ fi
 
 wdir=$(dirname "$(readlink -f "$0")")
 srcdir="$wdir/src"
-remove_eol_spaces=no
+remove_eol_spaces=yes
 
 function format_source {
   if ! [ -d "$srcdir" ]; then
