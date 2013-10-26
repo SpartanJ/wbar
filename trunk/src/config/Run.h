@@ -4,19 +4,18 @@
 #include <iostream>
 #include <list>
 
-class Run
-{
-    public:
+class Run {
+public:
 
-        Run();
-        ~Run();
+  Run();
+  ~Run();
 
-        int getPID();
-        char ** getArg ( int & argc );
-        bool restart ( std::string command );
-        bool start ( std::list<std::string> list );
-        bool start ( std::string command );
-        void stop();
+  int getPID();
+  char **getArg(int &argc);
+  bool restart(std::string command);
+  bool start(std::list<std::string> list);
+  bool start(std::string command);
+  void stop();
 };
 
 #endif

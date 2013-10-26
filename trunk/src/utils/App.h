@@ -3,26 +3,24 @@
 
 #include <iostream>
 
-class App
-{
-    public:
+class App {
+public:
 
-        App ( std::string icon, std::string command, std::string title,
-              unsigned long winid );
-        ~App();
+  App(std::string icon, std::string command, std::string title,
+      unsigned long winid);
+  ~App();
 
-        std::string getIconName();
-        std::string getCommand();
-        std::string getTitle();
-        unsigned long getWinid();
+  std::string getIconName();
+  std::string getCommand();
+  std::string getTitle();
+  unsigned long getWinid();
 
-    private:
+private:
 
-        std::string icon;
-        std::string command;
-        std::string title;
-        unsigned long winid;
+  std::string icon;
+  std::string command;
+  std::string title;
+  unsigned long winid;
 };
 
 #endif
-
