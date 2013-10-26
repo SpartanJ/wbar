@@ -10,8 +10,8 @@ srcdir="$wdir/src"
 remove_eol_spaces=no
 
 function format_source {
-  if ! [ -d "srcdir" ]; then
-    echo "source code directory not found" >&2
+  if ! [ -d "$srcdir" ]; then
+    echo "source code directory not found at [$srcdir]" >&2
     exit 1;
   fi
   find "$srcdir" -iname \*.cc \
