@@ -1,9 +1,9 @@
 #!/usr/bin/env bash
 
-CFGDIR=/tmp
+CFGDIR=.
 APPDIRS=(/usr/share/applications)
 ICONDIRS=(/usr/share/icons/hicolor /usr/share/pixmaps)
-MAXICONS=10
+MAXICONS=20
 
 apps=$(find "${APPDIRS[@]}" -name '*.desktop' 2>/dev/null |
         xargs grep -l ^Name |
@@ -15,14 +15,14 @@ apps=$(find "${APPDIRS[@]}" -name '*.desktop' 2>/dev/null |
 
 # print the dock background settings
 cat > "$CFGDIR/wbar.cfg" <<-EOF
-i: /usr/local/share/pixmaps/wbar/dock.png
-c: wbar --bpress --above-desk --isize 64 --idist 5 --nanim 3 --pos bottom
+i: pixmaps/dock.png
+c: wbar --bpress --above-desk --isize 48 --idist 5 --nanim 3 --pos bottom
 t: /usr/share/fonts/TTF/UbuntuMono-B/12
 
 EOF
 
 for app in $apps; do
-  _name=$(grep ^Name= $app | sed 's/^.*=//')
+  _name=$(grep ^Name= $app | sed 's/^.*=\(.\{,10\}\).*$/\1/')
   _exec=$(grep ^Exec= $app | sed 's/^.*=//')
   _icon=$(grep ^Icon= $app | sed 's/^.*=//')
   icons=$(find "${ICONDIRS[@]}" | grep -i "${_icon}")
