@@ -23,9 +23,14 @@ private:
   int x, y;
   int w, h;
 
+  int cur_screen_width;
+  int cur_screen_height;
+
   friend class Bar;
   friend class SuperBar;
 
+protected:
+  void getCurrentScreenDimensions();
 public:
 
   XWin(int x, int y, int w, int h);

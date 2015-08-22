@@ -2,6 +2,7 @@
 #include <stdlib.h>
 #include <X11/Xutil.h>
 #include <X11/Xatom.h>
+#include <X11/extensions/Xrandr.h>
 #include <string.h>
 #include "XWin.h"
 #include "i18n.h"
@@ -51,11 +52,66 @@ XWin::XWin(int xx, int yy, int ww, int hh)
   XSetClassHint(display, window, &ch);
   XChangeWindowAttributes(display, window, CWBitGravity | CWBackingStore,
                           &attr);
+
+  getCurrentScreenDimensions();
 }
 
 XWin::~XWin() {
   XDestroyWindow(display, window);
   XCloseDisplay(display);
+}
+
+void XWin::getCurrentScreenDimensions() {
+	cur_screen_width = WidthOfScreen(DefaultScreenOfDisplay(display));
+	cur_screen_height = HeightOfScreen(DefaultScreenOfDisplay(display));
+
+	const int screen = DefaultScreen(display);
+	XRRScreenResources *res = XRRGetScreenResources(display, RootWindow(display, screen));
+
+	if (!res)
+		return;
+
+	RROutput primary = XRRGetOutputPrimary(display, RootWindow(display, screen));
+	int looking_for_primary;
+	int output;
+
+	for (looking_for_primary = 1; looking_for_primary >= 0; looking_for_primary--) {
+		for (output = 0; output < res->noutput; output++) {
+			XRROutputInfo *output_info;
+			RRCrtc output_crtc;
+			XRRCrtcInfo *crtc;
+
+			/* The primary output _should_ always be sorted first, but just in case... */
+			if ((looking_for_primary && (res->outputs[output] != primary)) ||
+				(!looking_for_primary && (res->outputs[output] == primary))) {
+				continue;
+			}
+
+			output_info = XRRGetOutputInfo(display, res, res->outputs[output]);
+			if (!output_info || !output_info->crtc || output_info->connection == RR_Disconnected) {
+				XRRFreeOutputInfo(output_info);
+				continue;
+			}
+
+			output_crtc = output_info->crtc;
+			XRRFreeOutputInfo(output_info);
+
+			crtc = XRRGetCrtcInfo(display, res, output_crtc);
+			if (!crtc) {
+				continue;
+			}
+
+			if ( crtc->x == 0 && crtc->y == 0 )
+			{
+				cur_screen_width = crtc->width;
+				cur_screen_height = crtc->height;
+			}
+
+			XRRFreeCrtcInfo(crtc);
+		}
+	}
+
+	XRRFreeScreenResources(res);
 }
 
 void XWin::selectInput(int ev_mask, int taskbar_set) {
@@ -117,11 +173,11 @@ void XWin::moveNresize(int x, int y, int w, int h) {
 }
 
 int XWin::screenWidth() const {
-  return WidthOfScreen(DefaultScreenOfDisplay(display));
+  return cur_screen_width;
 }
 
 int XWin::screenHeight() const {
-  return HeightOfScreen(DefaultScreenOfDisplay(display));
+  return cur_screen_height;
 }
 
 Display *XWin::getDisplay() { return display; }
